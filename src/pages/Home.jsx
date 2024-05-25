@@ -47,12 +47,18 @@ const Home = () => {
         <h2 className="subheader">Our Listings</h2>
 
         <div className="image-container">
+          
+          
           <div className='format-pics'>
-            <img src={pic1} alt="lite" className="butterfly" />
+              <img src={pic1} alt="lite" className="butterfly" />
+            
           </div>
 
+
           <div className='format-pics'>
-            <img src={pic2} alt="lite" className="butterfly" />
+            <a href="/listing.jsx">
+              <img src={pic2} alt="lite" className="butterfly" />
+            </a>
           </div>
 
           <div className='format-pics'>
