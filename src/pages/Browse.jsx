@@ -122,6 +122,12 @@ const Browse = () => {
           </div></div>
 
         <div className="relative rounded-full ml-4 h-12 bg-gray-400">
+        <select className="rounded-full border-2 h-full w-full pl-12 border-black">
+          <option>UC Irvine</option>
+          <option>UCLA</option>
+          <option>UC Riverside</option>
+          <option>CSU Long Beach</option>
+        </select>
           <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -140,7 +146,7 @@ const Browse = () => {
 
       <div className="flex gap-8">
         {/* filter sidebar */}
-        <div className="rounded-xl w-64 h-auto bg-gray-400 p-4">
+        <div className="rounded-xl w-64 h-auto bg-black text-white p-4">
           <h2 className="text-lg font-bold">Filter</h2>
           {/* price */}
 
@@ -148,7 +154,7 @@ const Browse = () => {
           {/* room type */}
         </div>
         {/* grid of apartments */}
-        <div class="grid grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8">
           {data.map((listing) => {
             return <ListingCard listing={listing} />;
           })}

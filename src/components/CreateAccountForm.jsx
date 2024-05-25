@@ -6,21 +6,21 @@ const UserAccountForm = () => {
   return (
     <div className="mx-auto py-8 px-8 w-1/2 bg-indigo-100 rounded-xl">
       <form>
-        <h1 className="text-2xl font-bold text-center">Create Account</h1>
+        <h1 className="text-2xl font-semibold text-center">Create Account</h1>
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
             <label
-              htmlFor="username"
-              className="block text-md font-bold leading-6 text-gray-900"
+              htmlFor="email"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
-              Username
+              Email
             </label>
             <div className="">
               <input
                 type="text"
-                name="username"
-                id="username"
-                autoComplete="username"
+                name="email"
+                id="email"
+                autoComplete="email"
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -28,7 +28,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="password"
-              className="block text-md font-bold leading-6 text-gray-900"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
               Password
             </label>
@@ -45,14 +45,14 @@ const UserAccountForm = () => {
 
           <hr class="my-6 h-0.5 border-t-0 bg-black" />
 
-          <h2 className="text-xl font-bold my-4">Personal Information</h2>
+          <h2 className="text-xl font-semibold my-4">Personal Information</h2>
 
           {/* name */}
 
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="name"
-              className="block text-md font-bold leading-6 text-gray-900"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
               Name
             </label>
@@ -67,7 +67,7 @@ const UserAccountForm = () => {
             </div>
           </div>
 
-          <legend className="text-md font-bold leading-6 text-gray-900  ">
+          <legend className="text-md font-semibold leading-6 text-gray-900  ">
             Gender
           </legend>
           {/* <p className="mt-1 text-sm leading-6 text-gray-600">These are delivered via SMS to your mobile phone.</p> */}
@@ -148,7 +148,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="university"
-              className="block text-md font-bold leading-6 text-gray-900"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
               University
             </label>
@@ -167,7 +167,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="year"
-              className="block text-md font-bold leading-6 text-gray-900"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
               Year
             </label>
@@ -191,7 +191,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="last-name"
-              className="block text-md font-bold leading-6  text-gray-900"
+              className="block text-md font-semibold leading-6  text-gray-900"
             >
               Major
             </label>
@@ -208,13 +208,13 @@ const UserAccountForm = () => {
 
           <hr class="my-6 h-0.5 border-t-0 bg-black" />
 
-          <h2 className="text-xl font-bold my-4">Housing Preferences</h2>
+          <h2 className="text-xl font-semibold my-4">Housing Preferences</h2>
 
           {/* distance preference */}
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="distance-pref"
-              className="block text-md font-bold leading-6 text-gray-900 "
+              className="block text-md font-semibold leading-6 text-gray-900 "
             >
               Maximum Distance from School (in miles)
             </label>
@@ -231,7 +231,7 @@ const UserAccountForm = () => {
           </div>
           {/* price range */}
           <div className="sm:col-span-3 my-4 w-full">
-            <label className="block text-md font-bold leading-6 text-gray-900 ">
+            <label className="block text-md font-semibold leading-6 text-gray-900 ">
               Rent Price Range
             </label>
 
@@ -239,7 +239,7 @@ const UserAccountForm = () => {
               <div>
                 <label
                   htmlFor="price-range"
-                  className="block text-md font-bold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Min
                 </label>
@@ -255,7 +255,7 @@ const UserAccountForm = () => {
               <div>
                 <label
                   htmlFor="price-range"
-                  className="block text-md font-bold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Max
                 </label>
@@ -274,7 +274,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="roommate-type"
-              className="block text-md font-bold leading-6 text-gray-900 mt-2"
+              className="block text-md font-semibold leading-6 text-gray-900 mt-2"
             >
               Roommate Preference
             </label>
@@ -294,7 +294,7 @@ const UserAccountForm = () => {
           </div>
 
           <fieldset className="my-4">
-            <legend className="text-md font-bold leading-6 text-gray-900">
+            <legend className="text-md font-semibold leading-6 text-gray-900">
               Tags
             </legend>
             <div className="mt-2 space-y-2">

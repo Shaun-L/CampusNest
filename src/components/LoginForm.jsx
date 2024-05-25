@@ -7,21 +7,21 @@ const LoginForm = () => {
   return (
     <div className="mx-auto py-8 px-8 w-1/2 bg-indigo-100 rounded-xl">
       <form>
-        <h1 className="text-2xl font-bold text-center">Login</h1>
+        <h1 className="text-2xl font-semibold text-center">Login</h1>
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
             <label
-              htmlFor="username"
-              className="block text-md font-bold leading-6 text-gray-900"
+              htmlFor="email"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
-              Username
+              Email
             </label>
             <div className="">
               <input
                 type="text"
-                name="username"
-                id="username"
-                autoComplete="username"
+                name="email"
+                id="email"
+                autoComplete="email"
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -29,7 +29,7 @@ const LoginForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="password"
-              className="block text-md font-bold leading-6 text-gray-900"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
               Password
             </label>

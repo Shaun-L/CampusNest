@@ -1,12 +1,12 @@
 import { useState } from "react";
-import pic1 from "./pictures/pic1.jpg";
-import pic2 from "./pictures/pic2.jpg";
-import pic3 from "./pictures/pic3.jpg";
-import pic4 from "./pictures/pic4.jpg";
-import infop1 from "./pictures/infop1.png"
-import infop2 from "./pictures/infop2.jpg"
+import pic1 from "../assets/pic2.jpg";
+import pic2 from "../assets/pic2.jpg";
+import pic3 from "../assets/pic3.jpg";
+import pic4 from "../assets/pic4.jpg";
+import infop1 from "../assets/infop1.png"
+import infop2 from "../assets/infop2.jpg"
 import SearchBar from "../components/SearchBar"
-import LOGO from "./pictures/LOGO.png"
+import LOGO from "../assets/LOGO.png"
 import { useEffect, useNavigate } from "react";
 
 
@@ -42,7 +42,6 @@ const Home = () => {
 
       </div>
       
-
       <div className="top-halfp2">
         <h2 className="subheader">Our Listings</h2>
 

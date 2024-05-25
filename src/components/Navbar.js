@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from '../assets/LOGO.png';
 
 const Navbar = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -51,7 +52,7 @@ const Navbar = () => {
               <a href="/">
                 <img
                   class="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                  src={logo}
                   alt="Your Company"
                 />
               </a>
@@ -60,14 +61,14 @@ const Navbar = () => {
               <div class="flex space-x-4">
                 <a
                   href="/browse"
-                  class="text-gray-800 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  class="text-gray-800 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-md font-medium"
                   aria-current="page"
                 >
                   Browse
                 </a>
                 <a
                   href="/offer"
-                  class="text-gray-800 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                  class="text-gray-800 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-md font-medium"
                 >
                   Offer
                 </a>

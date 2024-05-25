@@ -1,4 +1,5 @@
 const ListingOfferForm = () => {
+
   const onSubmit = (e) => {
     e.preventDefault();
     // save to database
@@ -9,12 +10,12 @@ const ListingOfferForm = () => {
   return (
     <div className="mx-auto py-8 px-8 w-1/2 bg-indigo-100 rounded-xl">
       <form onSubmit={onSubmit}>
-        <h1 className="text-2xl font-bold text-center">Offer Listing</h1>
+        <h1 className="text-2xl font-semibold text-center">Offer Listing</h1>
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="title"
-              className="block text-md font-bold leading-6 text-gray-900"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
               Title
             </label>
@@ -31,7 +32,7 @@ const ListingOfferForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="description"
-              className="block text-md font-bold leading-6 text-gray-900"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
               Description
             </label>
@@ -49,7 +50,7 @@ const ListingOfferForm = () => {
           <div className="sm:col-span-3 mt-4 w-full">
             <label
               htmlFor="address-line"
-              className="block text-md font-bold leading-6 text-gray-900"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
               Address Line
             </label>
@@ -67,7 +68,7 @@ const ListingOfferForm = () => {
             <div class="sm:col-span-2 sm:col-start-1">
               <label
                 for="city"
-                class="block text-md font-bold leading-6 text-gray-900"
+                class="block text-md font-semibold leading-6 text-gray-900"
               >
                 City
               </label>
@@ -86,7 +87,7 @@ const ListingOfferForm = () => {
               <div>
                 <label
                   htmlFor="price-range"
-                  className="block text-md font-bold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   State
                 </label>
@@ -153,7 +154,7 @@ const ListingOfferForm = () => {
             <div class="sm:col-span-2">
               <label
                 for="postal-code"
-                class="block text-md font-bold leading-6 text-gray-900"
+                class="block text-md font-semibold leading-6 text-gray-900"
               >
                 Zip Code
               </label>
@@ -173,7 +174,7 @@ const ListingOfferForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="university"
-              className="block text-md font-bold leading-6 text-gray-900"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
               University
             </label>
@@ -190,12 +191,12 @@ const ListingOfferForm = () => {
 
           <hr class="my-6 h-0.5 border-t-0 bg-black" />
 
-          <h2 className="text-xl font-bold my-4">Housing Details</h2>
+          <h2 className="text-xl font-semibold my-4">Housing Details</h2>
 
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="type"
-              className="block text-md font-bold leading-6 text-gray-900"
+              className="block text-md font-semibold leading-6 text-gray-900"
             >
               Type
             </label>
@@ -216,7 +217,7 @@ const ListingOfferForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="monthly-rent"
-              className="block text-md font-bold leading-6 text-gray-900 "
+              className="block text-md font-semibold leading-6 text-gray-900 "
             >
               Monthly Rent Price
             </label>
@@ -238,7 +239,7 @@ const ListingOfferForm = () => {
             <div class="relative">
               <label
                 htmlFor="lease-start"
-                className="block text-md font-bold leading-6 text-gray-900"
+                className="block text-md font-semibold leading-6 text-gray-900"
               >
                 Lease Start Date
               </label>
@@ -253,7 +254,7 @@ const ListingOfferForm = () => {
             <div class="relative">
               <label
                 htmlFor="bedrooms"
-                className="block text-md font-bold leading-6 text-gray-900"
+                className="block text-md font-semibold leading-6 text-gray-900"
               >
                 Lease End Date
               </label>
@@ -272,7 +273,7 @@ const ListingOfferForm = () => {
               <div>
                 <label
                   htmlFor="bedrooms"
-                  className="block text-md font-bold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Bedrooms
                 </label>
@@ -288,7 +289,7 @@ const ListingOfferForm = () => {
               <div>
                 <label
                   htmlFor="bathrooms"
-                  className="block text-md font-bold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Bathrooms
                 </label>
@@ -307,7 +308,7 @@ const ListingOfferForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="room-type"
-              className="block text-md font-bold leading-6 text-gray-900 mt-2"
+              className="block text-md font-semibold leading-6 text-gray-900 mt-2"
             >
               Room Type
             </label>
@@ -325,7 +326,7 @@ const ListingOfferForm = () => {
           </div>
 
           {/* include roommate info */}
-          <legend className="text-md font-bold leading-6 text-gray-900 mt-4">
+          <legend className="text-md font-semibold leading-6 text-gray-900 mt-4">
             Include your personal preferences on listing
           </legend>
           {/* <p className="mt-1 text-sm leading-6 text-gray-600">These are delivered via SMS to your mobile phone.</p> */}
@@ -361,7 +362,7 @@ const ListingOfferForm = () => {
           </div>
 
           <fieldset className="my-4">
-            <legend className="text-md font-bold leading-6 text-gray-900">
+            <legend className="text-md font-semibold leading-6 text-gray-900">
               Tags
             </legend>
             <div className="mt-2 space-y-2">
