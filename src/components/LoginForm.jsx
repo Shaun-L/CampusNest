@@ -3,7 +3,7 @@ import LOGO from '../assets/LOGO.png';
 import React, { useState } from 'react';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
-import { useNavigate } from 'react-router-dom'; // Import useHistory from react-router-dom
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => { 
   const [username, setUsername] = useState('');
