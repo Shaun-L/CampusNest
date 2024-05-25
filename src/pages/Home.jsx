@@ -23,9 +23,11 @@ import './Home.css';
 // }
 
 const Home = () => {
+  const [center, setCenter] = useState([51.0, 19.0]);
   
   return (
-    <div className="w-100 h-full">
+    <div className="w-100 h-full rounded">
+      <h1>bladhfhapd</h1>
       {/* <MapContainer
     center={{ lat: 51.505, lng: -0.09 }}
     zoom={13}
@@ -38,7 +40,7 @@ const Home = () => {
   </MapContainer> */}
   <MapContainer
       className="markercluster-map"
-      center={[51.0, 19.0]}
+      center={center}
       zoom={4}
       maxZoom={18}
     >
