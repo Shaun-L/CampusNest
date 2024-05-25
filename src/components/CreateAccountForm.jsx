@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { setUserProperties } from 'firebase/analytics';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const UserAccountForm = () => {
@@ -20,6 +22,8 @@ const UserAccountForm = () => {
   const[femaleHousehold, setFemaleHousehold] = useState(false);
   const[lgbtqFriendly, setLgbtqFriendly] = useState(false);
   const[error, setError] = useState(false);
+  const navigate = useNavigate();
+
 
   const handleGenderChange = (e) => {
     setGender(e.target.value);
@@ -57,6 +61,8 @@ const UserAccountForm = () => {
         lgbtqFriendly
       });
       console.log("Document written with ID: ", docRef.id);
+      navigate('/login')
+
     } catch (e) {
       console.error("Error adding document: ", e)
     }
