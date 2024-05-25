@@ -1,11 +1,70 @@
+import React, { useState } from 'react';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import { setUserProperties } from 'firebase/analytics';
+
+
 const UserAccountForm = () => {
-  const onSubmit = () => {
-    // save to database
+  const[username, setUsername] = useState('');
+  const[password, setPassword] = useState('');
+  const[name, setName] = useState('');
+  const[gender, setGender] = useState('');
+  const[university, setUniversity] = useState('');
+  const[year, setYear] = useState('1st');
+  const[major, setMajor] = useState('');
+  const[distance, setDistance] = useState('');
+  const[minPrice, setMinPrice] = useState('');
+  const[maxPrice, setMaxPrice] = useState('');
+  const[roomatePref, setRoomatePref] = useState('No Roomate');
+  const[pets, setPets] = useState(false);
+  const[femaleHousehold, setFemaleHousehold] = useState(false);
+  const[lgbtqFriendly, setLgbtqFriendly] = useState(false);
+  const[error, setError] = useState(false);
+
+  const handleGenderChange = (e) => {
+    setGender(e.target.value);
+  };
+
+  const handleYearChange = (e) => {
+    setYear(e.target.value);
+  };
+
+  const handleRoomatePreference = (e) => {
+    setRoomatePref(e.target.value);
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (!gender) {
+      setError('Please select a gender.');
+      return;
+    }
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        username,
+        password,
+        name,
+        gender,
+        university,
+        year,
+        major,
+        distance,
+        minPrice,
+        maxPrice,
+        roomatePref,
+        pets,
+        femaleHousehold,
+        lgbtqFriendly
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e)
+    }
   };
 
   return (
     <div className="mx-auto py-8 px-8 w-1/2 bg-indigo-100 rounded-xl">
-      <form>
+      <form onSubmit={onSubmit}>
         <h1 className="text-2xl font-bold text-center">Create Account</h1>
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
@@ -22,6 +81,9 @@ const UserAccountForm = () => {
                 id="username"
                 autoComplete="username"
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
               />
             </div>
           </div>
@@ -39,6 +101,9 @@ const UserAccountForm = () => {
                 id="password"
                 autoComplete="password"
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </div>
           </div>
@@ -63,6 +128,9 @@ const UserAccountForm = () => {
                 id="name"
                 autoComplete="name"
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
               />
             </div>
           </div>
@@ -77,7 +145,9 @@ const UserAccountForm = () => {
                 id="female"
                 name="gender"
                 type="radio"
+                value="Female"
                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                onChange={handleGenderChange}
               />
               <label
                 htmlFor="push-everything"
@@ -91,7 +161,9 @@ const UserAccountForm = () => {
                 id="male"
                 name="gender"
                 type="radio"
+                value="Male"
                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                onChange={handleGenderChange}
               />
               <label
                 htmlFor="push-email"
@@ -105,6 +177,8 @@ const UserAccountForm = () => {
                 id="transgender"
                 name="gender"
                 type="radio"
+                value="Transgender"
+                onChange={handleGenderChange}
                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
               />
               <label
@@ -119,6 +193,8 @@ const UserAccountForm = () => {
                 id="nonbinary"
                 name="gender"
                 type="radio"
+                value="Non-binary"
+                onChange={handleGenderChange}
                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
               />
               <label
@@ -133,6 +209,8 @@ const UserAccountForm = () => {
                 id="other"
                 name="gender"
                 type="radio"
+                value="Other"
+                onChange={handleGenderChange}
                 className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
               />
               <label
@@ -158,6 +236,9 @@ const UserAccountForm = () => {
                 name="university"
                 id="university"
                 autoComplete="university"
+                value={university}
+                onChange={(e) => setUniversity(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -177,12 +258,15 @@ const UserAccountForm = () => {
                 name="year"
                 autoComplete="year-name"
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                value={year}
+                onChange={handleYearChange}
+                required
               >
-                <option>1st</option>
-                <option>2nd</option>
-                <option>3rd</option>
-                <option>4th</option>
-                <option>5th+</option>
+                <option value="1st">1st</option>
+                <option value="2nd">2nd</option>
+                <option value="3rd">3rd</option>
+                <option value="4th">4th</option>
+                <option value="5th+">5th+</option>
               </select>
             </div>
           </div>
@@ -201,6 +285,9 @@ const UserAccountForm = () => {
                 name="major"
                 id="major"
                 autoComplete="major"
+                value={major}
+                onChange={(e) => setMajor(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -226,6 +313,9 @@ const UserAccountForm = () => {
                 min="0"
                 autoComplete="distance-pref"
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                value={distance}
+                onChange={(e) => setDistance(e.target.value)}
+                required
               />
             </div>
           </div>
@@ -250,6 +340,9 @@ const UserAccountForm = () => {
                   min="0"
                   autoComplete="price-range-min"
                   className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                  value={minPrice}
+                  onChange={(e) => setMinPrice(e.target.value)}
+                  required
                 />
               </div>
               <div>
@@ -266,6 +359,9 @@ const UserAccountForm = () => {
                   min="0"
                   autoComplete="price-range-min"
                   className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                  value={maxPrice}
+                  onChange={(e) => setMaxPrice(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -284,11 +380,14 @@ const UserAccountForm = () => {
                 name="roommate-type"
                 autoComplete="roommate-type"
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                value={roomatePref}
+                onChange={handleRoomatePreference}
+                required
               >
-                <option>No Roommate</option>
-                <option>Prefer Female</option>
-                <option>Prefer Male</option>
-                <option>Open to Any</option>
+                <option value="No Roomate">No Roommate</option>
+                <option value="Prefer Female">Prefer Female</option>
+                <option value="Prefer Male">Prefer Male</option>
+                <option value="Open to Any">Open to Any</option>
               </select>
             </div>
           </div>
@@ -305,6 +404,8 @@ const UserAccountForm = () => {
                     name="petfriendly"
                     type="checkbox"
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    checked={pets}
+                    onChange={(e) => setPets(e.target.checked)}
                   />
                 </div>
                 <div className="text-sm leading-6">
@@ -323,6 +424,8 @@ const UserAccountForm = () => {
                     name="all-female"
                     type="checkbox"
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    checked={femaleHousehold}
+                    onChange={(e) => setFemaleHousehold(e.target.checked)}
                   />
                 </div>
                 <div className="text-sm leading-6">
@@ -338,6 +441,8 @@ const UserAccountForm = () => {
                     name="lgbtq"
                     type="checkbox"
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    checked={lgbtqFriendly}
+                    onChange={(e) => setLgbtqFriendly(e.target.checked)}
                   />
                 </div>
                 <div className="text-sm leading-6">
