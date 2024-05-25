@@ -1,8 +1,8 @@
-import UserQuestions from "../components/UserQuestions";
+import UserAccountForm from "../components/UserAccountForm";
 
 const Profile = () => {
   return (
-    <UserQuestions />
+    <UserAccountForm />
   );
 }
 

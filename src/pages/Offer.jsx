@@ -1,8 +1,7 @@
+import LeaseOfferForm from "../components/LeaseOfferForm";
 
 const Offer = () => {
-  return <div>
-
-  </div>;
+  return <LeaseOfferForm />
 }
 
 export default Offer;
