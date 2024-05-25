@@ -94,7 +94,7 @@ const Profile = () => {
   return (
     <div className="grid grid-cols-3 gap-8 m-8">
       <div className="col-span-1 flex flex-col gap-8">
-        <div className="rounded-xl w-full h-auto bg-gray-400 p-4 ">
+        <div className="rounded-xl w-full h-auto bg-white p-4">
           <div className="flex flex-col justify-center items-center">
             <img
               src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"
@@ -104,19 +104,38 @@ const Profile = () => {
             <p>Email</p>
           </div>
         </div>
-        <div className="rounded-xl w-full h-auto bg-gray-400 p-4">
+        <div className="rounded-xl w-full h-auto bg-violet-100 py-8 px-16">
           <h2 className="text-2xl font-semibold text-center">
             User Preferences
           </h2>
+          <div>
+            <div className="my-4">
+            <p className="text-sm font-bold">Maximum Distance from School</p>
+            <p>10 miles</p>
+            </div>
+            <div className="my-4">
+            <p className="text-sm font-bold">Rent Price</p>
+            <p>$800 - $1100</p>
+            </div>
+            <div className="my-4">
+            <p className="text-sm font-bold">Roommate</p>
+            <p>Prefer Female</p>
+            </div>
+            <div className="my-4">
+            <p className="text-sm font-bold">Other Tags</p>
+            <p>Owns Pets</p>
+            <p>Prefer All-Female Household</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <div className="col-span-2">
-        <div className="rounded-xl w-full h-auto bg-gray-400 p-4">
+        <div className="rounded-xl w-full h-auto bg-white p-4 ">
           <h2 className="text-2xl font-semibold text-center my-4">
             Saved Listings
           </h2>
-          <div class="grid grid-cols-1 xl:grid-cols-2 grid-flow-row justify-items-center my-8 gap-8">
+          <div class="grid grid-cols-1 xl:grid-cols-2 grid-flow-row justify-items-center my-8 mx-12 gap-4">
             {data.map((listing) => {
               return <ListingCard listing={listing} />;
             })}

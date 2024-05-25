@@ -64,7 +64,7 @@ const UserAccountForm = () => {
 
   return (
     <div className="mx-auto py-8 px-8 w-1/2 bg-indigo-100 rounded-xl">
-      <form>
+      <form onSubmit={onSubmit}>
         <h1 className="text-2xl font-semibold text-center">Create Account</h1>
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
