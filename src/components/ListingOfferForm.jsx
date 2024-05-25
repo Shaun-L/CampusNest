@@ -1,11 +1,14 @@
-const LeaseOfferForm = () => {
-  const onSubmit = () => {
+const ListingOfferForm = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     // save to database
+    console.log(e.target.title.value);
+
   };
 
   return (
     <div className="mx-auto py-8 px-8 w-1/2 bg-indigo-100 rounded-xl">
-      <form>
+      <form onSubmit={onSubmit}>
         <h1 className="text-2xl font-bold text-center">Offer Listing</h1>
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
@@ -183,9 +186,12 @@ const LeaseOfferForm = () => {
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
-          </div>
+          </div>          
 
-          {/* year */}
+          <hr class="my-6 h-0.5 border-t-0 bg-black" />
+
+          <h2 className="text-xl font-bold my-4">Housing Details</h2>
+
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="type"
@@ -205,10 +211,6 @@ const LeaseOfferForm = () => {
               </select>
             </div>
           </div>
-
-          <hr class="my-6 h-0.5 border-t-0 bg-black" />
-
-          <h2 className="text-xl font-bold my-4">Housing Preferences</h2>
 
           {/* distance preference */}
           <div className="sm:col-span-3 my-4 w-full">
@@ -230,43 +232,35 @@ const LeaseOfferForm = () => {
             </div>
           </div>
 
-          <div date-rangepicker class="flex items-center">
+          <script src="../path/to/flowbite/dist/datepicker.js"></script>
+
+          <div class="flex items-center my-4">
             <div class="relative">
-              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg
-                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                </svg>
-              </div>
+              <label
+                htmlFor="lease-start"
+                className="block text-md font-bold leading-6 text-gray-900"
+              >
+                Lease Start Date
+              </label>
               <input
-                name="start"
-                type="text"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                name="lease-start"
+                type="date"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Select date start"
               />
             </div>
-            <span class="mx-4 text-gray-500">to</span>
+            <span class="mx-4 mt-4 text-gray-500">to</span>
             <div class="relative">
-              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg
-                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                </svg>
-              </div>
+              <label
+                htmlFor="bedrooms"
+                className="block text-md font-bold leading-6 text-gray-900"
+              >
+                Lease End Date
+              </label>
               <input
-                name="end"
-                type="text"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                name="lease-end"
+                type="date"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Select date end"
               />
             </div>
@@ -472,4 +466,4 @@ const LeaseOfferForm = () => {
   );
 };
 
-export default LeaseOfferForm;
+export default ListingOfferForm;

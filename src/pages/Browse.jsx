@@ -101,7 +101,8 @@ const Browse = () => {
       <h1 className="text-2xl font-bold my-4">Browse Listings</h1>
       {/* search bar */}
       <div className="my-4 grid grid-cols-4">
-        <div className="relative rounded-full col-span-3 h-12 mr-4 border-2 border-black">
+        <div className='relative col-span-3 w-full h-12 mr-4 '>
+        <input type="text" className="rounded-full border-2 h-full w-full pl-12 border-black" />
           <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
             <svg
               class="w-4 h-4 text-gray-500 dark:text-gray-400"
@@ -118,8 +119,7 @@ const Browse = () => {
                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
               />
             </svg>
-          </div>
-        </div>
+          </div></div>
 
         <div className="relative rounded-full ml-4 h-12 bg-gray-400">
           <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
@@ -148,7 +148,7 @@ const Browse = () => {
           {/* room type */}
         </div>
         {/* grid of apartments */}
-        <div class="grid grid-cols-3 grid-flow-row gap-8">
+        <div class="grid grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8">
           {data.map((listing) => {
             return <ListingCard listing={listing} />;
           })}

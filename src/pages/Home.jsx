@@ -2,7 +2,7 @@ import { useEffect, useNavigate } from "react";
 
 
 const Home = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     // if (localStorage.getItem('user') === null) {

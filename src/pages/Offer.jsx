@@ -1,7 +1,7 @@
-import LeaseOfferForm from "../components/LeaseOfferForm";
+import ListingOfferForm from "../components/ListingOfferForm";
 
 const Offer = () => {
-  return <LeaseOfferForm />
+  return <ListingOfferForm />
 }
 
 export default Offer;
