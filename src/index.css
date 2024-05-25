@@ -2,16 +2,11 @@
 
 body {
   margin: 0;
-  background: linear-gradient(to right, #006d77, #83c5be);
-  font-family: "Poppins", sans-serif;
+  /* background: linear-gradient(to right, #006d77, #83c5be); */
+  font-family: "Marcellus", serif;
   overflow-x: hidden;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-h1, h2, p {
-  font-family: "Marcellus", serif;
-}
