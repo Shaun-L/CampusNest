@@ -64,13 +64,8 @@ const UserAccountForm = () => {
 
   return (
     <div className="mx-auto py-8 px-8 w-1/2 bg-indigo-100 rounded-xl">
-<<<<<<< HEAD
       <form>
         <h1 className="text-2xl font-semibold text-center">Create Account</h1>
-=======
-      <form onSubmit={onSubmit}>
-        <h1 className="text-2xl font-bold text-center">Create Account</h1>
->>>>>>> 9a25f6563d59bf9fcbd0d506d7b29ffb8fddf5cf
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
             <label

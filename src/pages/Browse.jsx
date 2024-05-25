@@ -146,7 +146,7 @@ const Browse = () => {
 
       <div className="flex gap-8">
         {/* filter sidebar */}
-        <div className="rounded-xl w-64 h-auto bg-black text-white p-4">
+        <div className="rounded-xl w-64 h-auto bg-violet-200 text-black p-4">
           <h2 className="text-lg font-bold">Filter</h2>
           {/* price */}
 

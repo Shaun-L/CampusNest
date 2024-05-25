@@ -14,11 +14,12 @@ const ListingCard = (props) => {
         alt="Avatar"
         class="object-cover w-full h-full"
       />
-      <div
-        className="absolute top-4 right-4 rounded-full bg-white p-2"
-        onClick={() => setSaved(!saved)}
-      >
-        {saved ? (
+
+      {saved ? (
+        <div
+          className="absolute top-4 right-4 rounded-full bg-violet-200 p-2"
+          onClick={() => setSaved(!saved)}
+        >
           <svg
             width="28"
             height="28"
@@ -31,7 +32,12 @@ const ListingCard = (props) => {
               fill="#000000"
             />
           </svg>
-        ) : (
+        </div>
+      ) : (
+        <div
+          className="absolute top-4 right-4 rounded-full bg-white p-2"
+          onClick={() => setSaved(!saved)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="28px"
@@ -41,9 +47,9 @@ const ListingCard = (props) => {
           >
             <path d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z" />
           </svg>
-        )}
-      </div>
-      <div className="absolute w-full py-4 bottom-0 inset-x-0 bg-black leading-4">
+        </div>
+      )}
+      <div className="absolute w-full py-4 bottom-0 inset-x-0 bg-black/60 leading-4">
         <h2 className="text-white text-xl text-center">
           {props.listing.title}
         </h2>

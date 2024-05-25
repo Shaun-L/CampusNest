@@ -4,7 +4,7 @@ const Login = () => {
   return (
     <div>
     <LoginForm />
-    <p>Don't have an account? <a href='/register'>Register</a></p>
+    <p className="text-center my-4">Don't have an account? <a href='/register' className="text-violet-500 font-bold">Register</a></p>
     </div>
   );
 }
