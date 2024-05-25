@@ -6,8 +6,8 @@ import pic4 from "./pictures/pic4.jpg";
 import infop1 from "./pictures/infop1.png"
 import infop2 from "./pictures/infop2.jpg"
 import SearchBar from "../components/SearchBar"
-import LOGO from "./pictures/LOGO.png"
 import { useEffect, useNavigate } from "react";
+import LOGO1 from "./pictures/LOGO1.png"
 
 
 import './Home.css';
@@ -33,7 +33,7 @@ const Home = () => {
       <div className="top-halfp1">
 
         <div className='format-logo'>
-            <img src={LOGO} alt="lite" className="logo" />
+            <img src={LOGO1} alt="lite" className="logo" />
         </div>
 
         <div className="main-search">
@@ -56,7 +56,7 @@ const Home = () => {
 
 
           <div className='format-pics'>
-            <a href="/listing.jsx">
+            <a href="/listing/1">
               <img src={pic2} alt="lite" className="butterfly" />
             </a>
           </div>
