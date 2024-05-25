@@ -1,8 +1,7 @@
+import ListingOfferForm from "../components/ListingOfferForm";
 
 const Offer = () => {
-  return <div>
-
-  </div>;
+  return <ListingOfferForm />
 }
 
 export default Offer;

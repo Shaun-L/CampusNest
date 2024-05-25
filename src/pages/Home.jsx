@@ -7,11 +7,19 @@ import infop1 from "./pictures/infop1.png"
 import infop2 from "./pictures/infop2.jpg"
 import SearchBar from "../components/SearchBar"
 import LOGO from "./pictures/LOGO.png"
+import { useEffect, useNavigate } from "react";
 
 
 import './Home.css';
 
 const Home = () => {
+  // const navigate = useNavigate();
+
+  useEffect(() => {
+    // if (localStorage.getItem('user') === null) {
+    //   navigate('/login');
+    // }
+  }, []);
 
 
   const data = [
@@ -93,7 +101,7 @@ const Home = () => {
 
     </div>
 
-   
+ 
     
 
     );
