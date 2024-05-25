@@ -1,69 +1,68 @@
 import React, { useState } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
-import { setUserProperties } from 'firebase/analytics';
-
-
 
 const ListingOfferForm = () => {
-
-  const[username, setUsername] = useState('');
-  const[password, setPassword] = useState('');
-  const[name, setName] = useState('');
-  const[gender, setGender] = useState('');
+  const[title, setTitle] = useState('');
+  const[description, setDescription] = useState('');
+  const[address, setAddress] = useState('');
+  const[city, setCity] = useState('');
+  const[state, setState] = useState('AL');
+  const[zip, setZip] = useState('');
   const[university, setUniversity] = useState('');
-  const[year, setYear] = useState('1st');
-  const[major, setMajor] = useState('');
-  const[distance, setDistance] = useState('');
-  const[minPrice, setMinPrice] = useState('');
-  const[maxPrice, setMaxPrice] = useState('');
-  const[roomatePref, setRoomatePref] = useState('No Roomate');
-  const[pets, setPets] = useState(false);
-  const[femaleHousehold, setFemaleHousehold] = useState(false);
-  const[lgbtqFriendly, setLgbtqFriendly] = useState(false);
-  const[error, setError] = useState(false);
+  const[type, setType] = useState('Apartment');
+  const[rent, setRent] = useState('');
+  const[startDate, setStartDate] = useState('');
+  const[endDate, setEndDate] = useState('');
+  const[bedrooms, setBedrooms] = useState('');
+  const[bathrooms, setBathrooms] = useState('');
+  const[roomType, setRoomType] = useState('Single');
+  const[petTag, setPetTag] = useState(false);
+  const[femaleTag, setFemaleTag] = useState(false);
+  const[lgbtqFriendlyTag, setLgbtqFriendlyTag] = useState(false);
+  const[furnishedTag, setFurnishedTag] = useState(false);
+  const[poolTag, setPoolTag] = useState(false);
 
-  const handleGenderChange = (e) => {
-    setGender(e.target.value);
+  const handleStateChange = (e) => {
+    setState(e.target.value);
   };
 
-  const handleYearChange = (e) => {
-    setYear(e.target.value);
+  const handleTypeChange = (e) => {
+    setType(e.target.value);
   };
 
-  const handleRoomatePreference = (e) => {
-    setRoomatePref(e.target.value);
-  };
+  const handleRoomTypeChange = (e) => {
+    setRoomType(e.target.value);
+  }
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log();
-    if (!gender) {
-      setError('Please select a gender.');
-      return;
-    }
     try {
-      const docRef = await addDoc(collection(db, "users"), {
-        username,
-        password,
-        name,
-        gender,
+      const docRef = await addDoc(collection(db, "listings"), {
+        title,
+        address,
+        city,
+        state,
+        zip,
         university,
-        year,
-        major,
-        distance,
-        minPrice,
-        maxPrice,
-        roomatePref,
-        pets,
-        femaleHousehold,
-        lgbtqFriendly
+        type,
+        rent,
+        startDate,
+        endDate,
+        bedrooms,
+        bathrooms,
+        roomType,
+        petTag,
+        femaleTag,
+        lgbtqFriendlyTag,
+        furnishedTag,
+        poolTag
       });
-      console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e)
     }
-  };
+  }
+
 
   return (
     <div className="mx-auto py-8 my-4 px-8 w-1/2 bg-violet-100 rounded-xl">
@@ -83,6 +82,9 @@ const ListingOfferForm = () => {
                 name="title"
                 id="title"
                 autoComplete="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -100,6 +102,9 @@ const ListingOfferForm = () => {
                 name="description"
                 id="description"
                 autoComplete="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -118,6 +123,9 @@ const ListingOfferForm = () => {
                 name="address-line"
                 id="address-line"
                 autoComplete="address-line"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -136,7 +144,10 @@ const ListingOfferForm = () => {
                   name="city"
                   id="city"
                   autocomplete="address-level2"
-                  class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  required
+                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -152,6 +163,9 @@ const ListingOfferForm = () => {
                 <select
                   name="state"
                   id="state"
+                  value={state}
+                  onChange={handleStateChange}
+                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <option value="AL">AL</option>
@@ -222,6 +236,9 @@ const ListingOfferForm = () => {
                   name="postal-code"
                   id="postal-code"
                   autocomplete="postal-code"
+                  value={zip}
+                  onChange={(e) => setZip(e.target.value)}
+                  required
                   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -242,6 +259,9 @@ const ListingOfferForm = () => {
                 name="university"
                 id="university"
                 autoComplete="university"
+                value={university}
+                onChange={(e) => setUniversity(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -263,10 +283,13 @@ const ListingOfferForm = () => {
                 id="type"
                 name="type"
                 autocomplete="type"
+                value={type}
+                onChange={handleTypeChange}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
               >
-                <option>Apartment</option>
-                <option>House</option>
+                <option value="Apartment">Apartment</option>
+                <option value="House">House</option>
               </select>
             </div>
           </div>
@@ -286,6 +309,9 @@ const ListingOfferForm = () => {
                 id="monthly-rent"
                 min="0"
                 autoComplete="monthly-rent"
+                value={rent}
+                onChange={(e) => setRent(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -304,6 +330,9 @@ const ListingOfferForm = () => {
               <input
                 name="lease-start"
                 type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                required
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Select date start"
               />
@@ -319,6 +348,9 @@ const ListingOfferForm = () => {
               <input
                 name="lease-end"
                 type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+                required
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Select date end"
               />
@@ -341,6 +373,9 @@ const ListingOfferForm = () => {
                   id="bedrooms"
                   min="0"
                   autoComplete="bedrooms"
+                  value={bedrooms}
+                  onChange={(e) => setBedrooms(e.target.value)}
+                  required
                   className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 />
               </div>
@@ -356,6 +391,9 @@ const ListingOfferForm = () => {
                   name="bathrooms"
                   id="bathrooms"
                   min="0"
+                  value={bathrooms}
+                  onChange={(e) => setBathrooms(e.target.value)}
+                  required
                   autoComplete="bathrooms"
                   className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 />
@@ -375,10 +413,13 @@ const ListingOfferForm = () => {
                 id="room-type"
                 name="room-type"
                 autoComplete="room-type"
+                value={roomType}
+                onChange={(e) => setRoomType(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
               >
-                <option>Single</option>
-                <option>Shared</option>
+                <option value="Single">Single</option>
+                <option value="Shared">Shared</option>
               </select>
             </div>
           </div>
@@ -394,6 +435,8 @@ const ListingOfferForm = () => {
                     id="petfriendly"
                     name="petfriendly"
                     type="checkbox"
+                    checked={petTag}
+                    onChange={(e) => setPetTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   />
                 </div>
@@ -412,6 +455,8 @@ const ListingOfferForm = () => {
                     id="all-female"
                     name="all-female"
                     type="checkbox"
+                    checked={femaleTag}
+                    onChange={(e) => setFemaleTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   />
                 </div>
@@ -430,6 +475,8 @@ const ListingOfferForm = () => {
                     id="lgbtq"
                     name="lgbtq"
                     type="checkbox"
+                    checked={lgbtqFriendlyTag}
+                    onChange={(e) => setLgbtqFriendlyTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   />
                 </div>
@@ -445,6 +492,8 @@ const ListingOfferForm = () => {
                     id="furnished"
                     name="furnished"
                     type="checkbox"
+                    checked={furnishedTag}
+                    onChange={(e) => setFurnishedTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   />
                 </div>
@@ -463,6 +512,8 @@ const ListingOfferForm = () => {
                     id="pool"
                     name="pool"
                     type="checkbox"
+                    checked={poolTag}
+                    onChange={(e) => setPoolTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   />
                 </div>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
-import { setUserProperties } from 'firebase/analytics';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -21,6 +20,8 @@ const UserAccountForm = () => {
   const[pets, setPets] = useState(false);
   const[femaleHousehold, setFemaleHousehold] = useState(false);
   const[lgbtqFriendly, setLgbtqFriendly] = useState(false);
+  const[furnished, setFurnished] = useState(false);
+  const[pool, setPool] = useState(false);
   const[error, setError] = useState(false);
   const navigate = useNavigate();
 
@@ -60,7 +61,9 @@ const UserAccountForm = () => {
         roomatePref,
         pets,
         femaleHousehold,
-        lgbtqFriendly
+        lgbtqFriendly,
+        pool,
+        furnished
       });
       console.log("Document written with ID: ", docRef.id);
       localStorage.setItem('userid', docRef.id);
@@ -457,6 +460,40 @@ const UserAccountForm = () => {
                 <div className="text-sm leading-6">
                   <label htmlFor="lgbtq" className="font-medium text-gray-900">
                     Prefer LGBTQ-Friendly
+                  </label>
+                </div>
+              </div>
+              <div className="relative flex gap-x-3">
+                <div className="flex h-6 items-center">
+                  <input
+                    id="furnished"
+                    name="furnished"
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    checked={furnished}
+                    onChange={(e) => setFurnished(e.target.checked)}
+                  />
+                </div>
+                <div className="text-sm leading-6">
+                  <label htmlFor="furnished" className="font-medium text-gray-900">
+                    Furnished
+                  </label>
+                </div>
+              </div>
+              <div className="relative flex gap-x-3">
+                <div className="flex h-6 items-center">
+                  <input
+                    id="pool"
+                    name="pool"
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    checked={pool}
+                    onChange={(e) => setPool(e.target.checked)}
+                  />
+                </div>
+                <div className="text-sm leading-6">
+                  <label htmlFor="pool" className="font-medium text-gray-900">
+                    Pool
                   </label>
                 </div>
               </div>
