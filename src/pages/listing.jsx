@@ -1,6 +1,7 @@
 import { useState } from "react";
 import pic2 from "./pictures/pic2.jpg";
-
+// import MyMap from "../components/reactMap";
+// import React from 'react';
 
 import './Listing.css';
 
@@ -55,10 +56,14 @@ return (
         
             <h2 className="small">Contact elise@gmail.com, 714-XXX-XXXX for more details</h2>
 
-        
-
         </div>
-    
+
+{/* 
+    <div className="App">
+      <h1>React Mini Map Example</h1>
+      <MyMap></MyMap>
+    </div>
+     */}
 
     </div>
 
