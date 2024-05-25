@@ -37,6 +37,7 @@ const ListingOfferForm = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    console.log();
     if (!gender) {
       setError('Please select a gender.');
       return;

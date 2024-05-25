@@ -21,8 +21,10 @@ const LoginForm = () => {
       if (querySnapshot.empty) {
         alert('Invalid username or password')
       } else {
-        // redirect("/Home")
         alert('Valid entry!')
+        querySnapshot.forEach((doc) => {
+          localStorage.setItem('userid', doc.id);
+        })
         navigate('/')
       }
     } catch (error) {

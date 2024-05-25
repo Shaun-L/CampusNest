@@ -39,6 +39,8 @@ const UserAccountForm = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    console.log(username);
+    
     if (!gender) {
       setError('Please select a gender.');
       return;
@@ -61,7 +63,8 @@ const UserAccountForm = () => {
         lgbtqFriendly
       });
       console.log("Document written with ID: ", docRef.id);
-      navigate('/login')
+      localStorage.setItem('userid', docRef.id);
+      navigate('/')
 
     } catch (e) {
       console.error("Error adding document: ", e)
@@ -75,17 +78,17 @@ const UserAccountForm = () => {
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
             <label
-              htmlFor="email"
+              htmlFor="username"
               className="block text-md font-semibold leading-6 text-gray-900"
             >
-              Email
+              Username
             </label>
             <div className="">
               <input
                 type="text"
-                name="email"
-                id="email"
-                autoComplete="email"
+                name="username"
+                id="username"
+                autoComplete="username"
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -172,7 +175,7 @@ const UserAccountForm = () => {
                 onChange={handleGenderChange}
               />
               <label
-                htmlFor="push-email"
+                htmlFor="push-username"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Male

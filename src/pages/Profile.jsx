@@ -1,7 +1,48 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import ListingCard from "../components/ListingCard";
 
+import { db } from "../firebase";
+import { doc, getDoc } from "firebase/firestore";
+
 const Profile = () => {
+  const [distance, setDistance] = useState(null);
+  const [rentMin, setRentMin] = useState(null);
+  const [rentMax, setRentMax] = useState(null);
+
+  const [roommate, setRoommate] = useState(null);
+  const[pets, setPets] = useState(false);
+  const[femaleHousehold, setFemaleHousehold] = useState(false);
+  const[lgbtqFriendly, setLgbtqFriendly] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(async () => {
+    const loggedInUser = localStorage.getItem("userid");
+    console.log(loggedInUser);
+    if (loggedInUser) {
+      const docRef = doc(db, "users", loggedInUser);
+      const querySnapshot = await getDoc(docRef);
+
+      if (querySnapshot.exists()) {
+        const userData = querySnapshot.data();
+        console.log(userData);
+        setDistance(userData.distance);
+        setRentMin(userData.minPrice);
+        setRentMax(userData.maxPrice);
+        setRoommate(userData.roomatePref);
+        setLgbtqFriendly(userData.lgbtqFriendly);
+        setFemaleHousehold(userData.femaleHousehold);
+        setPets(userData.pets);
+      } else {
+        navigate("/login");
+      }
+    } else {
+      navigate("/login");
+    }
+  }, []);
+
   const data = [
     {
       title: "4 Bed 2 Bath Plaza Verde",
@@ -110,21 +151,24 @@ const Profile = () => {
           </h2>
           <div>
             <div className="my-4">
-            <p className="text-sm font-bold">Maximum Distance from School</p>
-            <p>10 miles</p>
+              <p className="text-sm font-bold">Maximum Distance from School</p>
+              <p>{distance} miles</p>
             </div>
             <div className="my-4">
-            <p className="text-sm font-bold">Rent Price</p>
-            <p>$800 - $1100</p>
+              <p className="text-sm font-bold">Rent Price</p>
+              <p>
+                ${rentMin} - ${rentMax}
+              </p>
             </div>
             <div className="my-4">
-            <p className="text-sm font-bold">Roommate</p>
-            <p>Prefer Female</p>
+              <p className="text-sm font-bold">Roommate</p>
+              <p>{roommate}</p>
             </div>
             <div className="my-4">
-            <p className="text-sm font-bold">Other Tags</p>
-            <p>Owns Pets</p>
-            <p>Prefer All-Female Household</p>
+              <p className="text-sm font-bold">Other Tags</p>
+              {pets && <p>Owns Pets</p>}
+              {femaleHousehold && <p>Prefer All-Female Household</p>}
+              {lgbtqFriendly && <p>Prefer LGBTQ-friendly</p>}
             </div>
           </div>
         </div>
