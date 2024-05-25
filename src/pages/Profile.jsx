@@ -1,8 +1,8 @@
-import UserAccountForm from "../components/UserAccountForm";
+import CreateAccountForm from "../components/CreateAccountForm";
 
 const Profile = () => {
   return (
-    <UserAccountForm />
+    <CreateAccountForm />
   );
 }
 
