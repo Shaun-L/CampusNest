@@ -131,8 +131,10 @@ body {
 }
 
 .subheader {
-    font-size:30px;
+    margin-top: 20px;
+    font-size:40px;
     color:white;
+    font-weight: 300;
     /* margin-left: 50px;
     margin-bottom: 20px; */
 }
@@ -144,9 +146,9 @@ body {
     margin:10px 
 }
 
-.butterfly {
-    width: 280px; /* Set a fixed width for all images */
-    height: 300px; /* Set a fixed height for all images */
+.flyyy {
+    width: 350px; /* Set a fixed width for all images */
+    height: 450px; /* Set a fixed height for all images */
     object-fit: cover; 
     border-radius: 10%;
 }
@@ -170,11 +172,11 @@ body {
 
 }
 .white-pic {
-    width: 1200px; /* Set a fixed width for all images */
+    width: 1100px; /* Set a fixed width for all images */
     height: 450px; /* Set a fixed height for all images */
     object-fit: cover; 
     border-radius: 1%;
-    /* margin-right: 10px; */
+    margin-right: 10px;
 }
 
 
@@ -185,9 +187,8 @@ body {
 
 .top-halfp1 {
     display: flex;
-    justify-content: center; /* Center the images horizontally */
-    gap: 60px;
-    margin:10px;
+    flex-direction: column;
+    align-items: flex-start;
     margin-top: 20px;
 }
 
@@ -197,18 +198,21 @@ body {
 
 
 .logop1 {
-    margin-left: 40px;
-    width: 500px; /* Set a fixed width for all images */
+    margin: 40px;
+    width: 100%; /* Set a fixed width for all images */
     height: 500px; /* Set a fixed height for all images */
     object-fit: cover; 
     border-radius: 1%;
 }
 
 .logo {
+    margin: 30px;
 
-    width: 550px; /* Set a fixed width for all images */
-    height: 550px; /* Set a fixed height for all images */
+    width: 1450px; /* Set a fixed width for all images */
+    height: 500px; /* Set a fixed height for all images */
     object-fit: cover; 
+    padding: 0px;
+
 
 }
 
@@ -221,4 +225,29 @@ body {
     align-items: center;
     margin-left: 50px;
     margin-bottom: 30px;
+}
+
+.appeal {
+    font-size: 200px;
+    margin-left: 50px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.appeal-text {
+    padding-top: 0px;
+    margin-top: 0px;
+    font-size: 50px;
+    font-weight: 200;
+    margin-left: 50px;
+}
+
+.format-logop1 {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.title-align {
+
+    display: flex;
+    align-items: center ;
 }

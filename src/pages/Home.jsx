@@ -5,7 +5,9 @@ import pic3 from "../assets/pic3.jpg";
 import pic4 from "../assets/pic4.jpg";
 import infop1 from "../assets/infop1.png"
 import infop2 from "../assets/infop2.jpg"
-import SearchBar from "../components/SearchBar"
+import sky from "../assets/sky5.png"
+
+// import SearchBar from "../components/SearchBar"
 import { useEffect } from "react";
 
 
@@ -13,7 +15,7 @@ import LOGO1 from "../assets/LOGO3.png"
 import homep2 from "../assets/homep2.png"
 
 // import home1 from "../assets/homep1.png"
-// import LOGO1 from "../assets/LOGO1.png"
+// import LOGO4 from "../assets/LOGO4.png"
 import { useNavigate } from "react-router-dom";
 
 
@@ -40,17 +42,24 @@ const Home = () => {
       <div className="top-halfp1">
 
         <div className='format-logop1'>
-          <img src={homep2} alt="lite" className="logop1" />
+        <img src={sky} alt="lite" className="logo" />
         </div>
 
-        <div className="search-func">
 
-          <div className='format-logo'>
+        <div className="title-align">
+          <h1 className="appeal">C N H</h1>
+          <h1 className="appeal-text">CAMPUS NEST HOUSING</h1>
+        </div>
+
+        {/* <div className="search-func"> */}
+
+          {/* <div className='format-logo'>
             <img src={LOGO1} alt="lite" className="logo" />
-          </div>
+          </div> */}
 
 
-        </div>
+        {/* </div> */}
+
 
 
 
@@ -59,11 +68,11 @@ const Home = () => {
       <div className="top-halfp2">
         
         <div className="search-top">
-          <h2 className="subheader">Listings </h2>
+          <h2 className="subheader">LISTINGS </h2>
 
-          <div className="main-search">
+          {/* <div className="main-search">
             <SearchBar data={data}></SearchBar>
-          </div>
+          </div> */}
 
         </div>
 
@@ -72,23 +81,23 @@ const Home = () => {
 
 
           <div className='format-pics'>
-            <img src={pic1} alt="lite" className="butterfly" />
+            <img src={pic1} alt="lite" className="flyyy" />
 
           </div>
 
 
           <div className='format-pics'>
             <a href="/listing/1">
-              <img src={pic2} alt="lite" className="butterfly" />
+              <img src={pic2} alt="lite" className="flyyy" />
             </a>
           </div>
 
           <div className='format-pics'>
-            <img src={pic3} alt="lite" className="butterfly" />
+            <img src={pic3} alt="lite" className="flyyy" />
           </div>
 
           <div className='format-pics'>
-            <img src={pic4} alt="lite" className="butterfly" />
+            <img src={pic4} alt="lite" className="flyyy" />
           </div>
         </div>
 
