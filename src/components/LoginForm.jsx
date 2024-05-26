@@ -16,6 +16,18 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const loginTextStyle = {
+    fontSize: "16px",
+    color: "#ffffff",
+    textAlign: "center",
+    marginTop: "20px",
+  };
+
+  const registerLinkStyle = {
+    color: "##facc15",
+    textDecoration: "none",
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
 

@@ -8,11 +8,13 @@ const Navbar = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const navigate = useNavigate();
 
-  const signout = () => {
-    localStorage.removeItem('userid');
-    setShowProfileMenu(false);
-    navigate('/login');
-  }
+  // const signout = () => {
+  //   localStorage.removeItem('userid');
+  //   setShowProfileMenu(false);
+  //   navigate('/login');
+  //   return () => {}
+
+  // }
 
   return (
     <nav className="bg-black">
@@ -126,7 +128,7 @@ const Navbar = () => {
                   >
                     Your Profile
                   </a>
-                  <a
+                  {/* <a
                     onClick={signout}
                     class="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
@@ -134,17 +136,8 @@ const Navbar = () => {
                     id="user-menu-item-2"
                   >
                     Sign out
-                  </a>
-                  {/* <a
-                  href="#"
-                  class="block px-4 py-2 text-sm text-gray-700"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="user-menu-item-1"
-                >
-                  Settings
-                </a>
-                */}
+                  </a> */}
+                  
                 </div>
               )}
             </div>

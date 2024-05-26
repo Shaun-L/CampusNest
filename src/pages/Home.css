@@ -200,9 +200,9 @@ body {
 }
 
 .logo {
-    margin: 30px;
+    /* margin: 30px; */
 
-    width: 1450px; /* Set a fixed width for all images */
+    width: 100vw; /* Set a fixed width for all images */
     height: 480px; /* Set a fixed height for all images */
     object-fit: cover; 
     padding: 0px;
@@ -271,7 +271,7 @@ body {
 .text-big {
   font-size: 90px;
   font-weight: 400;
-  margin-left: 40px;
+  margin: 40px 0 40px 40px;
 }
 
 .text-small {
