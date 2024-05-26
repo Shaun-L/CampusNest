@@ -2,6 +2,8 @@ import { useState } from "react";
 import logo from "../assets/LOGO-nowords.png";
 import { useNavigate } from "react-router-dom";
 
+import './Animation.css';
+
 const Navbar = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const navigate = useNavigate();
@@ -58,7 +60,7 @@ const Navbar = () => {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
               <a href="/">
-                <img className="h-12 w-auto" src={logo} alt="CampusNest logo" />
+                <img className="h-12 w-auto card" src={logo} alt="CampusNest logo" />
               </a>
             </div>
             <div className="hidden sm:ml-6 sm:block">

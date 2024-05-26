@@ -5,6 +5,10 @@ import pic2 from "../assets/pic2.jpg";
 import pic2p2 from "../assets/pic2-2.jpg";
 import pic2p3 from "../assets/pic2-3.jpg";
 import pic2p4 from "../assets/pic2-4.jpg";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 import { db } from "../firebase";
 import {
@@ -26,13 +30,21 @@ const Listing = () => {
 
   const copyEmail = () => {
     // Get the text field
-    const copyText = (listing.seller || "").email || "b";
+    console.log(listing.seller.email)
+    if (listing.seller && listing.seller.email) {
+        const copyText = listing.seller.email ;
 
-    // Copy the text inside the text field
-    navigator.clipboard.writeText(copyText.value);
-
-    // Alert the copied text
-    alert("Copied seller's email: " + copyText.value);
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText);
+    
+        // Alert the copied text
+        toast.success("Copied seller's email: " + copyText, {
+            position: "bottom-center",
+            autoClose: 3000,
+hideProgressBar: true,
+        });
+    }
+    
   };
 
   const save = async () => {
@@ -70,6 +82,7 @@ const Listing = () => {
     const querySnapshot = await getDoc(doc(db, "listings", id));
     if (querySnapshot.exists()) {
       setListing(querySnapshot.data());
+      console.log(querySnapshot.data())
     }
   };
 
@@ -113,7 +126,7 @@ const Listing = () => {
                   <img
                     src={listing.imageList[0]}
                     alt="lite"
-                    className="butterfly"
+                    className="butterfly object-cover	"
                   />
                 </div>
               )}
@@ -121,20 +134,20 @@ const Listing = () => {
               <div className="format1">
                 {listing.imageList[1] && (
                   <div className="square">
-                    <img src={listing.imageList[1]} alt="lite" className="t" />
+                    <img src={listing.imageList[1]} alt="lite" className="t object-cover	" />
                   </div>
                 )}
 
                 {listing.imageList[2] && (
                   <div className="square">
-                    <img src={listing.imageList[2]} alt="lite" className="t" />
+                    <img src={listing.imageList[2]} alt="lite" className="t object-cover	" />
                   </div>
                 )}
               </div>
 
               {listing.imageList[3] && (
                 <div className="full">
-                  <img src={listing.imageList[3]} alt="lite" className="idk" />
+                  <img src={listing.imageList[3]} alt="lite" className="idk object-cover	" />
                 </div>
               )}
             </div>
@@ -269,7 +282,7 @@ const Listing = () => {
                 </div>
                 <button
                   onClick={copyEmail}
-                  className="bg-white text-black rounded-full w-full px-6 h-12 text-md flex justify-center items-center"
+                  className="card bg-white text-black rounded-full w-full px-6 h-12 text-md flex justify-center items-center"
                 >
                   <p>Contact</p>
                 </button>
@@ -329,6 +342,7 @@ const Listing = () => {
               <Map />
             </div>
           </div>
+          <ToastContainer />
         </span>
       )}
     </div>

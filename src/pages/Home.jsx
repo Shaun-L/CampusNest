@@ -93,9 +93,9 @@ const Home = () => {
             <h2 className="text-3xl font-bold my-8">
               What Makes Us Different:
             </h2>
-            <h2 className="text-2xl my-4">Find the housing that suits you</h2>
+            <h2 className="text-2xl my-4">Find the housing that suits you.</h2>
             <h2 className="text-2xl my-4">
-              No more posting on social media or worrying about lease offers
+              No more posting on social media or worrying about lease offers.
             </h2>
           </div>
         </div>
@@ -108,7 +108,7 @@ const Home = () => {
               preferences.{" "}
             </h2>
             <h2 className="text-2xl my-4">
-              CampusNet will make finding housing stress-free
+              CampusNet will make finding housing stress-free.
             </h2>
           </div>
 
