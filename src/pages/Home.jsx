@@ -5,7 +5,7 @@ import pic3 from "../assets/pic3.jpg";
 import pic4 from "../assets/pic4.jpg";
 import infop1 from "../assets/infop1.png";
 import infop2 from "../assets/infop2.jpg";
-import sky from "../assets/sky5.png";
+import sky from "../assets/house.jpg";
 
 // import SearchBar from "../components/SearchBar"
 // import infop1 from "../assets/infop1.png";
