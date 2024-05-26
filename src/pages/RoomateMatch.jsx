@@ -283,8 +283,10 @@ const RoommateMatch = () => {
 
       {/* Display filtered roommates */}
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-        {filteredRoommates.map((roommate) => (
-          <div key={roommate.id} className="border p-4 bg-gray-200 text-black rounded-lg">
+        {filteredRoommates.map((roommate, index) => {
+          const animationDelay = `delay-${index+1}`
+          
+          return (<div key={roommate.id} className={"border p-4 bg-gray-200 text-black rounded-lg card fadeInBottom cssanimation " + animationDelay}>
             <h2 className="text-xl font-bold">{roommate.name}</h2>
             <p>Email: <a href={`mailto:${roommate.email}`} className="underline" onClick={() => handleEmailClick(roommate.email)}>{roommate.email}</a></p>
             <p>Gender: {roommate.gender}</p>
@@ -300,8 +302,8 @@ const RoommateMatch = () => {
             <p>Pets: {roommate.pets ? "Yes" : "No"}</p>
             <p>Pool: {roommate.pool ? "Yes" : "No"}</p>
             <p>Roommate Preference: {roommate.roommatePref}</p>
-          </div>
-        ))}
+          </div>);
+        })}
       </div>
     </div>
     </div>
