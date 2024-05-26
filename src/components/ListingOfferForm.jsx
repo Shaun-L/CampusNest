@@ -332,13 +332,6 @@ const ListingOfferForm = () => {
                 id="university"
                 name="university"
                 autoComplete="university"
-<<<<<<< HEAD
-                value={university}
-                onChange={(e) => setUniversity(e.target.value)}
-                required
-                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
-              />
-=======
                 className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={university}
                 onChange={handleUniversityChange}
@@ -351,7 +344,6 @@ const ListingOfferForm = () => {
                 <option value="USC">USC</option>
   
               </select>
->>>>>>> 687ec27bb1b17302d0677a3c5ce2d02e55dabca2
             </div>
           </div>
 
@@ -686,11 +678,7 @@ const ListingOfferForm = () => {
           <div className="flex justify-center my-4">
             <button
               type="submit"
-<<<<<<< HEAD
               className="rounded-full bg-white text-black px-6 py-2  text-xl font-light whitetext- shadow-sm hover:bg-gray-400 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-=======
-              className="card rounded-full bg-white text-black px-6 py-2  text-xl font-medium whitetext- shadow-sm hover:bg-yellow-400 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
->>>>>>> 687ec27bb1b17302d0677a3c5ce2d02e55dabca2
             >
               Submit
             </button>

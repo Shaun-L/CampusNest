@@ -36,7 +36,6 @@ const Home = () => {
   return (
     <div>
       <div className="top-halfp1">
-<<<<<<< HEAD
 
         <div className='format-logop1'>
         <img src={sky} alt="lite" className="logo" />
@@ -60,18 +59,6 @@ const Home = () => {
 
 
 
-=======
-        <div className="format-logop1">
-          <img src={homep2} alt="lite" className="logop1" />
-        </div>
-
-        <div className="search-func">
-          <div className="format-logo fadeInBottom cssanimation">
-            {/* <img src={LOGO1} alt="lite" className="logo animate-pulse transition" /> */}
-            <img src={LOGO1} alt="lite" className="logo " />
-          </div>
-        </div>
->>>>>>> 687ec27bb1b17302d0677a3c5ce2d02e55dabca2
       </div>
 
       <div className="top-halfp2">
@@ -80,54 +67,32 @@ const Home = () => {
 
           {/* <div className="main-search">
             <SearchBar data={data}></SearchBar>
-<<<<<<< HEAD
           </div> */}
 
-=======
           </div>
->>>>>>> 687ec27bb1b17302d0677a3c5ce2d02e55dabca2
         </div>
 
         <div className="image-container">
-<<<<<<< HEAD
 
+          <div className='format-pics fadeInBottom cssanimation delay-1'>
+            <img src={pic1} alt="lite" className="flyyy card" />
 
-          <div className='format-pics'>
-            <img src={pic1} alt="lite" className="flyyy" />
-
-=======
-          <div className="format-pics  fadeInBottom cssanimation delay-1	">
-            <img src={pic1} alt="lite" className="butterfly card" />
->>>>>>> 687ec27bb1b17302d0677a3c5ce2d02e55dabca2
-          </div>
 
           <div className="format-pics  fadeInBottom cssanimation delay-2	">
             <a href="/listing/1">
-<<<<<<< HEAD
-              <img src={pic2} alt="lite" className="flyyy" />
-            </a>
-          </div>
-
-          <div className='format-pics'>
-            <img src={pic3} alt="lite" className="flyyy" />
-          </div>
-
-          <div className='format-pics'>
-            <img src={pic4} alt="lite" className="flyyy" />
-=======
-              <img src={pic2} alt="lite" className="butterfly card" />
+              <img src={pic2} alt="lite" className="flyyy card" />
             </a>
           </div>
 
           <div className="format-pics  fadeInBottom cssanimation delay-3	">
-            <img src={pic3} alt="lite" className="butterfly card" />
+            <img src={pic3} alt="lite" className="flyyy card" />
           </div>
 
           <div className="format-pics  fadeInBottom cssanimation transition delay-4">
-            <img src={pic4} alt="lite" className="butterfly card" />
->>>>>>> 687ec27bb1b17302d0677a3c5ce2d02e55dabca2
+            <img src={pic4} alt="lite" className="flyyy card" />
           </div>
         </div>
+        
       </div>
 
       <div className="bottom-half">
