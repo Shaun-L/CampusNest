@@ -24,6 +24,10 @@ const RoommateMatch = () => {
     getRoommates();
   }, []);
 
+  const handleEmailClick = (email) => {
+    window.location.href = `mailto:${email}`;
+  }
+
   const getRoommates = async () => {
     const roommatesRef = collection(db, "users");
     const querySnapshot = await getDocs(roommatesRef);
@@ -289,7 +293,7 @@ const RoommateMatch = () => {
         {filteredRoommates.map((roommate) => (
           <div key={roommate.id} className="border p-4 rounded-lg">
             <h2 className="text-xl font-bold">{roommate.name}</h2>
-            <p>Email: {roommate.email}</p>
+            <p>Email: <a href={`mailto:${roommate.email}`} className="underline" onClick={() => handleEmailClick(roommate.email)}>{roommate.email}</a></p>
             <p>Gender: {roommate.gender}</p>
             <p>Major: {roommate.major}</p>
             <p>University: {roommate.university}</p>
