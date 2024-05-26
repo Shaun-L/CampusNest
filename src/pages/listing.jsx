@@ -219,32 +219,32 @@ hideProgressBar: true,
                     <h2 className="cost text-2xl font-semibold">Tags</h2>
                     <div className="text-end flex justify-end items-center gap-4">
                       {listing.petTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>Pet Friendly</p>
                         </div>
                       )}
                       {listing.femaleTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>All Female Household</p>
                         </div>
                       )}
                       {listing.lgbtqFriendlyTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>LGBTQ Friendly</p>
                         </div>
                       )}
                       {listing.safeTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>Safe Area at Night</p>
                         </div>
                       )}
                       {listing.furnishedTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>Already furnished</p>
                         </div>
                       )}
                       {listing.poolTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>Pool ammenities</p>
                         </div>
                       )}
