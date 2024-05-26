@@ -22,7 +22,7 @@ const SearchBar = ({ data }) => {
         type="text"
         value={searchTerm}
         onChange={handleSearch}
-        placeholder="Search School..."
+        placeholder="Search ..."
       />
       {searchTerm && (
         <div className="results">

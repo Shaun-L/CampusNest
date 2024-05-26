@@ -7,7 +7,13 @@ import infop1 from "../assets/infop1.png"
 import infop2 from "../assets/infop2.jpg"
 import SearchBar from "../components/SearchBar"
 import { useEffect } from "react";
-import LOGO1 from "../assets/LOGO1.png"
+
+
+import LOGO1 from "../assets/LOGO3.png"
+import homep2 from "../assets/homep2.png"
+
+// import home1 from "../assets/homep1.png"
+// import LOGO1 from "../assets/LOGO1.png"
 import { useNavigate } from "react-router-dom";
 
 
@@ -33,25 +39,41 @@ const Home = () => {
 
       <div className="top-halfp1">
 
-        <div className='format-logo'>
-            <img src={LOGO1} alt="lite" className="logo" />
+        <div className='format-logop1'>
+          <img src={homep2} alt="lite" className="logop1" />
         </div>
 
-        <div className="main-search">
-          <SearchBar data = {data}></SearchBar>
+        <div className="search-func">
+
+          <div className='format-logo'>
+            <img src={LOGO1} alt="lite" className="logo" />
+          </div>
+
+
         </div>
+
+
 
       </div>
-      
+
       <div className="top-halfp2">
-        <h2 className="subheader">Our Listings </h2>
+        
+        <div className="search-top">
+          <h2 className="subheader">Listings </h2>
+
+          <div className="main-search">
+            <SearchBar data={data}></SearchBar>
+          </div>
+
+        </div>
+
 
         <div className="image-container">
-          
-          
+
+
           <div className='format-pics'>
-              <img src={pic1} alt="lite" className="butterfly" />
-            
+            <img src={pic1} alt="lite" className="butterfly" />
+
           </div>
 
 
@@ -107,10 +129,10 @@ const Home = () => {
 
     </div>
 
- 
-    
 
-    );
+
+
+  );
 };
 
 export default Home;
