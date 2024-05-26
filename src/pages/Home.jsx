@@ -115,7 +115,7 @@ const Home = () => {
           </div>
 
           <div className="text text-end">
-            <h2 className="text-3xl font-bold my-8 text-yellow-400">
+            <h2 className="text-3xl font-bold my-8">
               What Makes Us Different:
             </h2>
             <h2 className="text-2xl my-4">Find the housing that suits you.</h2>
@@ -127,7 +127,7 @@ const Home = () => {
 
         <div className="informational-2">
           <div className="text">
-            <h2 className="text-3xl font-bold my-8 text-yellow-400">Our Features:</h2>
+            <h2 className="text-3xl font-bold my-8 ">Our Features:</h2>
             <h2 className="text-2xl my-4">
               All you have to do is search your school and look for your
               preferences.{" "}
