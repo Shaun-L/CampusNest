@@ -34,7 +34,7 @@ const Home = () => {
       </div>
       
       <div className="top-halfp2">
-        <h2 className="subheader">Our Listings</h2>
+        <h2 className="subheader">Our Listings </h2>
 
         <div className="image-container">
           
@@ -80,9 +80,9 @@ const Home = () => {
 
         <div className="informational-2">
           <div className="text">
-            <h2 className="info">What Makes Us Different:</h2>
-            <h2 className="info">Find your housing all in one place</h2>
-            <h2 className="info">with HouseLink no more posting on social media or reaching out to your friends</h2>
+            <h2 className="info">Our Features:</h2>
+            <h2 className="info">All you have to do is search your school and look for your preferences. </h2>
+            <h2 className="info">CampusNet will make finding housing stress free</h2>
           </div>
 
           <div className="info-pic">
