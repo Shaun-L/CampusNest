@@ -19,8 +19,10 @@ const LoginForm = () => {
       if (querySnapshot.empty) {
         alert('Invalid username or password')
       } else {
-        // redirect("/Home")
         alert('Valid entry!')
+        querySnapshot.forEach((doc) => {
+          localStorage.setItem('userid', doc.id);
+        })
         navigate('/')
       }
     } catch (error) {
@@ -71,14 +73,20 @@ const LoginForm = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-
           </div>
         </div>
         {/* *Make this look better* */}
-        <button type="submit">Sign In</button>
+        <div className="flex justify-center my-4">
+            <button
+              type="submit"
+              className="rounded-full bg-violet-200 px-8 py-2 text-md font-semibold text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Sign In
+            </button>
+          </div>
       </form>
     </div>
   );
-}
+};
 
 export default LoginForm;

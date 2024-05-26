@@ -99,14 +99,15 @@ const ListingOfferForm = () => {
       setImageList([]);
 
       
+      alert('Submitted listing!');
+      // navigate to individual listing page
     } catch (e) {
       console.error("Error adding document: ", e)
     }
-
-  };
+  }
 
   return (
-    <div className="mx-auto py-8 px-8 w-1/2 bg-indigo-100 rounded-xl">
+    <div className="mx-auto py-8 my-4 px-8 w-1/2 bg-blue-100 rounded-xl">
       <form onSubmit={onSubmit}>
         <h1 className="text-2xl font-semibold text-center">Offer Listing</h1>
         <div className="flex flex-col">
@@ -171,7 +172,7 @@ const ListingOfferForm = () => {
               />
             </div>
           </div>
-          <div className="grid grid-cols-6 gap-4">
+          <div className="grid grid-cols-6 gap-4 my-2">
             <div class="sm:col-span-2 sm:col-start-1">
               <label
                 for="city"
@@ -400,8 +401,8 @@ const ListingOfferForm = () => {
 
           {/* price range */}
           <div className="sm:col-span-3 my-4 w-full">
-            <div className="mt-2 flex">
-              <div>
+            <div className="grid grid-cols-2 gap-4 my-2">
+              <div className="col-span-1">
                 <label
                   htmlFor="bedrooms"
                   className="block text-md font-semibold leading-6 text-gray-900"
@@ -420,7 +421,7 @@ const ListingOfferForm = () => {
                   className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 />
               </div>
-              <div>
+              <div className="col-span-1">
                 <label
                   htmlFor="bathrooms"
                   className="block text-md font-semibold leading-6 text-gray-900"
@@ -462,42 +463,6 @@ const ListingOfferForm = () => {
                 <option value="Single">Single</option>
                 <option value="Shared">Shared</option>
               </select>
-            </div>
-          </div>
-
-          {/* include roommate info */}
-          <legend className="text-md font-semibold leading-6 text-gray-900 mt-4">
-            Include your personal preferences on listing
-          </legend>
-          {/* <p className="mt-1 text-sm leading-6 text-gray-600">These are delivered via SMS to your mobile phone.</p> */}
-          <div className="my-2 space-y-2">
-            <div className="flex items-center gap-x-3">
-              <input
-                id="yes"
-                name="include-personal"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-              />
-              <label
-                htmlFor="yes"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Yes
-              </label>
-            </div>
-            <div className="flex items-center gap-x-3">
-              <input
-                id="no"
-                name="include-personal"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-              />
-              <label
-                htmlFor="no"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                No
-              </label>
             </div>
           </div>
 

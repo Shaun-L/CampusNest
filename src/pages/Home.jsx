@@ -6,22 +6,13 @@ import pic4 from "../assets/pic4.jpg";
 import infop1 from "../assets/infop1.png"
 import infop2 from "../assets/infop2.jpg"
 import SearchBar from "../components/SearchBar"
-import LOGO from "../assets/LOGO.png"
-import { useEffect, useNavigate } from "react";
+import { useEffect } from "react";
+import LOGO1 from "../assets/LOGO1.png"
 
 
 import './Home.css';
 
 const Home = () => {
-  // const navigate = useNavigate();
-
-  useEffect(() => {
-    // if (localStorage.getItem('user') === null) {
-    //   navigate('/login');
-    // }
-  }, []);
-
-
   const data = [
     'UC Irvine',
     'UCLA',
@@ -33,7 +24,7 @@ const Home = () => {
       <div className="top-halfp1">
 
         <div className='format-logo'>
-            <img src={LOGO} alt="lite" className="logo" />
+            <img src={LOGO1} alt="lite" className="logo" />
         </div>
 
         <div className="main-search">
@@ -43,15 +34,21 @@ const Home = () => {
       </div>
       
       <div className="top-halfp2">
-        <h2 className="subheader">Our Listings</h2>
+        <h2 className="subheader">Our Listings </h2>
 
         <div className="image-container">
+          
+          
           <div className='format-pics'>
-            <img src={pic1} alt="lite" className="butterfly" />
+              <img src={pic1} alt="lite" className="butterfly" />
+            
           </div>
 
+
           <div className='format-pics'>
-            <img src={pic2} alt="lite" className="butterfly" />
+            <a href="/listing/1">
+              <img src={pic2} alt="lite" className="butterfly" />
+            </a>
           </div>
 
           <div className='format-pics'>
@@ -83,9 +80,9 @@ const Home = () => {
 
         <div className="informational-2">
           <div className="text">
-            <h2 className="info">What Makes Us Different:</h2>
-            <h2 className="info">Find your housing all in one place</h2>
-            <h2 className="info">with HouseLink no more posting on social media or reaching out to your friends</h2>
+            <h2 className="info">Our Features:</h2>
+            <h2 className="info">All you have to do is search your school and look for your preferences. </h2>
+            <h2 className="info">CampusNet will make finding housing stress free</h2>
           </div>
 
           <div className="info-pic">

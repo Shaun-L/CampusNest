@@ -122,13 +122,14 @@ p, h2, h3 {
 
 
 .bottom-half{
-    margin-top: 400px;
+    margin-top: 250px;
 }
 
 .subheader {
     font-size:25px;
     color:black;
     margin-left: 50px;
+    margin-bottom: 20px;
 }
 
 .image-container{ 
