@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import RoommateMatch from "./pages/RoomateMatch";
 
 import Navbar from "./components/Navbar";
-import Listing from "./pages/Listing"
+import Listing from "./pages/listing"
 import "./App.css";
 
 

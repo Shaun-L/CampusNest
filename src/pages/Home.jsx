@@ -1,11 +1,11 @@
 import { useState } from "react";
-import pic1 from "../assets/pic2.jpg";
+import pic1 from "../assets/pic1.jpg";
 import pic2 from "../assets/pic2.jpg";
 import pic3 from "../assets/pic3.jpg";
 import pic4 from "../assets/pic4.jpg";
 import infop1 from "../assets/infop1.png";
 import infop2 from "../assets/infop2.jpg";
-import sky from "../assets/house.jpg";
+import sky from "../assets/sky5.png";
 
 // import SearchBar from "../components/SearchBar"
 // import infop1 from "../assets/infop1.png";
@@ -24,6 +24,10 @@ import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
+
+  const goToListing = () => {
+    navigate("listing/STb2paKL2QaqF4vPo0Iu")
+  }
 
   useEffect(() => {
     const userid = localStorage.getItem("userid");
@@ -69,26 +73,20 @@ const Home = () => {
 
       <div className="image-container">
         <div className=" fadeInBottom cssanimation delay-1">
-          <a href="/listing/STb2paKL2QaqF4vPo0Iu">
-            <img src={pic1} alt="lite" className="flyyy card" />
-          </a>
+          <img src={pic1} alt="lite" onClick={goToListing} className="flyyy card" />
         </div>
         <div className="  fadeInBottom cssanimation delay-2	">
-          <a href="/listing/STb2paKL2QaqF4vPo0Iu">
-            <img src={pic2} alt="lite" className="flyyy card" />
+          <a href="/listing/1">
+            <img src={pic2} alt="lite" onClick={goToListing} className="flyyy card" />
           </a>
         </div>
 
         <div className="  fadeInBottom cssanimation delay-3	">
-          <a href="/listing/STb2paKL2QaqF4vPo0Iu">
-            <img src={pic3} alt="lite" className="flyyy card" />
-          </a>
+          <img src={pic3} alt="lite" onClick={goToListing} className="flyyy card" />
         </div>
 
         <div className="  fadeInBottom cssanimation transition delay-4">
-          <a href="/listing/STb2paKL2QaqF4vPo0Iu">
-            <img src={pic4} alt="lite" className="flyyy card" />
-          </a>
+          <img src={pic4} alt="lite" onClick={goToListing} className="flyyy card" />
         </div>
       </div>
 

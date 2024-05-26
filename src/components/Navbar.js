@@ -69,21 +69,21 @@ const Navbar = () => {
               <div className="flex space-x-4 my-4">
                 <a
                   href="/browse"
-                  className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
+                  className="text-white-800 hover:bg-gray-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
                   aria-current="page"
                 >
                   Browse
                 </a>
                 <a
                   href="/offer"
-                  className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
+                  className="text-white-800 hover:bg-gray-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
                 >
                   Offer
                 </a>
                 {/* Roommate Finder Link */}
                 <a
                   href="/rm"
-                  className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
+                  className="text-white-800 hover:bg-gray-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
                 >
                   Roommate Finder
                 </a>
@@ -170,7 +170,7 @@ const Navbar = () => {
           {/* Roommate Finder Link */}
           <a
             href="/rm"
-            className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
+            className="text-white-800 hover:bg-gray-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
             >
             Roommate Finder
             </a>
