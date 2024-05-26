@@ -22,6 +22,7 @@ const UserAccountForm = () => {
   const[femaleHousehold, setFemaleHousehold] = useState(false);
   const[lgbtqFriendly, setLgbtqFriendly] = useState(false);
   const[furnished, setFurnished] = useState(false);
+  const [safe, setSafe] = useState(false);
   const[pool, setPool] = useState(false);
   const[error, setError] = useState(false);
   const navigate = useNavigate();
@@ -68,6 +69,7 @@ const UserAccountForm = () => {
         pets,
         femaleHousehold,
         lgbtqFriendly,
+        safe,
         pool,
         furnished
       });
@@ -81,14 +83,17 @@ const UserAccountForm = () => {
   };
 
   return (
-    <div className="mx-auto py-8 px-8 w-1/2 bg-indigo-100 rounded-xl">
+    <div className="mx-auto py-8 px-8 w-1/2 rounded-xl">
       <form onSubmit={onSubmit}>
-        <h1 className="text-2xl font-semibold text-center">Create Account</h1>
+        <h1 className="text-4xl font-medium text-center">Create Account</h1>
+        <p className="text-center w-full my-8">
+        Already have an account? <a href="/login" className="text-yellow-400">Log in</a>
+      </p>
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="username"
-              className="block text-md font-semibold leading-6 text-gray-900"
+              className="block text-md font-medium leading-6 text-white"
             >
               Username
             </label>
@@ -98,7 +103,7 @@ const UserAccountForm = () => {
                 name="username"
                 id="username"
                 autoComplete="username"
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
@@ -108,7 +113,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="password"
-              className="block text-md font-semibold leading-6 text-gray-900"
+              className="block text-md font-medium leading-6 text-white"
             >
               Password
             </label>
@@ -118,7 +123,7 @@ const UserAccountForm = () => {
                 name="password"
                 id="password"
                 autoComplete="password"
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -126,16 +131,16 @@ const UserAccountForm = () => {
             </div>
           </div>
 
-          <hr class="my-6 h-0.5 border-t-0 bg-black" />
+          <hr class="my-6 h-0.5 border-t-0 bg-white" />
 
-          <h2 className="text-xl font-semibold my-4">Personal Information</h2>
+          <h2 className="text-2xl font-medium my-4">Personal Information</h2>
 
           {/* name */}
 
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="name"
-              className="block text-md font-semibold leading-6 text-gray-900"
+              className="block text-md font-medium leading-6 text-white"
             >
               Name
             </label>
@@ -145,7 +150,7 @@ const UserAccountForm = () => {
                 name="name"
                 id="name"
                 autoComplete="name"
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -155,7 +160,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="name"
-              className="block text-md font-semibold leading-6 text-gray-900"
+              className="block text-md font-medium leading-6 text-white"
             >
               Email
             </label>
@@ -165,7 +170,7 @@ const UserAccountForm = () => {
                 name="name"
                 id="name"
                 autoComplete="name"
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -174,7 +179,7 @@ const UserAccountForm = () => {
           </div>
 
           <div className='my-4'>
-          <legend className="text-md font-semibold leading-6 text-gray-900  ">
+          <legend className="text-md font-medium leading-6 text-white  ">
             Gender
           </legend>
           {/* <p className="mt-1 text-sm leading-6 text-gray-600">These are delivered via SMS to your mobile phone.</p> */}
@@ -190,7 +195,7 @@ const UserAccountForm = () => {
               />
               <label
                 htmlFor="push-everything"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-white"
               >
                 Female
               </label>
@@ -206,7 +211,7 @@ const UserAccountForm = () => {
               />
               <label
                 htmlFor="push-username"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-white"
               >
                 Male
               </label>
@@ -222,7 +227,7 @@ const UserAccountForm = () => {
               />
               <label
                 htmlFor="push-nothing"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-white"
               >
                 Transgender
               </label>
@@ -238,7 +243,7 @@ const UserAccountForm = () => {
               />
               <label
                 htmlFor="push-nothing"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-white"
               >
                 Non-binary
               </label>
@@ -254,7 +259,7 @@ const UserAccountForm = () => {
               />
               <label
                 htmlFor="push-nothing"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-white"
               >
                 Other
               </label>
@@ -266,7 +271,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="university"
-              className="block text-md font-semibold leading-6 text-gray-900"
+              className="block text-md font-medium leading-6 text-white"
             >
               University
             </label>
@@ -275,7 +280,7 @@ const UserAccountForm = () => {
                 id="university"
                 name="university"
                 autoComplete="university"
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={university}
                 onChange={handleUniversityChange}
                 required
@@ -294,7 +299,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="year"
-              className="block text-md font-semibold leading-6 text-gray-900"
+              className="block text-md font-medium leading-6 text-white"
             >
               Year
             </label>
@@ -303,7 +308,7 @@ const UserAccountForm = () => {
                 id="year"
                 name="year"
                 autoComplete="year-name"
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 value={year}
                 onChange={handleYearChange}
                 required
@@ -321,7 +326,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="last-name"
-              className="block text-md font-semibold leading-6  text-gray-900"
+              className="block text-md font-medium leading-6  text-white"
             >
               Major
             </label>
@@ -334,20 +339,20 @@ const UserAccountForm = () => {
                 value={major}
                 onChange={(e) => setMajor(e.target.value)}
                 required
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
 
-          <hr class="my-6 h-0.5 border-t-0 bg-black" />
+          <hr class="my-6 h-0.5 border-t-0 bg-white" />
 
-          <h2 className="text-xl font-semibold my-4">Housing Preferences</h2>
+          <h2 className="text-2xl font-medium my-4">Housing Preferences</h2>
 
           {/* distance preference */}
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="distance-pref"
-              className="block text-md font-semibold leading-6 text-gray-900 "
+              className="block text-md font-medium leading-6 text-white "
             >
               Maximum Distance from School (in miles)
             </label>
@@ -358,7 +363,7 @@ const UserAccountForm = () => {
                 id="distance-pref"
                 min="0"
                 autoComplete="distance-pref"
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={distance}
                 onChange={(e) => setDistance(e.target.value)}
                 required
@@ -367,15 +372,15 @@ const UserAccountForm = () => {
           </div>
           {/* price range */}
           <div className="sm:col-span-3 my-4 w-full">
-            <label className="block text-md font-semibold leading-6 text-gray-900 ">
+            <label className="block text-md font-medium leading-6 text-white ">
               Rent Price Range
             </label>
 
-            <div className="mt-2 flex">
+            <div className="mt-2 flex space-between gap-4">
               <div>
                 <label
                   htmlFor="price-range"
-                  className="block text-md font-semibold leading-6 text-gray-900"
+                  className="block text-md font-medium leading-6 text-white"
                 >
                   Min
                 </label>
@@ -385,7 +390,7 @@ const UserAccountForm = () => {
                   id="price-range-min"
                   min="0"
                   autoComplete="price-range-min"
-                  className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                  className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                   value={minPrice}
                   onChange={(e) => setMinPrice(e.target.value)}
                   required
@@ -394,7 +399,7 @@ const UserAccountForm = () => {
               <div>
                 <label
                   htmlFor="price-range"
-                  className="block text-md font-semibold leading-6 text-gray-900"
+                  className="block text-md font-medium leading-6 text-white"
                 >
                   Max
                 </label>
@@ -404,7 +409,7 @@ const UserAccountForm = () => {
                   id="price-range"
                   min="0"
                   autoComplete="price-range-min"
-                  className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                  className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                   value={maxPrice}
                   onChange={(e) => setMaxPrice(e.target.value)}
                   required
@@ -416,7 +421,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="roommate-type"
-              className="block text-md font-semibold leading-6 text-gray-900 mt-2"
+              className="block text-md font-medium leading-6 text-white mt-2"
             >
               Roommate Preference
             </label>
@@ -425,7 +430,7 @@ const UserAccountForm = () => {
                 id="roommate-type"
                 name="roommate-type"
                 autoComplete="roommate-type"
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 value={roomatePref}
                 onChange={handleRoomatePreference}
                 required
@@ -439,8 +444,8 @@ const UserAccountForm = () => {
           </div>
 
           <fieldset className="my-4">
-            <legend className="text-md font-semibold leading-6 text-gray-900">
-              Tags
+            <legend className="text-md font-medium leading-6 text-white">
+              Other Preferences
             </legend>
             <div className="mt-2 space-y-2">
               <div className="relative flex gap-x-3">
@@ -457,9 +462,9 @@ const UserAccountForm = () => {
                 <div className="text-sm leading-6">
                   <label
                     htmlFor="petfriendly"
-                    className="font-medium text-gray-900"
+                    className="font-medium text-white"
                   >
-                    Owns Pet(s)
+                    Pet-Friendly
                   </label>
                 </div>
               </div>
@@ -475,8 +480,8 @@ const UserAccountForm = () => {
                   />
                 </div>
                 <div className="text-sm leading-6">
-                  <label htmlFor="all-female" className="font-medium text-gray-900">
-                    Prefer All-Female Household
+                  <label htmlFor="all-female" className="font-medium text-white">
+                    All-Female Household
                   </label>
                 </div>
               </div>
@@ -492,8 +497,25 @@ const UserAccountForm = () => {
                   />
                 </div>
                 <div className="text-sm leading-6">
-                  <label htmlFor="lgbtq" className="font-medium text-gray-900">
-                    Prefer LGBTQ-Friendly
+                  <label htmlFor="lgbtq" className="font-medium text-white">
+                    LGBTQ-Friendly
+                  </label>
+                </div>
+              </div>
+              <div className="relative flex gap-x-3">
+                <div className="flex h-6 items-center">
+                  <input
+                    id="pool"
+                    name="pool"
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    checked={safe}
+                    onChange={(e) => setSafe(e.target.checked)}
+                  />
+                </div>
+                <div className="text-sm leading-6">
+                  <label htmlFor="pool" className="font-medium text-white">
+                    Safe at Night
                   </label>
                 </div>
               </div>
@@ -509,7 +531,7 @@ const UserAccountForm = () => {
                   />
                 </div>
                 <div className="text-sm leading-6">
-                  <label htmlFor="furnished" className="font-medium text-gray-900">
+                  <label htmlFor="furnished" className="font-medium text-white">
                     Furnished
                   </label>
                 </div>
@@ -526,8 +548,8 @@ const UserAccountForm = () => {
                   />
                 </div>
                 <div className="text-sm leading-6">
-                  <label htmlFor="pool" className="font-medium text-gray-900">
-                    Pool
+                  <label htmlFor="pool" className="font-medium text-white">
+                    Prefer Pool
                   </label>
                 </div>
               </div>
@@ -537,7 +559,7 @@ const UserAccountForm = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="rounded-md bg-indigo-600 px-3 py-2  text-md font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="rounded-full bg-white my-4 py-2  text-md font-medium text-black px-6 shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Submit
             </button>
