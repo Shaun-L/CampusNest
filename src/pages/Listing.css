@@ -1,7 +1,7 @@
-.container {
-    /* display: flex;
-    justify-content: center; Center the images horizontally */
-    /* gap: 60px; */
+.cont1 {
+    display: flex;
+    justify-content: center; /* Center the images horizontally */
+    gap: 40px;
     margin:10px 
 }
 
@@ -12,7 +12,7 @@
 
 .butterfly {
     width: 700px; /* Set a fixed width for all images */
-    height: 500px; /* Set a fixed height for all images */
+    height: 600px; /* Set a fixed height for all images */
     object-fit: cover; 
     border-radius: 10%;
     /* border: solid 2px black; */
@@ -34,14 +34,20 @@
     margin-bottom: 10px;
 }
 
-.save-but {
-    margin-top: 300px;
+.save-butt {
     border-radius: 10px;
-    width: 120px;
+    width: 100%;
     height: 30px;
-    color: black;
-    background: grey;
+    color: white;
+    background: black;
+    border: 1px solid white; 
+    margin-top: 50px;
 }
+.save-butt:hover {
+    background-color: #66909a;
+    color: white;
+  }
+  
 
 .apartment-name {
     font-size: 24px; /* Adjust the font size as needed */
@@ -61,5 +67,43 @@ margin-bottom: 10px;
 .small {
     margin-bottom: 10px;
     
+
+}
+
+.cont2{ 
+    display: flex;
+    justify-content: center; /* Center the images horizontally */
+    gap: 60px;
+    margin:10px 
+
+}
+
+
+.format1{
+    display: flex;
+    flex-direction: column;
+}
+
+.square {
+    width: 350px;
+    height: 280px;
+    object-fit: cover; 
+    margin-bottom: 50px;
+
+
+}
+
+.t {
+    width: 350px; /* Set a fixed width for all images */
+    height: 280px; 
+    border-radius: 10px;
+
+}
+
+.idk {
+    width: 600px; /* Set a fixed width for all images */
+    height: 500px; 
+    border-radius: 10px;
+
 
 }

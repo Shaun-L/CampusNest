@@ -5,7 +5,7 @@ const Navbar = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
   return (
-    <nav className="bg-white">
+    <nav className="bg-black">
       <div className="mx-auto w-full px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-24 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -62,14 +62,14 @@ const Navbar = () => {
               <div className="flex space-x-4 my-4">
                 <a
                   href="/browse"
-                  className="text-gray-800 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
+                  className="text-white-800 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
                   aria-current="page"
                 >
                   Browse
                 </a>
                 <a
                   href="/offer"
-                  className="text-gray-800 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
+                  className="text-white-800 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
                 >
                   Offer
                 </a>

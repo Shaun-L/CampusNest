@@ -25,6 +25,7 @@ const ListingOfferForm = () => {
   const[petTag, setPetTag] = useState(false);
   const[femaleTag, setFemaleTag] = useState(false);
   const[lgbtqFriendlyTag, setLgbtqFriendlyTag] = useState(false);
+  const [safeTag, setSafeTag] = useState(false);
   const[furnishedTag, setFurnishedTag] = useState(false);
   const[poolTag, setPoolTag] = useState(false);
   const navigate = useNavigate();
@@ -116,7 +117,10 @@ const ListingOfferForm = () => {
         poolTag,
         seller: {
           name: seller.name,
-          email: seller.email || ''
+          email: seller.email || '',
+          gender: seller.gender || '',
+          year: seller.year || '',
+          major: seller.major || ''
         },
         imageList
       });
@@ -579,6 +583,26 @@ const ListingOfferForm = () => {
                     id="furnished"
                     name="furnished"
                     type="checkbox"
+                    checked={safeTag}
+                    onChange={(e) => setSafeTag(e.target.checked)}
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                </div>
+                <div className="text-sm leading-6">
+                  <label
+                    htmlFor="furnished"
+                    className="font-medium text-gray-900"
+                  >
+                    Safe at Night
+                  </label>
+                </div>
+              </div>
+              <div className="relative flex gap-x-3">
+                <div className="flex h-6 items-center">
+                  <input
+                    id="furnished"
+                    name="furnished"
+                    type="checkbox"
                     checked={furnishedTag}
                     onChange={(e) => setFurnishedTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
@@ -610,6 +634,7 @@ const ListingOfferForm = () => {
                   </label>
                 </div>
               </div>
+              
             </div>
           </fieldset>
           <div className="sm:col-span-3 my-4 w-full">

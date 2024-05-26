@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Map from "../components/Map";
 import pic2 from "../assets/pic2.jpg";
+import pic2p2 from "../assets/pic2-2.jpg";
+import pic2p3 from "../assets/pic2-3.jpg";
+import pic2p4 from "../assets/pic2-4.jpg";
+
 
 import { db } from "../firebase";
 import {
@@ -16,22 +20,12 @@ import {
 
 import "./Listing.css";
 
+
+
 const Listing = () => {
   const [listing, setListing] = useState(null);
   const [saved, setSaved] = useState(false);
   const { id } = useParams();
-
-  useEffect(() => {
-    // get listing with id
-    getListing();
-  }, []);
-
-  const getListing = async () => {
-    const querySnapshot = await getDoc(doc(db, "listings", id));
-    if (querySnapshot.exists()) {
-      setListing(querySnapshot.data());
-    }
-  };
 
   const copyClipboard = () => {
     // Get the text field
@@ -64,7 +58,98 @@ const Listing = () => {
     }
   };
 
-  return (
+  function formatDateToMonthYear(dateString) {
+    const date = new Date(dateString);
+    const options = { month: 'long', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+  }
+
+
+  useEffect(() => {
+    // get listing with id
+    getListing();
+  }, []);
+
+  const getListing = async () => {
+    const querySnapshot = await getDoc(doc(db, "listings", id));
+    if (querySnapshot.exists()) {
+      setListing(querySnapshot.data());
+    }
+  };
+
+    return (
+
+        <div className="container">
+
+            <div className="cont1">
+
+                <div className="picture">
+                    <img src={pic2} alt="lite" className="butterfly" />
+                </div>
+
+                <div className="format1">
+                    <div className="square">
+                        <img src={pic2p2} alt="lite" className="t" />
+                    </div>
+
+                    <div className="square">
+                        <img src={pic2p3} alt="lite" className="t" />
+                    </div>
+
+                </div>
+
+                <div className="format2">
+                    <img src={pic2p4} alt="lite" className="idk" />
+
+                    <button className="save-butt">Save Home</button>
+                </div>
+
+                
+                
+
+            </div>
+
+
+            <div className="cont2">
+
+                <div className="stats">
+                    <h2 className="cost">$900/Month</h2>
+                    <h2 className="address">15000 Arroyo Dr, Irvine, CA 92697</h2>
+                    <h2 className="room">Plaza Verde, 2 Bed 2 Bath - Floor Plan A</h2>
+                    {/* <h2 className="contacts">Phone#: 714-XXX-XXXX</h2> */}
+                </div>
+
+                <div className="more-details">
+
+
+                    <h2 className="deats-sub">
+                        <span className="apartment-name">Female</span> Gender Preference
+                    </h2>
+
+                    <h2 className="deats-sub">
+                        <span className="apartment-name">June 2024 - September 2024</span>  Duration
+                    </h2>
+
+                    <h2 className="deats-sub">
+                        <span className="apartment-name">4 mi</span> Distance to School
+                    </h2>
+
+                    <h2 className="deats-sub">
+                        <span className="apartment-name">Is</span> Walking Distance, Furnished
+                    </h2>
+
+                    <h2 className="small">Utilities include internet, gas, water, trash, and parking is available for purchase</h2>
+
+                    <h2 className="small">Contact elise@gmail.com, 714-XXX-XXXX for more details</h2>
+
+                </div>
+
+                </div>
+        </div>
+
+    );
+  
+  {/* return (
     <div>
       {listing && (
         <div className="container w-screen">
@@ -79,19 +164,22 @@ const Listing = () => {
 
             <div className="stats w-3/4 flex mx-auto my-4 justify-center">
               <div className="w-full mx-20">
-                <h2 className="cost text-3xl font-semibold my-4">
-                  {listing.title}
-                </h2>
-                <div className="w-full flex justify-between items-center gap-5 my-2">
-                  <h2 className="text-2xl">
+                <div className="flex justify-between items-center">
+                    <h2 className="cost text-3xl font-semibold my-4">
+                    {listing.title}
+                    </h2>
+                    <h2 className="text-2xl">
                     <span className="font-semibold text-3xl my-2">
                       ${listing.rent}
                     </span>
                     /month
                   </h2>
+                </div>
+                <div className="w-full flex justify-between items-center gap-5 my-2">
+                  
                   <h2 className="text-xl">
-                    {listing.startDate} <span className="text-lg">to</span>{" "}
-                    {listing.endDate}
+                    Lease Term: {formatDateToMonthYear(listing.startDate)} <span className="text-lg">to</span>{" "}
+                    {formatDateToMonthYear(listing.endDate)}
                   </h2>
                 </div>
                 <h2>
@@ -124,7 +212,6 @@ const Listing = () => {
                 </div>
               </div>
 
-              {/* <h2 className="contacts">Phone#: 714-XXX-XXXX</h2> */}
             </div>
           </div>
 
@@ -196,13 +283,10 @@ const Listing = () => {
         <Map />
       </div>
 
-      {/* 
-    <div className="App">
-      <h1>React Mini Map Example</h1>
-      <MyMap></MyMap>
     </div>
-     */}
-    </div>
-  );
+  ); */}
+
+  
+
 };
 export default Listing;
