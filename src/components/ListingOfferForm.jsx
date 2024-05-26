@@ -140,7 +140,7 @@ const ListingOfferForm = () => {
   return (
     <div className="mx-auto py-8 my-4 px-8 w-1/2 sm:max-md:w-5/6 text-white rounded-xl fadeInBottom cssanimation">
       <form onSubmit={onSubmit}>
-        <h1 className="text-4xl font-light text-left text-white mt-10 mb-20">Please fill out the form below to upload an offer</h1>
+        <h1 className="text-4xl font-light text-center text-white my-10">Upload a Listing</h1>
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
             <label
