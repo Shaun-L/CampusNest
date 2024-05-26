@@ -7,6 +7,7 @@ const Browse = () => {
   const [listings, setListings] = useState([]);
   const [filteredListings, setFilteredListings] = useState([]);
   const [savedSet, setSavedSet] = useState(new Set());
+  const [searchQuery, setSearchQuery] = useState("")
 
   const [roomCount, setRoomCount] = useState("");
   const [distance, setDistance] = useState("");
@@ -19,6 +20,10 @@ const Browse = () => {
   };
   const handleGenderChange = (e) => {
     setGenderPreference(e.target.value);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
   };
 
   useEffect(() => {
@@ -65,7 +70,7 @@ const Browse = () => {
 
   useEffect(() => {
     filterListings();
-  }, [distance, rentMax, roomCount, genderPreference, selectedSchool]);
+  }, [distance, rentMax, roomCount, genderPreference, selectedSchool, searchQuery]);
 
   const filterListings = () => {
     let filteredList = [...listings];
@@ -89,6 +94,11 @@ const Browse = () => {
     if (selectedSchool) {
       filteredList = filteredList.filter((listing) => listing.university == selectedSchool);
     }
+    if (searchQuery) {
+      filteredList = filteredList.filter((listing) =>
+        listing.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
 
     setFilteredListings(filteredList);
   };
@@ -109,6 +119,8 @@ const Browse = () => {
             <input
               type="text"
               className="rounded-full border-2 h-full w-full pl-12 border-black"
+              value={searchQuery} // Bind searchQuery state to input value
+              onChange={handleSearchChange}
             />
             <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
               <svg
