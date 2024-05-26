@@ -8,11 +8,11 @@ const Browse = () => {
   const [filteredListings, setFilteredListings] = useState([]);
   const [savedSet, setSavedSet] = useState(new Set());
 
-  const [roomCount, setRoomCount] = useState(null);
-  const [distance, setDistance] = useState(null);
-  const [rentMax, setRentMax] = useState(null);
+  const [roomCount, setRoomCount] = useState("");
+  const [distance, setDistance] = useState("");
+  const [rentMax, setRentMax] = useState("");
   const [genderPreference, setGenderPreference] = useState("");
-  const [selectedSchool, setSelectedSchool] = useState("All");
+  const [selectedSchool, setSelectedSchool] = useState("");
 
   const handleSchoolChange = (e) => {
     setSelectedSchool(e.target.value);
@@ -75,7 +75,7 @@ const Browse = () => {
     }
 
     if (rentMax) {
-      filteredList = filteredList.filter((listing) => listing.rent <= rentMax);
+      filteredList = filteredList.filter((listing) => (listing.rent | 0) <= rentMax);
     }
 
     if (roomCount) {
@@ -167,7 +167,6 @@ const Browse = () => {
               autoComplete="monthly-rent"
               value={rentMax}
               onChange={(e) => setRentMax(e.target.value)}
-              required
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
             />
           </div>
@@ -249,7 +248,7 @@ const Browse = () => {
   {/* grid of apartments */ }
   <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8">
     {filteredListings && filteredListings.map((listing) => {
-      return <ListingCard listing={listing} />;
+      return <ListingCard key={listing.id} listing={listing} />;
     })}
   </div>
       

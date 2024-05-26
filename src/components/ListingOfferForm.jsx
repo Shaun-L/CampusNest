@@ -109,6 +109,7 @@ const ListingOfferForm = () => {
         endDate,
         bedrooms,
         bathrooms,
+        distance,
         roomType,
         petTag,
         femaleTag,
