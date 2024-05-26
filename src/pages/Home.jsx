@@ -44,8 +44,7 @@ const Home = () => {
           {/* <img src={LOGO1} alt="lite" className="logo-home" /> */}
           <h1 className="text-big fadeInBottom cssanimation delay-2">CAMPUS NEST</h1>
           <h1 className="text-small fadeInBottom cssanimation delay-4">
-            CampusNest is your trusted partner in your pursuit of finding
-            housing
+            CampusNest is your trusted partner in your pursuit of housing
           </h1>
         </div>
 
