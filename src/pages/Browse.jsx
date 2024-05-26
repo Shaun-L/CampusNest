@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import ListingCard from "../components/ListingCard";
 import { db } from "../firebase";
-import { collection, doc, getDocs } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 
 const Browse = () => {
-  const [listings, setListings] = useState([]);
+  const [listings, setListings] = useState(null);
   const [filteredListings, setFilteredListings] = useState([]);
+  const [savedSet, setSavedSet] = useState(new Set());
 
   const [distance, setDistance] = useState(null);
   const [rentMax, setRentMax] = useState(null);
@@ -100,19 +101,41 @@ const Browse = () => {
   ];
 
   useEffect(() => {
-    getData();
+    getSaved();
   }, []);
 
-  const getData = async () => {
+  useEffect(() => {
+    getListings();
+  }, [savedSet]);
+
+  const getSaved = async () => {
+    const loggedInUser = localStorage.getItem("userid");
+    if (loggedInUser) {
+      const docRef = doc(db, "users", loggedInUser);
+      const querySnapshot = await getDoc(docRef);
+
+      if (querySnapshot.exists()) {
+        const userData = querySnapshot.data();
+
+        const savedSet = new Set(userData.saved);
+        setSavedSet(savedSet);
+        console.log(savedSet)
+      } 
+    } 
+  }
+
+  const getListings = async () => {
     const listingsRef = collection(db, "listings");
     const querySnapshot = await getDocs(listingsRef);
     
     if (!querySnapshot.empty) {
       let docs = [];
       querySnapshot.forEach((doc) => {
-        docs.push(doc.data());
+        let data = doc.data();
+        data.savedByUser = savedSet && savedSet.has(doc.id);
+        data.id = doc.id;
+        docs.push(data);
       })
-      console.log(docs)
       setListings(docs);
     }
   };
