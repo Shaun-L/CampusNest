@@ -64,6 +64,12 @@ const Listing = () => {
     }
   };
 
+  function formatDateToMonthYear(dateString) {
+    const date = new Date(dateString);
+    const options = { month: 'long', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+  }
+
   return (
     <div>
       {listing && (
@@ -79,19 +85,22 @@ const Listing = () => {
 
             <div className="stats w-3/4 flex mx-auto my-4 justify-center">
               <div className="w-full mx-20">
-                <h2 className="cost text-3xl font-semibold my-4">
-                  {listing.title}
-                </h2>
-                <div className="w-full flex justify-between items-center gap-5 my-2">
-                  <h2 className="text-2xl">
+                <div className="flex justify-between items-center">
+                    <h2 className="cost text-3xl font-semibold my-4">
+                    {listing.title}
+                    </h2>
+                    <h2 className="text-2xl">
                     <span className="font-semibold text-3xl my-2">
                       ${listing.rent}
                     </span>
                     /month
                   </h2>
+                </div>
+                <div className="w-full flex justify-between items-center gap-5 my-2">
+                  
                   <h2 className="text-xl">
-                    {listing.startDate} <span className="text-lg">to</span>{" "}
-                    {listing.endDate}
+                    Lease Term: {formatDateToMonthYear(listing.startDate)} <span className="text-lg">to</span>{" "}
+                    {formatDateToMonthYear(listing.endDate)}
                   </h2>
                 </div>
                 <h2>

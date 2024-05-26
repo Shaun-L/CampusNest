@@ -4,7 +4,7 @@ import './Map.css';
 
 
 const Map = () => {
-    const [center, setCenter] = useState([33.6, 117.8]);
+    const [center, setCenter] = useState([33.6, -117.8]);
   
   return (
     <div className="w-100 h-full rounded">
@@ -21,7 +21,7 @@ const Map = () => {
   <MapContainer
       className="markercluster-map"
       center={center}
-      zoom={4}
+      zoom={12}
       maxZoom={18}
     >
       <TileLayer

@@ -104,7 +104,7 @@ const ListingCard = (props) => {
               {truncate(props.listing.description, 100)}
             </p>
             <p className="text-white text-sm text-center">
-              <span className="font-bold">
+              <span className="">
                 ${props.listing.rent}/month{" "}
               </span>
                |  {formatDateToMonthYear(props.listing.startDate)} to {formatDateToMonthYear(props.listing.endDate)}

@@ -8,11 +8,21 @@ import infop2 from "../assets/infop2.jpg"
 import SearchBar from "../components/SearchBar"
 import { useEffect } from "react";
 import LOGO1 from "../assets/LOGO1.png"
+import { useNavigate } from "react-router-dom";
 
 
 import './Home.css';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userid = localStorage.getItem('userid');
+    if (!userid) {
+      navigate('/login');
+    }
+  }, []);
+
   const data = [
     'UC Irvine',
     'UCLA',
