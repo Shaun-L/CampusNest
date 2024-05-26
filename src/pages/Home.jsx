@@ -67,7 +67,7 @@ const Home = () => {
             <img src={pic3} alt="lite" className="butterfly card" />
           </div>
 
-          <div className="format-pics  fadeInBottom cssanimation transition delay-4">
+          <div className="format-pics  fadeInBottom cssanimation delay-4">
             <img src={pic4} alt="lite" className="butterfly card" />
           </div>
         </div>

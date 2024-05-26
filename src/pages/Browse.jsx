@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ListingCard from "../components/ListingCard";
 import { db } from "../firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import './Home.css';
 
 const Browse = () => {
   const [listings, setListings] = useState([]);
@@ -104,17 +105,18 @@ const Browse = () => {
 
 
   return (
-    <div className="mx-12 ">
+    <div className="">
 
 
       {/* text that says browse listing and search bar */}
-      <div className="w-full flex gap-10 items-center mx-20">
+      <div className="w-full grid grid-cols-4 justify-between items-center px-20">
 
-        <h1 className="text-3xl font-medium my-4">Browse Listings</h1>
+        <h1 className="text-3xl col-span-1 font-medium my-4">Browse Listings</h1>
 
+        <span className="col-span-2"></span>
         {/* search bar */}
-        <div className="my-4 flex-grow grid grid-cols-4">
-          <div className="relative col-span-3 w-full h-12 mr-4 ">
+        <div className="my-4 w-auto col-span-1">
+          <div className="relative col-span-3 w-full h-12 text-black">
             <input
               type="text"
               className="rounded-full border-2 h-full w-full pl-12 border-black"
@@ -259,9 +261,10 @@ const Browse = () => {
 
   </div>
   {/* grid of apartments */ }
-  <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-x-0 gap-y-8 justify-items-center">
-    {filteredListings && filteredListings.map((listing) => {
-      return <ListingCard key={listing.id} listing={listing} />;
+  <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-x-0 gap-y-16  mx-12 justify-items-center">
+    {filteredListings && filteredListings.map((listing, index) => {
+      const animationDelay = `delay-${index+1}`
+      return <ListingCard key={listing.id} listing={listing} delay={animationDelay}/>;
     })}
   </div>
       

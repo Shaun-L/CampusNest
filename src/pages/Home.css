@@ -244,6 +244,13 @@ body {
 }
 .delay-3 {
     animation-delay: 600ms;
-}.delay-4 {
+}
+.delay-4 {
     animation-delay: 800ms;
+}
+.delay-5 {
+    animation-delay: 1000ms;
+}
+.delay-6 {
+    animation-delay: 1200ms;
 }

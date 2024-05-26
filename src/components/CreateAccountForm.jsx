@@ -89,7 +89,7 @@ const UserAccountForm = () => {
       <form onSubmit={onSubmit}>
         <h1 className="text-4xl font-medium text-center">Create Account</h1>
         <p className="text-center w-full my-8">
-        Already have an account? <a href="/login" className="text-yellow-400">Log in</a>
+        Already have an account? <a href="/login" className="text-yellow-400 hover:underline">Log in</a>
       </p>
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
@@ -105,7 +105,7 @@ const UserAccountForm = () => {
                 name="username"
                 id="username"
                 autoComplete="username"
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
@@ -125,7 +125,7 @@ const UserAccountForm = () => {
                 name="password"
                 id="password"
                 autoComplete="password"
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -152,7 +152,7 @@ const UserAccountForm = () => {
                 name="name"
                 id="name"
                 autoComplete="name"
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -172,7 +172,7 @@ const UserAccountForm = () => {
                 name="name"
                 id="name"
                 autoComplete="name"
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -273,7 +273,7 @@ const UserAccountForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="university"
-              className="block text-md font-medium leading-6 text-white"
+              className="block text-md font-medium leading-6 text-black"
             >
               University
             </label>
@@ -282,7 +282,7 @@ const UserAccountForm = () => {
                 id="university"
                 name="university"
                 autoComplete="university"
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={university}
                 onChange={handleUniversityChange}
                 required
@@ -310,7 +310,7 @@ const UserAccountForm = () => {
                 id="year"
                 name="year"
                 autoComplete="year-name"
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 value={year}
                 onChange={handleYearChange}
                 required
@@ -341,7 +341,7 @@ const UserAccountForm = () => {
                 value={major}
                 onChange={(e) => setMajor(e.target.value)}
                 required
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
@@ -365,7 +365,7 @@ const UserAccountForm = () => {
                 id="distance-pref"
                 min="0"
                 autoComplete="distance-pref"
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={distance}
                 onChange={(e) => setDistance(e.target.value)}
                 required
@@ -382,7 +382,7 @@ const UserAccountForm = () => {
               <div>
                 <label
                   htmlFor="price-range"
-                  className="block text-md font-medium leading-6 text-white"
+                  className="block text-md font-medium leading-6 text-black"
                 >
                   Min
                 </label>
@@ -392,7 +392,7 @@ const UserAccountForm = () => {
                   id="price-range-min"
                   min="0"
                   autoComplete="price-range-min"
-                  className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                  className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                   value={minPrice}
                   onChange={(e) => setMinPrice(e.target.value)}
                   required
@@ -411,7 +411,7 @@ const UserAccountForm = () => {
                   id="price-range"
                   min="0"
                   autoComplete="price-range-min"
-                  className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                  className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                   value={maxPrice}
                   onChange={(e) => setMaxPrice(e.target.value)}
                   required
