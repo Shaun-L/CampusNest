@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import { db } from "../firebase";
 import { updateDoc, doc, arrayUnion, arrayRemove } from "firebase/firestore";
+import './Animation.css';
+
 
 function formatDateToMonthYear(dateString) {
   const date = new Date(dateString);
@@ -54,7 +56,7 @@ const ListingCard = (props) => {
   return (
     <div>
       {props.listing && (
-        <div class="relative w-96 h-96 rounded-3xl overflow-hidden">
+        <div class="relative w-96 h-96 rounded-3xl overflow-hidden card fadeInBottom cssanimation delay-2">
           <a href={`/listing/${props.listing.id}`}>
           <img
             src={props.listing.imageList[0]}
@@ -65,7 +67,7 @@ const ListingCard = (props) => {
 
           {saved ? (
             <div
-              className="absolute top-4 right-4 rounded-full bg-violet-200 p-2 z-10"
+              className="absolute top-4 right-4 rounded-full bg-white p-2 z-10"
               onClick={unsave}
             >
               <svg
@@ -77,7 +79,7 @@ const ListingCard = (props) => {
               >
                 <path
                   d="M5 21.875V5.20833C5 4.63542 5.19583 4.14497 5.5875 3.73698C5.97917 3.32899 6.45 3.125 7 3.125H17C17.55 3.125 18.0208 3.32899 18.4125 3.73698C18.8042 4.14497 19 4.63542 19 5.20833V21.875L12 18.75L5 21.875Z"
-                  fill="#000000"
+                  fill="#fbbf24"
                 />
               </svg>
             </div>

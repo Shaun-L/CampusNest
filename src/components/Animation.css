@@ -1,0 +1,24 @@
+.card {
+  transition: transform 0.5s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.cssanimation {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.fadeInBottom {
+  animation-name: fadeInBottom;
+}
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 1;
+  }
+}

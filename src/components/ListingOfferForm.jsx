@@ -6,6 +6,9 @@ import { v4 } from 'uuid';
 import { getSpaceUntilMaxLength } from '@testing-library/user-event/dist/utils';
 import { useNavigate } from 'react-router-dom';
 
+import './Animation.css';
+
+
 const ListingOfferForm = () => {
   const[title, setTitle] = useState('');
   const[description, setDescription] = useState('');
@@ -134,7 +137,7 @@ const ListingOfferForm = () => {
   };
 
   return (
-    <div className="mx-auto py-8 my-4 px-8 w-1/2 sm:max-md:w-5/6 text-white rounded-xl">
+    <div className="mx-auto py-8 my-4 px-8 w-1/2 sm:max-md:w-5/6 text-white rounded-xl fadeInBottom cssanimation">
       <form onSubmit={onSubmit}>
         <h1 className="text-4xl font-medium text-center text-white">Offer Listing</h1>
         <div className="flex flex-col">
@@ -667,7 +670,7 @@ const ListingOfferForm = () => {
           <div className="flex justify-center my-4">
             <button
               type="submit"
-              className="rounded-full bg-white text-black px-6 py-2  text-xl font-medium whitetext- shadow-sm hover:bg-yellow-400 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="card rounded-full bg-white text-black px-6 py-2  text-xl font-medium whitetext- shadow-sm hover:bg-yellow-400 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Submit
             </button>

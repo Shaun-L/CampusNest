@@ -3,6 +3,8 @@ import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
+import './Animation.css';
+
 
 
 const UserAccountForm = () => {
@@ -79,7 +81,7 @@ const UserAccountForm = () => {
   };
 
   return (
-    <div className="mx-auto py-8 px-8 w-1/2 rounded-xl">
+    <div className="mx-auto py-8 px-8 w-1/2 rounded-xl fadeInBottom cssanimation">
       <form onSubmit={onSubmit}>
         <h1 className="text-4xl font-medium text-center">Create Account</h1>
         <p className="text-center w-full my-8">
@@ -549,7 +551,7 @@ const UserAccountForm = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="rounded-full bg-white my-4 py-2  text-md font-medium text-black px-6 shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="card rounded-full bg-white my-4 py-2 text-md font-medium text-black px-6 shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Submit
             </button>

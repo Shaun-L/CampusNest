@@ -28,12 +28,11 @@ const Browse = () => {
 
   useEffect(() => {
     getSaved();
-    getListings();
   }, []);
 
-  // useEffect(() => {
-  //   getListings();
-  // }, [savedSet]);
+  useEffect(() => {
+    getListings();
+  }, [savedSet]);
 
   const getSaved = async () => {
     const loggedInUser = localStorage.getItem("userid");
@@ -109,7 +108,7 @@ const Browse = () => {
 
 
       {/* text that says browse listing and search bar */}
-      <div className="w-full flex gap-10 items-center">
+      <div className="w-full flex gap-10 items-center mx-20">
 
         <h1 className="text-3xl font-medium my-4">Browse Listings</h1>
 
@@ -146,13 +145,13 @@ const Browse = () => {
       </div>
 
       {/* filter bar on top */}
-      <div className="flex justify-start">
+      <div className="flex justify-stretch items-start mx-20 my-4 gap-8">
 
 
         {/* by distance */}
-        <div>
+        <div className="w-full">
           <p className="text-medium font-medium">Max Distance</p>
-          <div>
+          <div className="w-full">
             <input
               type="number"
               name="distance"
@@ -162,13 +161,13 @@ const Browse = () => {
               value={distance}
               onChange={(e) => setDistance(e.target.value)}
               required
-              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
+              className="block w-full rounded-full border-0 p-1.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
             />
           </div>
         </div>
 
         {/* by price */}
-        <div>
+        <div className="w-full">
           <p className="text-medium font-medium">Max Price</p>
           <div>
             <input
@@ -179,14 +178,14 @@ const Browse = () => {
               autoComplete="monthly-rent"
               value={rentMax}
               onChange={(e) => setRentMax(e.target.value)}
-              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
+              className="block w-full rounded-full border-0 p-1.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
             />
           </div>
 
         </div>
 
         {/* by room # */}
-        <div>
+        <div className="w-full">
           <p className="text-medium font-medium"># of Rooms</p>
           <div>
             <input
@@ -198,17 +197,17 @@ const Browse = () => {
               value={roomCount}
               onChange={(e) => setRoomCount(e.target.value)}
               required
-              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
+              className="block w-full rounded-full border-0 p-1.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
             />
           </div>
         </div>
 
 
-        <div>
+        <div className="w-full">
           {/* Gender Preference */}
           <p className="text-medium font-medium">Gender</p>
           <div>
-            <select className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
+            <select className="block w-full rounded-full border-0 p-1.5 px-4 mr-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
             onChange={handleGenderChange}
             value={genderPreference}>
               <option value=''>Any</option>
@@ -223,9 +222,10 @@ const Browse = () => {
 
 
         {/* by school */}
-        <div>
-          <div className="relative rounded-full ml-4 h-12 bg-gray-400">
-            <select className="rounded-full border-2 h-full w-full pl-12 border-black"
+        <div className="w-full">
+        <p className="text-medium font-medium">University</p>
+          <div className="">
+          <select className="block w-full rounded-full border-0 p-1.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
               onChange={handleSchoolChange}
               value={selectedSchool}>
               <option value='' >All</option>
@@ -234,7 +234,7 @@ const Browse = () => {
               <option value="UC Riverside">UC Riverside</option>
               <option value="CSU Long Beach">CSU Long Beach</option>
             </select>
-            <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
+            {/* <div class="absolute inset-y-0 h-6 start-0 flex items-center ps-5 pointer-events-none">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
@@ -244,7 +244,7 @@ const Browse = () => {
               >
                 <path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z" />
               </svg>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -258,7 +258,7 @@ const Browse = () => {
 
   </div>
   {/* grid of apartments */ }
-  <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-x-0 gap-y-8 justify-items-center">
     {filteredListings && filteredListings.map((listing) => {
       return <ListingCard key={listing.id} listing={listing} />;
     })}
