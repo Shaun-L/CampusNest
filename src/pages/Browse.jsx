@@ -8,7 +8,6 @@ const Browse = () => {
   const [filteredListings, setFilteredListings] = useState([]);
 
   const [distance, setDistance] = useState(null);
-  const [rentMin, setRentMin] = useState(null);
   const [rentMax, setRentMax] = useState(null);
   const [roomType, setRoomType] = useState(null);
 
@@ -183,7 +182,7 @@ const Browse = () => {
                 id="monthly-rent"
                 min="0"
                 autoComplete="monthly-rent"
-                value={rent}
+                value={distance}
                 onChange={(e) => setDistance()}
                 required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
@@ -199,8 +198,8 @@ const Browse = () => {
                 id="monthly-rent"
                 min="0"
                 autoComplete="monthly-rent"
-                value={rent}
-                onChange={(e) => setRent(e.target.value)}
+                value={rentMax}
+                onChange={(e) => setRentMax(e.target.value)}
                 required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />

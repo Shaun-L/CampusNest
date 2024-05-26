@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LOGO1 from "./pictures/LOGO1.png"
+import LOGO1 from "../assets/LOGO1.png"
 
 const Navbar = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);

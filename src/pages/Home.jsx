@@ -6,22 +6,13 @@ import pic4 from "../assets/pic4.jpg";
 import infop1 from "../assets/infop1.png"
 import infop2 from "../assets/infop2.jpg"
 import SearchBar from "../components/SearchBar"
-import { useEffect, useNavigate } from "react";
-import LOGO1 from "./pictures/LOGO1.png"
+import { useEffect } from "react";
+import LOGO1 from "../assets/LOGO1.png"
 
 
 import './Home.css';
 
 const Home = () => {
-  // const navigate = useNavigate();
-
-  useEffect(() => {
-    // if (localStorage.getItem('user') === null) {
-    //   navigate('/login');
-    // }
-  }, []);
-
-
   const data = [
     'UC Irvine',
     'UCLA',

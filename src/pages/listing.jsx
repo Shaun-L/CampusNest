@@ -1,5 +1,5 @@
 import { useState } from "react";
-import pic2 from "./pictures/pic2.jpg";
+import pic2 from "../assets/pic2.jpg";
 // import MyMap from "../components/reactMap";
 // import React from 'react';
 
