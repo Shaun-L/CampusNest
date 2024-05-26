@@ -61,10 +61,11 @@ const ListingCard = (props) => {
             alt="Avatar"
             class="object-cover w-full h-full"
           />
+          </a>
 
           {saved ? (
             <div
-              className="absolute top-4 right-4 rounded-full bg-violet-200 p-2"
+              className="absolute top-4 right-4 rounded-full bg-violet-200 p-2 z-10"
               onClick={unsave}
             >
               <svg
@@ -82,7 +83,7 @@ const ListingCard = (props) => {
             </div>
           ) : (
             <div
-              className="absolute top-4 right-4 rounded-full bg-white p-2"
+              className="absolute top-4 right-4 rounded-full bg-white p-2 z-10"
               onClick={save}
             >
               <svg
@@ -97,6 +98,7 @@ const ListingCard = (props) => {
             </div>
           )}
           <div className="absolute w-full py-4 bottom-0 inset-x-0 bg-black/60 leading-4">
+            <a href={`/listing/${props.listing.id}`}>
             <h2 className="text-white text-xl text-center">
               {props.listing.title}
             </h2>
@@ -109,8 +111,8 @@ const ListingCard = (props) => {
               </span>
                |  {formatDateToMonthYear(props.listing.startDate)} to {formatDateToMonthYear(props.listing.endDate)}
             </p>
+            </a>
           </div>
-          </a>
         </div>
       )}
     </div>

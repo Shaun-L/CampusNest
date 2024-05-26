@@ -3,13 +3,13 @@ import LoginForm from "../components/LoginForm";
 const Login = () => {
   const loginTextStyle = {
     fontSize: '16px',
-    color: '#333',
+    color: '#ffffff',
     textAlign: 'center',
     marginTop: '20px',
   };
 
   const registerLinkStyle = {
-    color: '#007bff',
+    color: '#fbbf24',
     textDecoration: 'none',
   };
   return (

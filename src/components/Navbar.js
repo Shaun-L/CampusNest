@@ -62,14 +62,14 @@ const Navbar = () => {
               <div className="flex space-x-4 my-4">
                 <a
                   href="/browse"
-                  className="text-white-800 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
+                  className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
                   aria-current="page"
                 >
                   Browse
                 </a>
                 <a
                   href="/offer"
-                  className="text-white-800 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
+                  className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
                 >
                   Offer
                 </a>
@@ -157,7 +157,7 @@ const Navbar = () => {
           </a>
           <a
             href="/offer"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
+            className="text-gray-300 hover:bg-gold-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
           >
             Offer
           </a>

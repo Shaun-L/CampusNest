@@ -32,14 +32,14 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="mx-auto py-8 px-8 w-1/2 bg-indigo-100 rounded-xl">
+    <div className="mx-auto py-8 px-8 w-1/2 rounded-xl">
       <form onSubmit={onSubmit}>
-        <h1 className="text-2xl font-semibold text-center">Login</h1>
-        <div className="flex flex-col">
+        <h1 className="text-4xl font-medium text-center">Login</h1>
+        <div className="flex flex-col my-8">
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="email"
-              className="block text-md font-semibold leading-6 text-gray-900"
+              className="block text-md font-medium leading-6 text-white"
             >
               Email
             </label>
@@ -49,7 +49,7 @@ const LoginForm = () => {
                 name="email"
                 id="email"
                 autoComplete="email"
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
@@ -58,7 +58,7 @@ const LoginForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="password"
-              className="block text-md font-semibold leading-6 text-gray-900"
+              className="block text-md font-medium leading-6 text-white"
             >
               Password
             </label>
@@ -68,7 +68,7 @@ const LoginForm = () => {
                 name="password"
                 id="password"
                 autoComplete="password"
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -79,7 +79,7 @@ const LoginForm = () => {
         <div className="flex justify-center my-4">
             <button
               type="submit"
-              className="rounded-full bg-violet-200 px-8 py-2 text-md font-semibold text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="rounded-full bg-white px-8 py-2 text-md font-medium text-black shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Sign In
             </button>
