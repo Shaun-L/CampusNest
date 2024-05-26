@@ -45,7 +45,9 @@ const Home = () => {
         </div>
 
         <div className="title-align">
-          <img src={LOGO1} alt="lite" className="logo-home" />
+          {/* <img src={LOGO1} alt="lite" className="logo-home" /> */}
+          <h1 className="text-big">CAMPUS NEST</h1>
+          <h1 className="text-small">CAMPUS NEST IS YOUR TRUSTED PARTNER IN YOUR PURSUIT OF FINDING HOUSING</h1>
         </div>
 
         {/* <div className="search-func"> */}
@@ -96,9 +98,9 @@ const Home = () => {
             <h2 className="text-3xl font-bold my-8">
               What Makes Us Different:
             </h2>
-            <h2 className="text-2xl my-4">Find the housing that suits you</h2>
+            <h2 className="text-2xl my-4">Find the housing that suits you.</h2>
             <h2 className="text-2xl my-4">
-              No more posting on social media or worrying about lease offers
+              No more posting on social media or worrying about lease offers.
             </h2>
           </div>
         </div>
@@ -111,7 +113,7 @@ const Home = () => {
               preferences.{" "}
             </h2>
             <h2 className="text-2xl my-4">
-              CampusNet will make finding housing stress-free
+              CampusNet will make finding housing stress-free.
             </h2>
           </div>
 
