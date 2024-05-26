@@ -139,7 +139,7 @@ const Browse = () => {
 
         {/* by distance */}
         <div>
-          <p className="text-medium font-medium">Distance</p>
+          <p className="text-medium font-medium">Max Distance</p>
           <div>
             <input
               type="number"
@@ -157,7 +157,7 @@ const Browse = () => {
 
         {/* by price */}
         <div>
-          <p className="text-medium font-medium">Price</p>
+          <p className="text-medium font-medium">Max Price</p>
           <div>
             <input
               type="number"
