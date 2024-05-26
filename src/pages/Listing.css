@@ -98,6 +98,7 @@ margin-bottom: 10px;
     width: 350px; /* Set a fixed width for all images */
     height: 280px; 
     border-radius: 10px;
+    object-fit: cover;
 
 }
 

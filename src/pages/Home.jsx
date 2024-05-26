@@ -5,7 +5,7 @@ import pic3 from "../assets/pic3.jpg";
 import pic4 from "../assets/pic4.jpg";
 import infop1 from "../assets/infop1.png";
 import infop2 from "../assets/infop2.jpg";
-import sky from "../assets/house.jpg";
+import sky from "../assets/sky5.png";
 
 // import SearchBar from "../components/SearchBar"
 // import infop1 from "../assets/infop1.png";
@@ -24,6 +24,10 @@ import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
+
+  const goToListing = () => {
+    navigate("listing/STb2paKL2QaqF4vPo0Iu")
+  }
 
   useEffect(() => {
     const userid = localStorage.getItem("userid");
@@ -67,20 +71,20 @@ const Home = () => {
 
       <div className="image-container">
         <div className=" fadeInBottom cssanimation delay-1">
-          <img src={pic1} alt="lite" className="flyyy card" />
+          <img src={pic1} alt="lite" onClick={goToListing} className="flyyy card" />
         </div>
         <div className="  fadeInBottom cssanimation delay-2	">
           <a href="/listing/1">
-            <img src={pic2} alt="lite" className="flyyy card" />
+            <img src={pic2} alt="lite" onClick={goToListing} className="flyyy card" />
           </a>
         </div>
 
         <div className="  fadeInBottom cssanimation delay-3	">
-          <img src={pic3} alt="lite" className="flyyy card" />
+          <img src={pic3} alt="lite" onClick={goToListing} className="flyyy card" />
         </div>
 
         <div className="  fadeInBottom cssanimation transition delay-4">
-          <img src={pic4} alt="lite" className="flyyy card" />
+          <img src={pic4} alt="lite" onClick={goToListing} className="flyyy card" />
         </div>
       </div>
 
@@ -94,9 +98,9 @@ const Home = () => {
             <h2 className="text-3xl font-bold my-8">
               What Makes Us Different:
             </h2>
-            <h2 className="text-2xl my-4">Find the housing that suits you</h2>
+            <h2 className="text-2xl my-4">Find the housing that suits you.</h2>
             <h2 className="text-2xl my-4">
-              No more posting on social media or worrying about lease offers
+              No more posting on social media or worrying about lease offers.
             </h2>
           </div>
         </div>
@@ -109,7 +113,7 @@ const Home = () => {
               preferences.{" "}
             </h2>
             <h2 className="text-2xl my-4">
-              CampusNet will make finding housing stress-free
+              CampusNet will make finding housing stress-free.
             </h2>
           </div>
 
