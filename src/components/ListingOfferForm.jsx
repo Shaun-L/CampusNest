@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
-import { db } from '../firebase';
+import React, { useState, useEffect } from 'react';
+import { db, storage } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL, listAll, list, deleteObject} from 'firebase/storage';
+import { v4 } from 'uuid';
+import { getSpaceUntilMaxLength } from '@testing-library/user-event/dist/utils';
 
 const ListingOfferForm = () => {
   const[title, setTitle] = useState('');
@@ -23,6 +26,37 @@ const ListingOfferForm = () => {
   const[furnishedTag, setFurnishedTag] = useState(false);
   const[poolTag, setPoolTag] = useState(false);
 
+
+  const[imageList, setImageList] = useState([]);
+  const[image, setImage] = useState(null);
+
+  const imagesListRef = ref(storage, "images/");
+
+  const handleUpload = () => {
+    console.log("handle upload")
+    if (image == null) return;
+    const imgRef = ref(storage, `images/${v4()}`);
+    uploadBytes(imgRef, image).then(value => {
+      getDownloadURL(value.ref).then(url => {
+        setImageList(data => [...data, url])
+      })
+    });
+  }
+
+  // useEffect(() => {
+  //   listAll(imagesListRef).then((response) => {
+  //     response.items.forEach((item) => {
+  //       getDownloadURL(item).then((url) => {
+  //         setImageList((prev) => [...prev, url]);
+  //       });
+  //     });
+  //   });
+  // }, []);
+
+
+  
+
+
   const handleStateChange = (e) => {
     setState(e.target.value);
   };
@@ -38,6 +72,8 @@ const ListingOfferForm = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log(imageList)
+
       const docRef = await addDoc(collection(db, "listings"), {
         title,
         address,
@@ -56,8 +92,13 @@ const ListingOfferForm = () => {
         femaleTag,
         lgbtqFriendlyTag,
         furnishedTag,
-        poolTag
+        poolTag,
+        imageList
       });
+
+      setImageList([]);
+
+      
     } catch (e) {
       console.error("Error adding document: ", e)
     }
@@ -561,6 +602,29 @@ const ListingOfferForm = () => {
               </div>
             </div>
           </fieldset>
+          <div className="sm:col-span-3 my-4 w-full">
+            <label
+              htmlFor="image-upload"
+              className="block text-md font-semibold leading-6 text-gray-900 "
+            >
+              Upload Images
+            </label>
+            <div>
+              <input
+                type="file"
+                name="image-upload"
+                id="image-upload"
+                onChange={(e) => setImage(e.target.files[0])}
+                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+              />
+              <button type="button" onClick={handleUpload}> Upload Image </button>
+              {
+                    imageList.map(dataVal=><div>
+                        <img src={dataVal} height="200px" width="200px" />
+                        <br/> 
+                    </div>)}            
+                </div>
+          </div>
 
           <div className="flex justify-center">
             <button
@@ -577,3 +641,4 @@ const ListingOfferForm = () => {
 };
 
 export default ListingOfferForm;
+
