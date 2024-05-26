@@ -645,14 +645,16 @@ const ListingOfferForm = () => {
               Upload Images
             </label>
             <div>
+              <div className='flex justify-between'>
               <input
                 type="file"
                 name="image-upload"
                 id="image-upload"
                 onChange={(e) => setImage(e.target.files[0])}
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
-              <button type="button" onClick={handleUpload}> Upload Image </button>
+              <button type="button" onClick={handleUpload} className='col-span-2'> Upload Image </button>
+              </div>
               {
                     imageList.map(dataVal=><div>
                         <img src={dataVal} height="200px" width="200px" />

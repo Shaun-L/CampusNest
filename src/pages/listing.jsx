@@ -66,8 +66,8 @@ const Listing = () => {
 
   function formatDateToMonthYear(dateString) {
     const date = new Date(dateString);
-    const options = { month: 'long', year: 'numeric' };
-    return date.toLocaleDateString('en-US', options);
+    const options = { month: "long", year: "numeric" };
+    return date.toLocaleDateString("en-US", options);
   }
 
   return (
@@ -75,21 +75,21 @@ const Listing = () => {
       {listing && (
         <div className="container w-screen">
           <div className="cont1">
-            <div className=" flex justify-center">
+            <div className="h-1/2 flex justify-center">
               <img
-                src={pic2}
+                src={listing.imageList[0]}
                 alt="lite"
-                className="w-auto max-h-96 rounded-xl"
+                className="w-auto max-h-full rounded-xl"
               />
             </div>
 
             <div className="stats w-3/4 flex mx-auto my-4 justify-center">
               <div className="w-full mx-20">
                 <div className="flex justify-between items-center">
-                    <h2 className="cost text-3xl font-semibold my-4">
+                  <h2 className="cost text-3xl font-semibold my-4">
                     {listing.title}
-                    </h2>
-                    <h2 className="text-2xl">
+                  </h2>
+                  <h2 className="text-2xl">
                     <span className="font-semibold text-3xl my-2">
                       ${listing.rent}
                     </span>
@@ -97,20 +97,20 @@ const Listing = () => {
                   </h2>
                 </div>
                 <div className="w-full flex justify-between items-center gap-5 my-2">
-                  
-                  <h2 className="text-xl">
-                    Lease Term: {formatDateToMonthYear(listing.startDate)} <span className="text-lg">to</span>{" "}
+                  <h2 className="text-lg">
+                    <span className="font-semibold text-xl my-2">
+                      {listing.distance || 0}
+                    </span>{" "}
+                    miles from {listing.university}
+                  </h2>
+                  <h2 className="text-lg">
+                    {formatDateToMonthYear(listing.startDate)}{" "}
+                    <span className="text-lg">to</span>{" "}
                     {formatDateToMonthYear(listing.endDate)}
                   </h2>
                 </div>
-                <h2>
-                  <span className="font-semibold text-xl my-2">
-                    {listing.distance || 0}
-                  </span>{" "}
-                  miles from {listing.university}
-                </h2>
 
-                <p className="text-2xl my-4">{listing.description}</p>
+                <p className="text-xl my-8">{listing.description}</p>
 
                 <div className="my-4">
                   <h2 className="address text-lg">{listing.address}</h2>
@@ -119,7 +119,7 @@ const Listing = () => {
                   </h2>
                 </div>
 
-                <div className="flex justify-between my-4">
+                <div className="flex justify-between my-8">
                   <h2 className="cost text-2xl font-semibold">Tags</h2>
 
                   <div className="text-end">
@@ -143,10 +143,17 @@ const Listing = () => {
             <div className="grid grid-cols-3 mx-20 my-4 justify-center">
               <div className="col-span-1">
                 <p>Name</p>
+                <p>Gender</p>
                 <p>Roommate Preference</p>
+                <p>Year</p>
+                <p>Major</p>
               </div>
               <div className="col-span-2 text-end">
                 <p>{listing.seller?.name || ""}</p>
+                <p>{listing.seller?.gender || ""}</p>
+                <p>{listing.seller?.year || ""}</p>
+                <p>{listing.seller?.major || ""}</p>
+
                 <p>{listing.roomatePref || "Not Specified"}</p>
               </div>
             </div>
@@ -201,7 +208,7 @@ const Listing = () => {
         </div>
       )}
 
-      <div className='flex justify-center rounded-full my-8'>
+      <div className="flex justify-center rounded-full my-8">
         <Map />
       </div>
 
