@@ -3,6 +3,9 @@ import { getFirestore, collection, query, where, getDocs } from 'firebase/firest
 import { db } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 
+import './Animation.css';
+
+
 const LoginForm = () => { 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -19,7 +22,7 @@ const LoginForm = () => {
       if (querySnapshot.empty) {
         alert('Invalid username or password')
       } else {
-        alert('Valid entry!')
+        // alert('Valid entry!')
         querySnapshot.forEach((doc) => {
           localStorage.setItem('userid', doc.id);
         })
@@ -32,7 +35,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="mx-auto py-8 px-8 w-1/2 rounded-xl">
+    <div className="mx-auto py-8 px-8 w-1/2 rounded-xl fadeInBottom cssanimation">
       <form onSubmit={onSubmit}>
         <h1 className="text-4xl font-medium text-center">Login</h1>
         <div className="flex flex-col my-8">
@@ -49,7 +52,7 @@ const LoginForm = () => {
                 name="email"
                 id="email"
                 autoComplete="email"
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
@@ -68,7 +71,7 @@ const LoginForm = () => {
                 name="password"
                 id="password"
                 autoComplete="password"
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -79,7 +82,7 @@ const LoginForm = () => {
         <div className="flex justify-center my-4">
             <button
               type="submit"
-              className="rounded-full bg-white px-8 py-2 text-md font-medium text-black shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="card rounded-full bg-white px-8 py-2 text-md font-medium text-black shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Sign In
             </button>

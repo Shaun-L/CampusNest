@@ -1,13 +1,21 @@
 import { useState } from "react";
-import LOGO2 from "../assets/LOGO2.png"
+import logo from "../assets/LOGO-nowords.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const navigate = useNavigate();
+
+  const signout = () => {
+    localStorage.removeItem('userid');
+    setShowProfileMenu(false);
+    navigate('/login');
+  }
 
   return (
     <nav className="bg-black">
       <div className="mx-auto w-full px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-24 items-center justify-between">
+        <div className="relative flex h-20 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button
               type="button"
@@ -49,14 +57,9 @@ const Navbar = () => {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <a href='/'>
-                <img
-                className="h-16 w-auto"
-                src={LOGO2}
-                alt="CampusNest logo"
-              />
+              <a href="/">
+                <img className="h-12 w-auto" src={logo} alt="CampusNest logo" />
               </a>
-              
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4 my-4">
@@ -72,6 +75,13 @@ const Navbar = () => {
                   className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
                 >
                   Offer
+                </a>
+                {/* Roommate Finder Link */}
+                <a
+                  href="/rm"
+                  className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
+                >
+                  Roommate Finder
                 </a>
               </div>
             </div>
@@ -114,6 +124,15 @@ const Navbar = () => {
                   >
                     Your Profile
                   </a>
+                  <a
+                    onClick={signout}
+                    class="block px-4 py-2 text-sm text-gray-700"
+                    role="menuitem"
+                    tabindex="-1"
+                    id="user-menu-item-2"
+                  >
+                    Sign out
+                  </a>
                   {/* <a
                   href="#"
                   class="block px-4 py-2 text-sm text-gray-700"
@@ -123,15 +142,7 @@ const Navbar = () => {
                 >
                   Settings
                 </a>
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-sm text-gray-700"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="user-menu-item-2"
-                >
-                  Sign out
-                </a> */}
+                */}
                 </div>
               )}
             </div>
@@ -161,6 +172,13 @@ const Navbar = () => {
           >
             Offer
           </a>
+          {/* Roommate Finder Link */}
+          <a
+            href="/rm"
+            className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
+            >
+            Roommate Finder
+            </a>
         </div>
       </div>
     </nav>

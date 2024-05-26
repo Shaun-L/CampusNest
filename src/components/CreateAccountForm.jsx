@@ -3,6 +3,8 @@ import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
+import './Animation.css';
+
 
 
 const UserAccountForm = () => {
@@ -30,6 +32,10 @@ const UserAccountForm = () => {
 
   const handleGenderChange = (e) => {
     setGender(e.target.value);
+  };
+
+  const handleUniversityChange = (e) => {
+    setUniversity(e.target.value);
   };
 
   const handleYearChange = (e) => {
@@ -79,7 +85,7 @@ const UserAccountForm = () => {
   };
 
   return (
-    <div className="mx-auto py-8 px-8 w-1/2 rounded-xl">
+    <div className="mx-auto py-8 px-8 w-1/2 rounded-xl fadeInBottom cssanimation">
       <form onSubmit={onSubmit}>
         <h1 className="text-4xl font-medium text-center">Create Account</h1>
         <p className="text-center w-full my-8">
@@ -272,16 +278,22 @@ const UserAccountForm = () => {
               University
             </label>
             <div>
-              <input
-                type="text"
-                name="university"
+            <select
                 id="university"
+                name="university"
                 autoComplete="university"
-                value={university}
-                onChange={(e) => setUniversity(e.target.value)}
-                required
                 className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
-              />
+                value={university}
+                onChange={handleUniversityChange}
+                required
+              >
+                <option value="UC Irvine">UC Irvine</option>
+                <option value="UC Los Angeles">UC Los Angeles</option>
+                <option value="UC Riverside">UC Riverside</option>
+                <option value="CSU Long Beach">CSU Long Beach</option>
+                <option value="USC">USC</option>
+  
+              </select>
             </div>
           </div>
 
@@ -549,7 +561,7 @@ const UserAccountForm = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="rounded-full bg-white my-4 py-2  text-md font-medium text-black px-6 shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="card rounded-full bg-white my-4 py-2 text-md font-medium text-black px-6 shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Submit
             </button>

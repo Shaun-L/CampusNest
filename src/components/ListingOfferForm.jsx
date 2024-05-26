@@ -6,6 +6,9 @@ import { v4 } from 'uuid';
 import { getSpaceUntilMaxLength } from '@testing-library/user-event/dist/utils';
 import { useNavigate } from 'react-router-dom';
 
+import './Animation.css';
+
+
 const ListingOfferForm = () => {
   const[title, setTitle] = useState('');
   const[description, setDescription] = useState('');
@@ -59,7 +62,9 @@ const ListingOfferForm = () => {
 
 
   
-
+  const handleUniversityChange = (e) => {
+    setUniversity(e.target.value);
+  };
 
   const handleStateChange = (e) => {
     setState(e.target.value);
@@ -134,7 +139,7 @@ const ListingOfferForm = () => {
   };
 
   return (
-    <div className="mx-auto py-8 my-4 px-8 w-1/2 sm:max-md:w-5/6 text-white rounded-xl">
+    <div className="mx-auto py-8 my-4 px-8 w-1/2 sm:max-md:w-5/6 text-white rounded-xl fadeInBottom cssanimation">
       <form onSubmit={onSubmit}>
         <h1 className="text-4xl font-light text-left text-white mt-10 mb-20">Please fill out the form below to upload an offer</h1>
         <div className="flex flex-col">
@@ -323,16 +328,30 @@ const ListingOfferForm = () => {
               University
             </label>
             <div>
-              <input
-                type="text"
-                name="university"
+            <select
                 id="university"
+                name="university"
                 autoComplete="university"
+<<<<<<< HEAD
                 value={university}
                 onChange={(e) => setUniversity(e.target.value)}
                 required
                 className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
+=======
+                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                value={university}
+                onChange={handleUniversityChange}
+                required
+              >
+                <option value="UC Irvine">UC Irvine</option>
+                <option value="UC Los Angeles">UC Los Angeles</option>
+                <option value="UC Riverside">UC Riverside</option>
+                <option value="CSU Long Beach">CSU Long Beach</option>
+                <option value="USC">USC</option>
+  
+              </select>
+>>>>>>> 687ec27bb1b17302d0677a3c5ce2d02e55dabca2
             </div>
           </div>
 
@@ -667,7 +686,11 @@ const ListingOfferForm = () => {
           <div className="flex justify-center my-4">
             <button
               type="submit"
+<<<<<<< HEAD
               className="rounded-full bg-white text-black px-6 py-2  text-xl font-light whitetext- shadow-sm hover:bg-gray-400 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+=======
+              className="card rounded-full bg-white text-black px-6 py-2  text-xl font-medium whitetext- shadow-sm hover:bg-yellow-400 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+>>>>>>> 687ec27bb1b17302d0677a3c5ce2d02e55dabca2
             >
               Submit
             </button>
