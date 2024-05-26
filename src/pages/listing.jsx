@@ -22,6 +22,7 @@ import {
 // import React from 'react';
 
 import "./Listing.css";
+import '../components/Animation.css';
 
 const Listing = () => {
   const [listing, setListing] = useState(null);
@@ -30,7 +31,6 @@ const Listing = () => {
 
   const copyEmail = () => {
     // Get the text field
-    console.log(listing.seller.email)
     if (listing.seller && listing.seller.email) {
         const copyText = listing.seller.email ;
 
@@ -122,7 +122,7 @@ hideProgressBar: true,
           <span>
             <div className="cont1 w-full">
               {listing.imageList[0] && (
-                <div className="picture">
+                <div className="picture fadeInBottom cssanimation delay-1">
                   <img
                     src={listing.imageList[0]}
                     alt="lite"
@@ -133,25 +133,25 @@ hideProgressBar: true,
 
               <div className="format1">
                 {listing.imageList[1] && (
-                  <div className="square">
+                  <div className="square fadeInBottom cssanimation delay-2">
                     <img src={listing.imageList[1]} alt="lite" className="t object-cover	" />
                   </div>
                 )}
 
                 {listing.imageList[2] && (
-                  <div className="square">
+                  <div className="square fadeInBottom cssanimation delay-3">
                     <img src={listing.imageList[2]} alt="lite" className="t object-cover	" />
                   </div>
                 )}
               </div>
 
               {listing.imageList[3] && (
-                <div className="full">
+                <div className="full fadeInBottom cssanimation delay-4">
                   <img src={listing.imageList[3]} alt="lite" className="idk object-cover	" />
                 </div>
               )}
             </div>
-            <div className="grid grid-cols-3 gap-8 w-full mx-auto">
+            <div className="grid grid-cols-3 gap-8 w-full mx-auto fadeInBottom cssanimation delay-5">
               <div className="stats w-full flex mx-auto my-4 justify-center col-span-2">
                 <div className="w-full ml-20">
                   <div className="flex justify-between items-start">
@@ -219,32 +219,32 @@ hideProgressBar: true,
                     <h2 className="cost text-2xl font-semibold">Tags</h2>
                     <div className="text-end flex justify-end items-center gap-4">
                       {listing.petTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>Pet Friendly</p>
                         </div>
                       )}
                       {listing.femaleTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>All Female Household</p>
                         </div>
                       )}
                       {listing.lgbtqFriendlyTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>LGBTQ Friendly</p>
                         </div>
                       )}
                       {listing.safeTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>Safe Area at Night</p>
                         </div>
                       )}
                       {listing.furnishedTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>Already furnished</p>
                         </div>
                       )}
                       {listing.poolTag && (
-                        <div className="bg-yellow-400 text-black rounded-full w-auto px-6 h-full text-md flex items-center">
+                        <div className="bg-yellow-400 text-black text-center rounded-full w-auto px-6 h-full text-md flex items-center">
                           <p>Pool ammenities</p>
                         </div>
                       )}
@@ -266,18 +266,18 @@ hideProgressBar: true,
                 </div>
 
                 <div className="grid grid-cols-2 my-8 justify-center">
-                  <div className="col-span-1 flex flex-col gap-4 font-bold">
-                    <p className="font-bold">Gender</p>
-                    <p className="font-bold">Roommate Preference</p>
-                    <p className="font-bold">Year</p>
-                    <p className="font-bold">Major</p>
+                  <div className=" flex flex-col gap-4 font-bold">
+                    <p className="col-span-1 font-bold">Gender</p>
+                    <p className="col-span-1 font-bold">Preferred Roommate</p>
+                    <p className="col-span-1 font-bold">Year</p>
+                    <p className="col-span-1 font-bold">Major</p>
                   </div>
                   <div className="col-span-1 text-end flex flex-col gap-4">
                     <p>{listing.seller?.gender || "-"}</p>
+                    <p>{listing.seller?.roomatePref || "-"}</p>
                     <p>{listing.seller?.year || "-"}</p>
                     <p>{listing.seller?.major || "-"}</p>
 
-                    <p>{listing.roomatePref || "-"}</p>
                   </div>
                 </div>
                 <button
