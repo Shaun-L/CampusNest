@@ -263,7 +263,7 @@ const Browse = () => {
             <div className="relative rounded-full ml-4 h-12 bg-gray-400">
                 <select className="rounded-full border-2 h-full w-full pl-12 border-black">
                   <option>UC Irvine</option>
-                  <option>UCLA</option>
+                  <option>UC Los Angeles</option>
                   <option>UC Riverside</option>
                   <option>CSU Long Beach</option>
                 </select>
