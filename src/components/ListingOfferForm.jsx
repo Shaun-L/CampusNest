@@ -4,6 +4,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL, listAll, list, deleteObject} from 'firebase/storage';
 import { v4 } from 'uuid';
 import { getSpaceUntilMaxLength } from '@testing-library/user-event/dist/utils';
+import { useNavigate } from 'react-router-dom';
 
 const ListingOfferForm = () => {
   const[title, setTitle] = useState('');
@@ -25,6 +26,7 @@ const ListingOfferForm = () => {
   const[lgbtqFriendlyTag, setLgbtqFriendlyTag] = useState(false);
   const[furnishedTag, setFurnishedTag] = useState(false);
   const[poolTag, setPoolTag] = useState(false);
+  const navigate = useNavigate();
 
 
   const[imageList, setImageList] = useState([]);
@@ -100,7 +102,7 @@ const ListingOfferForm = () => {
 
       
       alert('Submitted listing!');
-      // navigate to individual listing page
+      navigate('/')
     } catch (e) {
       console.error("Error adding document: ", e)
     }
