@@ -3,15 +3,9 @@ import pic1 from "../assets/pic2.jpg";
 import pic2 from "../assets/pic2.jpg";
 import pic3 from "../assets/pic3.jpg";
 import pic4 from "../assets/pic4.jpg";
-<<<<<<< HEAD
-import infop1 from "../assets/infop1.png"
-import infop2 from "../assets/infop2.jpg"
-import sky from "../assets/pic3.jpg"
-=======
 import infop1 from "../assets/infop1.png";
 import infop2 from "../assets/infop2.jpg";
 import sky from "../assets/sky5.png";
->>>>>>> fb068222237949b9856211218049659071839eba
 
 // import SearchBar from "../components/SearchBar"
 // import infop1 from "../assets/infop1.png";
@@ -30,6 +24,10 @@ import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
+
+  const goToListing = () => {
+    navigate("listing/STb2paKL2QaqF4vPo0Iu")
+  }
 
   useEffect(() => {
     const userid = localStorage.getItem("userid");
@@ -71,20 +69,20 @@ const Home = () => {
 
       <div className="image-container">
         <div className=" fadeInBottom cssanimation delay-1">
-          <img src={pic1} alt="lite" className="flyyy card" />
+          <img src={pic1} alt="lite" onClick={goToListing} className="flyyy card" />
         </div>
         <div className="  fadeInBottom cssanimation delay-2	">
           <a href="/listing/1">
-            <img src={pic2} alt="lite" className="flyyy card" />
+            <img src={pic2} alt="lite" onClick={goToListing} className="flyyy card" />
           </a>
         </div>
 
         <div className="  fadeInBottom cssanimation delay-3	">
-          <img src={pic3} alt="lite" className="flyyy card" />
+          <img src={pic3} alt="lite" onClick={goToListing} className="flyyy card" />
         </div>
 
         <div className="  fadeInBottom cssanimation transition delay-4">
-          <img src={pic4} alt="lite" className="flyyy card" />
+          <img src={pic4} alt="lite" onClick={goToListing} className="flyyy card" />
         </div>
       </div>
 
