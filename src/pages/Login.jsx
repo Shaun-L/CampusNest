@@ -1,10 +1,21 @@
 
 import LoginForm from "../components/LoginForm";
 const Login = () => {
+  const loginTextStyle = {
+    fontSize: '16px',
+    color: '#333',
+    textAlign: 'center',
+    marginTop: '20px',
+  };
+
+  const registerLinkStyle = {
+    color: '#007bff',
+    textDecoration: 'none',
+  };
   return (
-    <div>
+    <div style={{ textAlign: 'center' }}>
     <LoginForm />
-    <p className="text-center my-4">Don't have an account? <a href='/register' className="text-violet-500 font-bold">Register</a></p>
+    <p style={loginTextStyle}>Don't have an account? <a href='/register' style={registerLinkStyle}>Register</a></p>
     </div>
   );
 }
