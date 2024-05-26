@@ -37,7 +37,7 @@ const LoginForm = () => {
   return (
     <div className="mx-auto py-8 px-8 w-1/2 rounded-xl fadeInBottom cssanimation">
       <form onSubmit={onSubmit}>
-        <h1 className="text-4xl font-medium text-center">Login</h1>
+        <h1 className="text-4xl font-light text-center">Login</h1>
         <div className="flex flex-col my-8">
           <div className="sm:col-span-3 my-4 w-full">
             <label
@@ -82,7 +82,7 @@ const LoginForm = () => {
         <div className="flex justify-center my-4">
             <button
               type="submit"
-              className="card rounded-full bg-white px-8 py-2 text-md font-medium text-black shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="card rounded-full bg-white px-8 py-2 text-md font-medium text-black shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Sign In
             </button>

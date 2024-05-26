@@ -3,15 +3,9 @@ import pic1 from "../assets/pic2.jpg";
 import pic2 from "../assets/pic2.jpg";
 import pic3 from "../assets/pic3.jpg";
 import pic4 from "../assets/pic4.jpg";
-<<<<<<< HEAD
-import infop1 from "../assets/infop1.png"
-import infop2 from "../assets/infop2.jpg"
-import sky from "../assets/pic3.jpg"
-=======
 import infop1 from "../assets/infop1.png";
 import infop2 from "../assets/infop2.jpg";
-import sky from "../assets/sky5.png";
->>>>>>> fb068222237949b9856211218049659071839eba
+import sky from "../assets/house.jpg";
 
 // import SearchBar from "../components/SearchBar"
 // import infop1 from "../assets/infop1.png";
@@ -47,7 +41,9 @@ const Home = () => {
         </div>
 
         <div className="title-align">
-          <img src={LOGO1} alt="lite" className="logo-home" />
+          {/* <img src={LOGO1} alt="lite" className="logo-home" /> */}
+          <h1 className="text-big">CAMPUS NEST</h1>
+          <h1 className="text-small">CAMPUS NEST IS YOUR TRUSTED PARTNER IN YOUR PURSUIT OF FINDING HOUSING</h1>
         </div>
 
         {/* <div className="search-func"> */}
