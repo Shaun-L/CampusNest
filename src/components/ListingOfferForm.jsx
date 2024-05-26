@@ -1,14 +1,72 @@
+import React, { useState } from 'react';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+
 const ListingOfferForm = () => {
+  const[title, setTitle] = useState('');
+  const[description, setDescription] = useState('');
+  const[address, setAddress] = useState('');
+  const[city, setCity] = useState('');
+  const[state, setState] = useState('AL');
+  const[zip, setZip] = useState('');
+  const[university, setUniversity] = useState('');
+  const[type, setType] = useState('Apartment');
+  const[rent, setRent] = useState('');
+  const[startDate, setStartDate] = useState('');
+  const[endDate, setEndDate] = useState('');
+  const[bedrooms, setBedrooms] = useState('');
+  const[bathrooms, setBathrooms] = useState('');
+  const[roomType, setRoomType] = useState('Single');
+  const[petTag, setPetTag] = useState(false);
+  const[femaleTag, setFemaleTag] = useState(false);
+  const[lgbtqFriendlyTag, setLgbtqFriendlyTag] = useState(false);
+  const[furnishedTag, setFurnishedTag] = useState(false);
+  const[poolTag, setPoolTag] = useState(false);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    // save to database
-    console.log(e.target.title.value);
-
+  const handleStateChange = (e) => {
+    setState(e.target.value);
   };
 
+  const handleTypeChange = (e) => {
+    setType(e.target.value);
+  };
+
+  const handleRoomTypeChange = (e) => {
+    setRoomType(e.target.value);
+  }
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const docRef = await addDoc(collection(db, "listings"), {
+        title,
+        address,
+        city,
+        state,
+        zip,
+        university,
+        type,
+        rent,
+        startDate,
+        endDate,
+        bedrooms,
+        bathrooms,
+        roomType,
+        petTag,
+        femaleTag,
+        lgbtqFriendlyTag,
+        furnishedTag,
+        poolTag
+      });
+      alert('Submitted listing!');
+      // navigate to individual listing page
+    } catch (e) {
+      console.error("Error adding document: ", e)
+    }
+  }
+
   return (
-    <div className="mx-auto py-8 px-8 w-1/2 bg-indigo-100 rounded-xl">
+    <div className="mx-auto py-8 my-4 px-8 w-1/2 bg-violet-100 rounded-xl">
       <form onSubmit={onSubmit}>
         <h1 className="text-2xl font-semibold text-center">Offer Listing</h1>
         <div className="flex flex-col">
@@ -25,6 +83,9 @@ const ListingOfferForm = () => {
                 name="title"
                 id="title"
                 autoComplete="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -42,6 +103,9 @@ const ListingOfferForm = () => {
                 name="description"
                 id="description"
                 autoComplete="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -60,11 +124,14 @@ const ListingOfferForm = () => {
                 name="address-line"
                 id="address-line"
                 autoComplete="address-line"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
-          <div className="grid grid-cols-6 gap-4">
+          <div className="grid grid-cols-6 gap-4 my-2">
             <div class="sm:col-span-2 sm:col-start-1">
               <label
                 for="city"
@@ -78,6 +145,9 @@ const ListingOfferForm = () => {
                   name="city"
                   id="city"
                   autocomplete="address-level2"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  required
                   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -94,6 +164,9 @@ const ListingOfferForm = () => {
                 <select
                   name="state"
                   id="state"
+                  value={state}
+                  onChange={handleStateChange}
+                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <option value="AL">AL</option>
@@ -164,6 +237,9 @@ const ListingOfferForm = () => {
                   name="postal-code"
                   id="postal-code"
                   autocomplete="postal-code"
+                  value={zip}
+                  onChange={(e) => setZip(e.target.value)}
+                  required
                   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -184,6 +260,9 @@ const ListingOfferForm = () => {
                 name="university"
                 id="university"
                 autoComplete="university"
+                value={university}
+                onChange={(e) => setUniversity(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -205,10 +284,13 @@ const ListingOfferForm = () => {
                 id="type"
                 name="type"
                 autocomplete="type"
+                value={type}
+                onChange={handleTypeChange}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
               >
-                <option>Apartment</option>
-                <option>House</option>
+                <option value="Apartment">Apartment</option>
+                <option value="House">House</option>
               </select>
             </div>
           </div>
@@ -228,6 +310,9 @@ const ListingOfferForm = () => {
                 id="monthly-rent"
                 min="0"
                 autoComplete="monthly-rent"
+                value={rent}
+                onChange={(e) => setRent(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
@@ -246,6 +331,9 @@ const ListingOfferForm = () => {
               <input
                 name="lease-start"
                 type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                required
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Select date start"
               />
@@ -261,6 +349,9 @@ const ListingOfferForm = () => {
               <input
                 name="lease-end"
                 type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+                required
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Select date end"
               />
@@ -269,8 +360,8 @@ const ListingOfferForm = () => {
 
           {/* price range */}
           <div className="sm:col-span-3 my-4 w-full">
-            <div className="mt-2 flex">
-              <div>
+            <div className="grid grid-cols-2 gap-4 my-2">
+              <div className="col-span-1">
                 <label
                   htmlFor="bedrooms"
                   className="block text-md font-semibold leading-6 text-gray-900"
@@ -283,10 +374,13 @@ const ListingOfferForm = () => {
                   id="bedrooms"
                   min="0"
                   autoComplete="bedrooms"
+                  value={bedrooms}
+                  onChange={(e) => setBedrooms(e.target.value)}
+                  required
                   className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 />
               </div>
-              <div>
+              <div className="col-span-1">
                 <label
                   htmlFor="bathrooms"
                   className="block text-md font-semibold leading-6 text-gray-900"
@@ -298,6 +392,9 @@ const ListingOfferForm = () => {
                   name="bathrooms"
                   id="bathrooms"
                   min="0"
+                  value={bathrooms}
+                  onChange={(e) => setBathrooms(e.target.value)}
+                  required
                   autoComplete="bathrooms"
                   className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 />
@@ -317,47 +414,14 @@ const ListingOfferForm = () => {
                 id="room-type"
                 name="room-type"
                 autoComplete="room-type"
+                value={roomType}
+                onChange={(e) => setRoomType(e.target.value)}
+                required
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
               >
-                <option>Single</option>
-                <option>Shared</option>
+                <option value="Single">Single</option>
+                <option value="Shared">Shared</option>
               </select>
-            </div>
-          </div>
-
-          {/* include roommate info */}
-          <legend className="text-md font-semibold leading-6 text-gray-900 mt-4">
-            Include your personal preferences on listing
-          </legend>
-          {/* <p className="mt-1 text-sm leading-6 text-gray-600">These are delivered via SMS to your mobile phone.</p> */}
-          <div className="my-2 space-y-2">
-            <div className="flex items-center gap-x-3">
-              <input
-                id="yes"
-                name="include-personal"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-              />
-              <label
-                htmlFor="yes"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Yes
-              </label>
-            </div>
-            <div className="flex items-center gap-x-3">
-              <input
-                id="no"
-                name="include-personal"
-                type="radio"
-                className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-              />
-              <label
-                htmlFor="no"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                No
-              </label>
             </div>
           </div>
 
@@ -372,6 +436,8 @@ const ListingOfferForm = () => {
                     id="petfriendly"
                     name="petfriendly"
                     type="checkbox"
+                    checked={petTag}
+                    onChange={(e) => setPetTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   />
                 </div>
@@ -390,6 +456,8 @@ const ListingOfferForm = () => {
                     id="all-female"
                     name="all-female"
                     type="checkbox"
+                    checked={femaleTag}
+                    onChange={(e) => setFemaleTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   />
                 </div>
@@ -408,6 +476,8 @@ const ListingOfferForm = () => {
                     id="lgbtq"
                     name="lgbtq"
                     type="checkbox"
+                    checked={lgbtqFriendlyTag}
+                    onChange={(e) => setLgbtqFriendlyTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   />
                 </div>
@@ -423,6 +493,8 @@ const ListingOfferForm = () => {
                     id="furnished"
                     name="furnished"
                     type="checkbox"
+                    checked={furnishedTag}
+                    onChange={(e) => setFurnishedTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   />
                 </div>
@@ -441,6 +513,8 @@ const ListingOfferForm = () => {
                     id="pool"
                     name="pool"
                     type="checkbox"
+                    checked={poolTag}
+                    onChange={(e) => setPoolTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                   />
                 </div>

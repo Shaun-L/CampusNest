@@ -6,8 +6,8 @@ import pic4 from "../assets/pic4.jpg";
 import infop1 from "../assets/infop1.png"
 import infop2 from "../assets/infop2.jpg"
 import SearchBar from "../components/SearchBar"
-import LOGO1 from "./pictures/LOGO1.png"
 import { useEffect, useNavigate } from "react";
+import LOGO1 from "./pictures/LOGO1.png"
 
 
 import './Home.css';
@@ -46,12 +46,18 @@ const Home = () => {
         <h2 className="subheader">Our Listings</h2>
 
         <div className="image-container">
+          
+          
           <div className='format-pics'>
-            <img src={pic1} alt="lite" className="butterfly" />
+              <img src={pic1} alt="lite" className="butterfly" />
+            
           </div>
 
+
           <div className='format-pics'>
-            <img src={pic2} alt="lite" className="butterfly" />
+            <a href="/listing/1">
+              <img src={pic2} alt="lite" className="butterfly" />
+            </a>
           </div>
 
           <div className='format-pics'>

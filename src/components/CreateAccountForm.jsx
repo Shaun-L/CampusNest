@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
-import { setUserProperties } from 'firebase/analytics';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -21,6 +20,8 @@ const UserAccountForm = () => {
   const[pets, setPets] = useState(false);
   const[femaleHousehold, setFemaleHousehold] = useState(false);
   const[lgbtqFriendly, setLgbtqFriendly] = useState(false);
+  const[furnished, setFurnished] = useState(false);
+  const[pool, setPool] = useState(false);
   const[error, setError] = useState(false);
   const navigate = useNavigate();
 
@@ -39,6 +40,8 @@ const UserAccountForm = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    console.log(username);
+    
     if (!gender) {
       setError('Please select a gender.');
       return;
@@ -58,10 +61,13 @@ const UserAccountForm = () => {
         roomatePref,
         pets,
         femaleHousehold,
-        lgbtqFriendly
+        lgbtqFriendly,
+        pool,
+        furnished
       });
       console.log("Document written with ID: ", docRef.id);
-      navigate('/login')
+      localStorage.setItem('userid', docRef.id);
+      navigate('/')
 
     } catch (e) {
       console.error("Error adding document: ", e)
@@ -75,17 +81,17 @@ const UserAccountForm = () => {
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
             <label
-              htmlFor="email"
+              htmlFor="username"
               className="block text-md font-semibold leading-6 text-gray-900"
             >
-              Email
+              Username
             </label>
             <div className="">
               <input
                 type="text"
-                name="email"
-                id="email"
-                autoComplete="email"
+                name="username"
+                id="username"
+                autoComplete="username"
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -172,7 +178,7 @@ const UserAccountForm = () => {
                 onChange={handleGenderChange}
               />
               <label
-                htmlFor="push-email"
+                htmlFor="push-username"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Male
@@ -454,6 +460,40 @@ const UserAccountForm = () => {
                 <div className="text-sm leading-6">
                   <label htmlFor="lgbtq" className="font-medium text-gray-900">
                     Prefer LGBTQ-Friendly
+                  </label>
+                </div>
+              </div>
+              <div className="relative flex gap-x-3">
+                <div className="flex h-6 items-center">
+                  <input
+                    id="furnished"
+                    name="furnished"
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    checked={furnished}
+                    onChange={(e) => setFurnished(e.target.checked)}
+                  />
+                </div>
+                <div className="text-sm leading-6">
+                  <label htmlFor="furnished" className="font-medium text-gray-900">
+                    Furnished
+                  </label>
+                </div>
+              </div>
+              <div className="relative flex gap-x-3">
+                <div className="flex h-6 items-center">
+                  <input
+                    id="pool"
+                    name="pool"
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    checked={pool}
+                    onChange={(e) => setPool(e.target.checked)}
+                  />
+                </div>
+                <div className="text-sm leading-6">
+                  <label htmlFor="pool" className="font-medium text-gray-900">
+                    Pool
                   </label>
                 </div>
               </div>
