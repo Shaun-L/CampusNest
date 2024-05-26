@@ -96,7 +96,6 @@ const ListingOfferForm = () => {
       }
     }
     console.log(seller)
-
     try {
       console.log(imageList)
 
@@ -159,7 +158,7 @@ const ListingOfferForm = () => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
-                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 text-black"
               />
             </div>
           </div>
@@ -179,7 +178,7 @@ const ListingOfferForm = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
-                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
@@ -200,7 +199,7 @@ const ListingOfferForm = () => {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 required
-                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
@@ -221,7 +220,7 @@ const ListingOfferForm = () => {
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   required
-                  class="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="py-3 block w-full rounded border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -240,7 +239,7 @@ const ListingOfferForm = () => {
                   value={state}
                   onChange={handleStateChange}
                   required
-                  className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  className="py-3 block w-full rounded border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <option value="AL">AL</option>
                   <option value="AK">AK</option>
@@ -313,7 +312,7 @@ const ListingOfferForm = () => {
                   value={zip}
                   onChange={(e) => setZip(e.target.value)}
                   required
-                  class="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="py-3 block w-full rounded border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -332,7 +331,7 @@ const ListingOfferForm = () => {
                 id="university"
                 name="university"
                 autoComplete="university"
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 value={university}
                 onChange={handleUniversityChange}
                 required
@@ -366,7 +365,7 @@ const ListingOfferForm = () => {
                 value={type}
                 onChange={handleTypeChange}
                 required
-                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
               >
                 <option value="Apartment">Apartment</option>
                 <option value="House">House</option>
@@ -392,7 +391,7 @@ const ListingOfferForm = () => {
                 value={distance}
                 onChange={(e) => setDistance(e.target.value)}
                 required
-                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
@@ -415,7 +414,7 @@ const ListingOfferForm = () => {
                 value={rent}
                 onChange={(e) => setRent(e.target.value)}
                 required
-                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
@@ -436,7 +435,7 @@ const ListingOfferForm = () => {
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
                 required
-                class="py-3 bg-gray-50 border border-gray-300 text-white text-sm rounded focus:ring-blue-500 focus:border-black block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="py-3 bg-gray-50 border border-gray-300 text-black text-sm rounded focus:ring-blue-500 focus:border-black block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Select date start"
               />
             </div>
@@ -454,7 +453,7 @@ const ListingOfferForm = () => {
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
                 required
-                class="py-3 bg-gray-50 border border-gray-300 text-white text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="py-3 bg-gray-50 border border-gray-300 text-black text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Select date end"
               />
             </div>
@@ -479,7 +478,7 @@ const ListingOfferForm = () => {
                   value={bedrooms}
                   onChange={(e) => setBedrooms(e.target.value)}
                   required
-                  className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                  className="py-3 block w-full rounded border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 />
               </div>
               <div className="col-span-1">
@@ -498,7 +497,7 @@ const ListingOfferForm = () => {
                   onChange={(e) => setBathrooms(e.target.value)}
                   required
                   autoComplete="bathrooms"
-                  className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                  className="py-3 block w-full rounded border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 />
               </div>
             </div>
@@ -519,7 +518,7 @@ const ListingOfferForm = () => {
                 value={roomType}
                 onChange={(e) => setRoomType(e.target.value)}
                 required
-                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
               >
                 <option value="Single">Single</option>
                 <option value="Shared">Shared</option>
