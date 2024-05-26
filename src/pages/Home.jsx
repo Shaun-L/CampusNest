@@ -44,10 +44,12 @@ const Home = () => {
           <img src={sky} alt="lite" className="logo" />
         </div>
 
-        <div className="title-align">
+        <div className="title-align flex justify-between">
           {/* <img src={LOGO1} alt="lite" className="logo-home" /> */}
           <h1 className="text-big">CAMPUS NEST</h1>
-          <h1 className="text-small">CAMPUS NEST IS YOUR TRUSTED PARTNER IN YOUR PURSUIT OF FINDING HOUSING</h1>
+          <h1 className="text-small">
+            CampusNest is your trusted partner in your pursuit of finding housing
+          </h1>
         </div>
 
         {/* <div className="search-func"> */}
