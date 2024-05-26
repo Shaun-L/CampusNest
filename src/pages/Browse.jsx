@@ -233,6 +233,7 @@ const Browse = () => {
               <option value="UC Los Angeles">UC Los Angeles</option>
               <option value="UC Riverside">UC Riverside</option>
               <option value="CSU Long Beach">CSU Long Beach</option>
+              <option value="USC">USC</option>
             </select>
             {/* <div class="absolute inset-y-0 h-6 start-0 flex items-center ps-5 pointer-events-none">
               <svg
