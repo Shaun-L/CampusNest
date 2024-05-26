@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
-import { db } from '../firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import React, { useState, useEffect } from 'react';
+import { db, storage } from '../firebase';
+import { collection, addDoc, doc, getDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL, listAll, list, deleteObject} from 'firebase/storage';
+import { v4 } from 'uuid';
+import { getSpaceUntilMaxLength } from '@testing-library/user-event/dist/utils';
+import { useNavigate } from 'react-router-dom';
 
 const ListingOfferForm = () => {
   const[title, setTitle] = useState('');
@@ -11,6 +15,7 @@ const ListingOfferForm = () => {
   const[zip, setZip] = useState('');
   const[university, setUniversity] = useState('');
   const[type, setType] = useState('Apartment');
+  const [distance, setDistance] = useState('');
   const[rent, setRent] = useState('');
   const[startDate, setStartDate] = useState('');
   const[endDate, setEndDate] = useState('');
@@ -20,8 +25,41 @@ const ListingOfferForm = () => {
   const[petTag, setPetTag] = useState(false);
   const[femaleTag, setFemaleTag] = useState(false);
   const[lgbtqFriendlyTag, setLgbtqFriendlyTag] = useState(false);
+  const [safeTag, setSafeTag] = useState(false);
   const[furnishedTag, setFurnishedTag] = useState(false);
   const[poolTag, setPoolTag] = useState(false);
+  const navigate = useNavigate();
+
+
+  const[imageList, setImageList] = useState([]);
+  const[image, setImage] = useState(null);
+
+  const imagesListRef = ref(storage, "images/");
+
+  const handleUpload = () => {
+    console.log("handle upload")
+    if (image == null) return;
+    const imgRef = ref(storage, `images/${v4()}`);
+    uploadBytes(imgRef, image).then(value => {
+      getDownloadURL(value.ref).then(url => {
+        setImageList(data => [...data, url])
+      })
+    });
+  }
+
+  // useEffect(() => {
+  //   listAll(imagesListRef).then((response) => {
+  //     response.items.forEach((item) => {
+  //       getDownloadURL(item).then((url) => {
+  //         setImageList((prev) => [...prev, url]);
+  //       });
+  //     });
+  //   });
+  // }, []);
+
+
+  
+
 
   const handleStateChange = (e) => {
     setState(e.target.value);
@@ -33,13 +71,33 @@ const ListingOfferForm = () => {
 
   const handleRoomTypeChange = (e) => {
     setRoomType(e.target.value);
-  }
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    const userid = localStorage.getItem("userid");
+    let seller = null;
+    if (userid) {
+      // get submitter's info
+      const querySnapshot = await getDoc(doc(db, "users", userid));
+      if (querySnapshot.exists()) {
+        const userData = querySnapshot.data();
+        
+        seller = {
+          name: userData.name,
+          email: userData.email
+        }
+      }
+    }
+    console.log(seller)
+
     try {
+      console.log(imageList)
+
       const docRef = await addDoc(collection(db, "listings"), {
         title,
+        description,
         address,
         city,
         state,
@@ -56,17 +114,26 @@ const ListingOfferForm = () => {
         femaleTag,
         lgbtqFriendlyTag,
         furnishedTag,
-        poolTag
+        poolTag,
+        seller: {
+          name: seller.name,
+          email: seller.email || '',
+          gender: seller.gender || '',
+          year: seller.year || '',
+          major: seller.major || ''
+        },
+        imageList
       });
-      alert('Submitted listing!');
+      alert("Submitted listing!");
       // navigate to individual listing page
+      navigate('/')
     } catch (e) {
-      console.error("Error adding document: ", e)
+      console.error("Error adding document: ", e);
     }
-  }
+  };
 
   return (
-    <div className="mx-auto py-8 my-4 px-8 w-1/2 bg-blue-100 rounded-xl">
+    <div className="mx-auto py-8 my-4 px-8 w-1/2 sm:max-md:w-5/6 bg-blue-100 rounded-xl">
       <form onSubmit={onSubmit}>
         <h1 className="text-2xl font-semibold text-center">Offer Listing</h1>
         <div className="flex flex-col">
@@ -148,7 +215,7 @@ const ListingOfferForm = () => {
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   required
-                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -167,7 +234,7 @@ const ListingOfferForm = () => {
                   value={state}
                   onChange={handleStateChange}
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <option value="AL">AL</option>
                   <option value="AK">AK</option>
@@ -240,7 +307,7 @@ const ListingOfferForm = () => {
                   value={zip}
                   onChange={(e) => setZip(e.target.value)}
                   required
-                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -266,7 +333,7 @@ const ListingOfferForm = () => {
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
-          </div>          
+          </div>
 
           <hr class="my-6 h-0.5 border-t-0 bg-black" />
 
@@ -295,7 +362,30 @@ const ListingOfferForm = () => {
             </div>
           </div>
 
-          {/* distance preference */}
+          {/* distance  */}
+          <div className="sm:col-span-3 my-4 w-full">
+            <label
+              htmlFor="monthly-rent"
+              className="block text-md font-semibold leading-6 text-gray-900 "
+            >
+              Distance from University (in miles)
+            </label>
+            <div>
+              <input
+                type="number"
+                name="monthly-rent"
+                id="monthly-rent"
+                min="0"
+                autoComplete="monthly-rent"
+                value={distance}
+                onChange={(e) => setDistance(e.target.value)}
+                required
+                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+              />
+            </div>
+          </div>
+
+          {/* rent */}
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="monthly-rent"
@@ -493,6 +583,26 @@ const ListingOfferForm = () => {
                     id="furnished"
                     name="furnished"
                     type="checkbox"
+                    checked={safeTag}
+                    onChange={(e) => setSafeTag(e.target.checked)}
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                </div>
+                <div className="text-sm leading-6">
+                  <label
+                    htmlFor="furnished"
+                    className="font-medium text-gray-900"
+                  >
+                    Safe at Night
+                  </label>
+                </div>
+              </div>
+              <div className="relative flex gap-x-3">
+                <div className="flex h-6 items-center">
+                  <input
+                    id="furnished"
+                    name="furnished"
+                    type="checkbox"
                     checked={furnishedTag}
                     onChange={(e) => setFurnishedTag(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
@@ -524,8 +634,32 @@ const ListingOfferForm = () => {
                   </label>
                 </div>
               </div>
+              
             </div>
           </fieldset>
+          <div className="sm:col-span-3 my-4 w-full">
+            <label
+              htmlFor="image-upload"
+              className="block text-md font-semibold leading-6 text-gray-900 "
+            >
+              Upload Images
+            </label>
+            <div>
+              <input
+                type="file"
+                name="image-upload"
+                id="image-upload"
+                onChange={(e) => setImage(e.target.files[0])}
+                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+              />
+              <button type="button" onClick={handleUpload}> Upload Image </button>
+              {
+                    imageList.map(dataVal=><div>
+                        <img src={dataVal} height="200px" width="200px" />
+                        <br/> 
+                    </div>)}            
+                </div>
+          </div>
 
           <div className="flex justify-center">
             <button
@@ -542,3 +676,4 @@ const ListingOfferForm = () => {
 };
 
 export default ListingOfferForm;
+

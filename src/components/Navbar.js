@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LOGO1 from "../assets/LOGO1.png"
+import LOGO2 from "../assets/LOGO2.png"
 
 const Navbar = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="bg-black">
       <div className="mx-auto w-full px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
+        <div className="relative flex h-24 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button
               type="button"
@@ -49,14 +49,17 @@ const Navbar = () => {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img
-                className="h-8 w-auto"
-                src={LOGO1}
+              <a href='/'>
+                <img
+                className="h-16 w-auto"
+                src={LOGO2}
                 alt="CampusNest logo"
               />
+              </a>
+              
             </div>
             <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 my-4">
                 <a
                   href="/browse"
                   className="text-white-800 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"

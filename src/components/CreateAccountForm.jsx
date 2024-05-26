@@ -9,6 +9,7 @@ const UserAccountForm = () => {
   const[username, setUsername] = useState('');
   const[password, setPassword] = useState('');
   const[name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const[gender, setGender] = useState('');
   const[university, setUniversity] = useState('');
   const[year, setYear] = useState('1st');
@@ -51,6 +52,7 @@ const UserAccountForm = () => {
         username,
         password,
         name,
+        email,
         gender,
         university,
         year,
@@ -146,7 +148,28 @@ const UserAccountForm = () => {
               />
             </div>
           </div>
+          <div className="sm:col-span-3 my-4 w-full">
+            <label
+              htmlFor="name"
+              className="block text-md font-semibold leading-6 text-gray-900"
+            >
+              Email
+            </label>
+            <div className="">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                autoComplete="name"
+                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+          </div>
 
+          <div className='my-4'>
           <legend className="text-md font-semibold leading-6 text-gray-900  ">
             Gender
           </legend>
@@ -232,6 +255,7 @@ const UserAccountForm = () => {
                 Other
               </label>
             </div>
+          </div>
           </div>
 
           {/* university */}

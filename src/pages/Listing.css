@@ -20,22 +20,10 @@
 
 
 .stats {
-    margin-left: 80px;
     /* border-radius: 10px;
     border: solid 1px gray; */
 }
 
-.cost {
-    font-weight: 600;
-    font-size: xx-large;
-
-
-}
-
-.address, .room {
-    font-size: x-large;
-    font-weight: 300;
-}
 
 .more-details {
     /* border: solid px gray; */
