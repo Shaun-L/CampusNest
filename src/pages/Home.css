@@ -194,7 +194,7 @@ body {
 .logop1 {
     margin: 40px;
     width: 100%; /* Set a fixed width for all images */
-    height: 500px; /* Set a fixed height for all images */
+    height: 400; /* Set a fixed height for all images */
     object-fit: cover; 
     border-radius: 1%;
 }
@@ -203,11 +203,15 @@ body {
     margin: 30px;
 
     width: 1450px; /* Set a fixed width for all images */
-    height: 500px; /* Set a fixed height for all images */
+    height: 400px; /* Set a fixed height for all images */
     object-fit: cover; 
     padding: 0px;
 
+}
 
+.logo-home {
+  width: 700px;
+  height: 400px;
 }
 
 .search-top {
@@ -236,8 +240,8 @@ body {
 }
 
 .format-logop1 {
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .title-align {
