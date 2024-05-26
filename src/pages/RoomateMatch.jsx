@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
-import img from '../assets/skyp1.jpg';
+import img from '../assets/car.png';
 import './RoomateMatch.css';
 
 const RoommateMatch = () => {
@@ -110,7 +110,7 @@ const RoommateMatch = () => {
   };
 
   return (
-    <div >
+    <div className="bg-image">
     {/* <div className="relative w-screen h-screen z-0">
     <img src={img} />
 
@@ -284,7 +284,7 @@ const RoommateMatch = () => {
       {/* Display filtered roommates */}
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
         {filteredRoommates.map((roommate) => (
-          <div key={roommate.id} className="border p-4 bg-white text-black rounded-lg">
+          <div key={roommate.id} className="border p-4 bg-gray-200 text-black rounded-lg">
             <h2 className="text-xl font-bold">{roommate.name}</h2>
             <p>Email: <a href={`mailto:${roommate.email}`} className="underline" onClick={() => handleEmailClick(roommate.email)}>{roommate.email}</a></p>
             <p>Gender: {roommate.gender}</p>
