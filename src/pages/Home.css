@@ -145,7 +145,7 @@ body {
 }
 
 .flyyy {
-    width: 350px; /* Set a fixed width for all images */
+    width: 330px; /* Set a fixed width for all images */
     height: 450px; /* Set a fixed height for all images */
     object-fit: cover; 
     border-radius: 10%;
