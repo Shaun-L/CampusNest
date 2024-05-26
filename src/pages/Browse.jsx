@@ -11,11 +11,14 @@ const Browse = () => {
   const [roomCount, setRoomCount] = useState(null);
   const [distance, setDistance] = useState(null);
   const [rentMax, setRentMax] = useState(null);
-  const [genderPreference, setGenderPreference] = useState();
+  const [genderPreference, setGenderPreference] = useState("");
   const [selectedSchool, setSelectedSchool] = useState("All");
 
   const handleSchoolChange = (e) => {
     setSelectedSchool(e.target.value);
+  };
+  const handleGenderChange = (e) => {
+    setGenderPreference(e.target.value);
   };
 
   useEffect(() => {
@@ -60,35 +63,35 @@ const Browse = () => {
     }
   };
 
-    useEffect(() => {
-      filterListings();
-    }, [distance, rentMax, roomCount, genderPreference, selectedSchool]);
-  
-    const filterListings = () => {
-      let filteredList = [...listings];
-  
-      if (distance) {
-        filteredList = filteredList.filter((listing) => listing.distance <= distance);
-      }
-  
-      if (rentMax) {
-        filteredList = filteredList.filter((listing) => listing.rent <= rentMax);
-      }
-  
-      if (roomCount) {
-        filteredList = filteredList.filter((listing) => listing.bedrooms === roomCount);
-      }
-  
-      if (genderPreference) {
-        filteredList = filteredList.filter((listing) => listing.gender === genderPreference);
-      }
-  
-      if (selectedSchool) {
-        filteredList = filteredList.filter((listing) => listing.university === selectedSchool);
-      }
-  
-      setFilteredListings(filteredList);
-    };
+  useEffect(() => {
+    filterListings();
+  }, [distance, rentMax, roomCount, genderPreference, selectedSchool]);
+
+  const filterListings = () => {
+    let filteredList = [...listings];
+
+    if (distance) {
+      filteredList = filteredList.filter((listing) => listing.distance <= distance);
+    }
+
+    if (rentMax) {
+      filteredList = filteredList.filter((listing) => listing.rent <= rentMax);
+    }
+
+    if (roomCount) {
+      filteredList = filteredList.filter((listing) => listing.bedrooms == roomCount);
+    }
+
+    if (genderPreference) {
+      filteredList = filteredList.filter((listing) => listing.seller.gender == genderPreference);
+    }
+
+    if (selectedSchool) {
+      filteredList = filteredList.filter((listing) => listing.university == selectedSchool);
+    }
+
+    setFilteredListings(filteredList);
+  };
 
 
   return (
@@ -134,23 +137,23 @@ const Browse = () => {
       <div className="flex justify-start">
 
 
-          {/* by distance */}
+        {/* by distance */}
+        <div>
+          <p className="text-medium font-medium">Distance</p>
           <div>
-              <p className="text-medium font-medium">Distance</p>
-              <div>
-                  <input
-                    type="number"
-                    name="distance"
-                    id="distance"
-                    min="0"
-                    autoComplete="distance"
-                    value={distance}
-                    onChange={(e) => setDistance(e.target.value)}
-                    required
-                    className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
-                  />
-                </div>
+            <input
+              type="number"
+              name="distance"
+              id="distance"
+              min="0"
+              autoComplete="distance"
+              value={distance}
+              onChange={(e) => setDistance(e.target.value)}
+              required
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
+            />
           </div>
+        </div>
 
         {/* by price */}
         <div>
@@ -171,83 +174,86 @@ const Browse = () => {
 
         </div>
 
-          {/* by room # */}
+        {/* by room # */}
+        <div>
+          <p className="text-medium font-medium"># of Rooms</p>
           <div>
-            <p className="text-medium font-medium"># of Rooms</p>
-            <div>
-                <input
-                  type="number"
-                  name="number-of-rooms"
-                  id="number-of-rooms"
-                  min="0"
-                  autoComplete="number-of-rooms"
-                  value={roomCount}
-                  onChange={(e) => setRoomCount(e.target.value)}
-                  required
-                  className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
-                />
-              </div>
+            <input
+              type="number"
+              name="number-of-rooms"
+              id="number-of-rooms"
+              min="0"
+              autoComplete="number-of-rooms"
+              value={roomCount}
+              onChange={(e) => setRoomCount(e.target.value)}
+              required
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
+            />
           </div>
-          
+        </div>
+
 
         <div>
           {/* Gender Preference */}
           <p className="text-medium font-medium">Gender</p>
           <div>
-            <select className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6">
-              <option>Female</option>
-              <option>Male</option>
-              <option>Transgender</option>
-              <option>Nonbinary</option>
-              <option>Other</option>
+            <select className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
+            onChange={handleGenderChange}
+            value={genderPreference}>
+              <option value=''>Any</option>
+              <option value='Female'>Female</option>
+              <option value='Male'>Male</option>
+              <option value='Transgender'>Transgender</option>
+              <option value='Nonbinary'>Nonbinary</option>
+              <option value='Other'>Other</option>
             </select>
           </div>
         </div>
 
 
-          {/* by school */}
-          <div>
-            <div className="relative rounded-full ml-4 h-12 bg-gray-400">
-                <select className="rounded-full border-2 h-full w-full pl-12 border-black"
-                onChange={handleSchoolChange}
-                value={selectedSchool}>
-                  <option value='' >All</option>
-                  <option value="UC Irvine">UC Irvine</option>
-                  <option value="UC Los Angeles">UC Los Angeles</option>
-                  <option value="UC Riverside">UC Riverside</option>
-                  <option value="CSU Long Beach">CSU Long Beach</option>
-                </select>
-                <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="#5f6368"
-                  >
-                    <path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z" />
-                  </svg>
-                </div>
-              </div>
+        {/* by school */}
+        <div>
+          <div className="relative rounded-full ml-4 h-12 bg-gray-400">
+            <select className="rounded-full border-2 h-full w-full pl-12 border-black"
+              onChange={handleSchoolChange}
+              value={selectedSchool}>
+              <option value='' >All</option>
+              <option value="UC Irvine">UC Irvine</option>
+              <option value="UC Los Angeles">UC Los Angeles</option>
+              <option value="UC Riverside">UC Riverside</option>
+              <option value="CSU Long Beach">CSU Long Beach</option>
+            </select>
+            <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#5f6368"
+              >
+                <path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z" />
+              </svg>
+            </div>
           </div>
-      </div>
-
-      </div>
-
-      {/* school select */}
-
-      <div className="flex gap-8">
-        {/* filter sidebar */}
-
-
-        </div>
-        {/* grid of apartments */}
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8">
-          {filteredListings && filteredListings.map((listing) => {
-            return <ListingCard listing={listing} />;
-          })}
         </div>
       </div>
+
+
+      {/* school select */ }
+
+  <div className="flex gap-8">
+    {/* filter sidebar */}
+
+
+  </div>
+  {/* grid of apartments */ }
+  <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8">
+    {filteredListings && filteredListings.map((listing) => {
+      return <ListingCard listing={listing} />;
+    })}
+  </div>
+      
+</div >
   );
 };
 
