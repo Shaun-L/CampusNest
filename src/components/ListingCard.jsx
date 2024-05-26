@@ -3,9 +3,17 @@ import { useState, useEffect } from "react";
 import { db } from "../firebase";
 import { updateDoc, doc, arrayUnion, arrayRemove } from "firebase/firestore";
 
+function formatDateToMonthYear(dateString) {
+  const date = new Date(dateString);
+  const options = { month: 'long', year: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+}
+
 const ListingCard = (props) => {
   const [saved, setSaved] = useState(false);
   const [userID, setUserID] = useState(null);
+
+
 
   const truncate = (str, n) => {
     if (!str || str.length == 0) return "";
@@ -48,7 +56,7 @@ const ListingCard = (props) => {
       {props.listing && (
         <div class="relative w-96 h-96 rounded-3xl overflow-hidden">
           <img
-            src={props.listing.imageURL}
+            src={props.listing.imageList[0]}
             alt="Avatar"
             class="object-cover w-full h-full"
           />
@@ -96,9 +104,9 @@ const ListingCard = (props) => {
             </p>
             <p className="text-white text-sm text-center">
               <span className="font-bold">
-                ${props.listing.monthlyRent}/month{" "}
+                ${props.listing.rent}/month{" "}
               </span>
-              | Aug 2022 - Aug 2023
+               |  {formatDateToMonthYear(props.listing.startDate)} to {formatDateToMonthYear(props.listing.endDate)}
             </p>
           </div>
         </div>
