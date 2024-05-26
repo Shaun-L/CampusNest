@@ -113,23 +113,28 @@ p, h2, h3 {
     font-weight: 400;
 }
 
+body {
+    background-color: black;
+    color: white;
+}
+
 
 .test {
     margin-top: 20px;
     font-size: xx-large;
-    color: black;
+    color: white;
 }
 
 
 .bottom-half{
-    margin-top: 250px;
+    margin-top: 200px;
 }
 
 .subheader {
-    font-size:25px;
-    color:black;
-    margin-left: 50px;
-    margin-bottom: 20px;
+    font-size:30px;
+    color:white;
+    /* margin-left: 50px;
+    margin-bottom: 20px; */
 }
 
 .image-container{ 
@@ -182,9 +187,38 @@ p, h2, h3 {
     display: flex;
     justify-content: center; /* Center the images horizontally */
     gap: 60px;
-    margin:10px 
+    margin:10px;
+    margin-top: 20px;
 }
 
 .main-search {
-    padding-top: 150px;
+    padding-left: 15px;
+}
+
+
+.logop1 {
+    margin-left: 40px;
+    width: 500px; /* Set a fixed width for all images */
+    height: 500px; /* Set a fixed height for all images */
+    object-fit: cover; 
+    border-radius: 1%;
+}
+
+.logo {
+
+    width: 550px; /* Set a fixed width for all images */
+    height: 550px; /* Set a fixed height for all images */
+    object-fit: cover; 
+
+}
+
+.search-top {
+    
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    gap: 60px;
+    margin: 10px;
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 30px;
 }

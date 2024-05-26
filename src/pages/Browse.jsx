@@ -120,14 +120,14 @@ const Browse = () => {
         const savedSet = new Set(userData.saved);
         setSavedSet(savedSet);
         console.log(savedSet)
-      } 
-    } 
+      }
+    }
   }
 
   const getListings = async () => {
     const listingsRef = collection(db, "listings");
     const querySnapshot = await getDocs(listingsRef);
-    
+
     if (!querySnapshot.empty) {
       let docs = [];
       querySnapshot.forEach((doc) => {
@@ -142,15 +142,17 @@ const Browse = () => {
 
   return (
     <div className="mx-12 ">
-      <h1 className="text-3xl font-medium my-4">Browse Listings</h1>
+
 
       {/* text that says browse listing and search bar */}
-        <div className="w-full flex flex-col items-center">
+      <div className="w-full flex gap-10 items-center">
 
-      
+        <h1 className="text-3xl font-medium my-4">Browse Listings</h1>
+
+
 
         {/* search bar */}
-        <div className="my-4 grid grid-cols-4">
+        <div className="my-4 flex-grow grid grid-cols-4">
           <div className="relative col-span-3 w-full h-12 mr-4 ">
             <input
               type="text"
@@ -173,124 +175,117 @@ const Browse = () => {
                 />
               </svg>
             </div>
-          </div>  
+          </div>
 
 
         </div>
-      
+      </div>
+
       {/* filter bar on top */}
-      <div className="flex justify-center">
+      <div className="flex justify-start">
 
 
-          {/* by distance */}
+        {/* by distance */}
+        <div>
+          <p className="text-medium font-medium">Distance</p>
           <div>
-              <p className="text-medium font-medium">Distance</p>
-              <div>
-                  <input
-                    type="number"
-                    name="monthly-rent"
-                    id="monthly-rent"
-                    min="0"
-                    autoComplete="monthly-rent"
-                    value={distance}
-                    onChange={(e) => setDistance()}
-                    required
-                    className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
-                  />
-                </div>
+            <input
+              type="number"
+              name="monthly-rent"
+              id="monthly-rent"
+              min="0"
+              autoComplete="monthly-rent"
+              value={distance}
+              onChange={(e) => setDistance()}
+              required
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
+            />
+          </div>
+        </div>
+
+        {/* by price */}
+        <div>
+          <p className="text-medium font-medium">Price</p>
+          <div>
+            <input
+              type="number"
+              name="monthly-rent"
+              id="monthly-rent"
+              min="0"
+              autoComplete="monthly-rent"
+              value={rentMax}
+              onChange={(e) => setRentMax(e.target.value)}
+              required
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
+            />
           </div>
 
-          {/* by price */}
+        </div>
+
+        {/* by room # */}
+        <div>
+          <p className="text-medium font-medium"># of Rooms</p>
           <div>
-            <p className="text-medium font-medium">Price</p>
-            <div>
-                <input
-                  type="number"
-                  name="monthly-rent"
-                  id="monthly-rent"
-                  min="0"
-                  autoComplete="monthly-rent"
-                  value={rentMax}
-                  onChange={(e) => setRentMax(e.target.value)}
-                  required
-                  className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
-                />
-              </div>
-
+            <input
+              type="number"
+              name="monthly-rent"
+              id="monthly-rent"
+              min="0"
+              autoComplete="monthly-rent"
+              value={rentMax}
+              onChange={(e) => setRentMax(e.target.value)}
+              required
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
+            />
           </div>
+        </div>
 
-          {/* by room # */}
+
+        <div>
+          {/* Gender Preference */}
+          <p className="text-medium font-medium">Gender</p>
           <div>
-            <p className="text-medium font-medium"># of Rooms</p>
-            <div>
-                <input
-                  type="number"
-                  name="monthly-rent"
-                  id="monthly-rent"
-                  min="0"
-                  autoComplete="monthly-rent"
-                  value={rentMax}
-                  onChange={(e) => setRentMax(e.target.value)}
-                  required
-                  className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
-                />
-              </div>
+            <select className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6">
+              <option>Female</option>
+              <option>Male</option>
+              <option>Transgender</option>
+              <option>Nonbinary</option>
+              <option>Other</option>
+            </select>
           </div>
-          
+        </div>
 
-          <div>
-            {/* Gender Preference */}
-            <p className="text-medium font-medium">Gender</p>
-            <div>
-                <input
-                  type="text"
-                  name="gender-preference"
-                  id="gender-preference"
-                  pattern="[FM]"
-                  // pattern="[FM]" maybe change?? 
-                  autoComplete="gender-preference"
-                  value={rentMax}
-                  onChange={(e) => setRentMax(e.target.value)}
-                  required
-                  className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
-                />
-              </div>
+
+        {/* by school */}
+        <div>
+          <div className="relative rounded-full ml-4 h-12 bg-gray-400">
+            <select className="rounded-full border-2 h-full w-full pl-12 border-black">
+              <option>UC Irvine</option>
+              <option>UCLA</option>
+              <option>UC Riverside</option>
+              <option>CSU Long Beach</option>
+            </select>
+            <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#5f6368"
+              >
+                <path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z" />
+              </svg>
+            </div>
           </div>
-    
+        </div>
 
-          {/* by school */}
-          <div>
-            <div className="relative rounded-full ml-4 h-12 bg-gray-400">
-                <select className="rounded-full border-2 h-full w-full pl-12 border-black">
-                  <option>UC Irvine</option>
-                  <option>UCLA</option>
-                  <option>UC Riverside</option>
-                  <option>CSU Long Beach</option>
-                </select>
-                <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="#5f6368"
-                  >
-                    <path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z" />
-                  </svg>
-                </div>
-              </div>
-          </div>
-          
-
-
-        
       </div>
 
-  
 
 
 
-      </div>
+
+
 
       {/* school select */}
 
@@ -298,14 +293,14 @@ const Browse = () => {
         {/* filter sidebar */}
 
 
-        </div>
-        {/* grid of apartments */}
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8">
-          {listings && listings.map((listing) => {
-            return <ListingCard listing={listing} />;
-          })}
-        </div>
       </div>
+      {/* grid of apartments */}
+      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8">
+        {listings && listings.map((listing) => {
+          return <ListingCard listing={listing} />;
+        })}
+      </div>
+    </div>
   );
 };
 
