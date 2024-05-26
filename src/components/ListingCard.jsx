@@ -47,6 +47,7 @@ const ListingCard = (props) => {
     <div>
       {props.listing && (
         <div class="relative w-96 h-96 rounded-3xl overflow-hidden">
+          <a href={`/listing/${props.listing.id}`}>
           <img
             src={props.listing.imageURL}
             alt="Avatar"
@@ -101,6 +102,7 @@ const ListingCard = (props) => {
               | Aug 2022 - Aug 2023
             </p>
           </div>
+          </a>
         </div>
       )}
     </div>

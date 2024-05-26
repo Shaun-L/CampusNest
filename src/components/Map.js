@@ -4,11 +4,10 @@ import './Map.css';
 
 
 const Map = () => {
-    const [center, setCenter] = useState([51.0, 19.0]);
+    const [center, setCenter] = useState([33.6, 117.8]);
   
   return (
     <div className="w-100 h-full rounded">
-      <h1>bladhfhapd</h1>
       {/* <MapContainer
     center={{ lat: 51.505, lng: -0.09 }}
     zoom={13}
@@ -39,3 +38,5 @@ const Map = () => {
     </div>
   );
 }
+
+export default Map;

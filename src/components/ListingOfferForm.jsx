@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
-import { db } from '../firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import React, { useState } from "react";
+import { db } from "../firebase";
+import { collection, doc, getDoc, addDoc } from "firebase/firestore";
 
 const ListingOfferForm = () => {
-  const[title, setTitle] = useState('');
-  const[description, setDescription] = useState('');
-  const[address, setAddress] = useState('');
-  const[city, setCity] = useState('');
-  const[state, setState] = useState('AL');
-  const[zip, setZip] = useState('');
-  const[university, setUniversity] = useState('');
-  const[type, setType] = useState('Apartment');
-  const[rent, setRent] = useState('');
-  const[startDate, setStartDate] = useState('');
-  const[endDate, setEndDate] = useState('');
-  const[bedrooms, setBedrooms] = useState('');
-  const[bathrooms, setBathrooms] = useState('');
-  const[roomType, setRoomType] = useState('Single');
-  const[petTag, setPetTag] = useState(false);
-  const[femaleTag, setFemaleTag] = useState(false);
-  const[lgbtqFriendlyTag, setLgbtqFriendlyTag] = useState(false);
-  const[furnishedTag, setFurnishedTag] = useState(false);
-  const[poolTag, setPoolTag] = useState(false);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("AL");
+  const [zip, setZip] = useState("");
+  const [university, setUniversity] = useState("");
+  const [distance, setDistance] = useState("");
+  const [type, setType] = useState("Apartment");
+  const [rent, setRent] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [bedrooms, setBedrooms] = useState("");
+  const [bathrooms, setBathrooms] = useState("");
+  const [roomType, setRoomType] = useState("Single");
+  const [petTag, setPetTag] = useState(false);
+  const [femaleTag, setFemaleTag] = useState(false);
+  const [lgbtqFriendlyTag, setLgbtqFriendlyTag] = useState(false);
+  const [furnishedTag, setFurnishedTag] = useState(false);
+  const [poolTag, setPoolTag] = useState(false);
 
   const handleStateChange = (e) => {
     setState(e.target.value);
@@ -33,13 +34,31 @@ const ListingOfferForm = () => {
 
   const handleRoomTypeChange = (e) => {
     setRoomType(e.target.value);
-  }
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    const userid = localStorage.getItem("userid");
+    let seller = null;
+    if (userid) {
+      // get submitter's info
+      const querySnapshot = await getDoc(doc(db, "users", userid));
+      if (querySnapshot.exists()) {
+        const userData = querySnapshot.data();
+        
+        seller = {
+          name: userData.name,
+          email: userData.email
+        }
+      }
+    }
+    console.log(seller)
+
     try {
       const docRef = await addDoc(collection(db, "listings"), {
         title,
+        description,
         address,
         city,
         state,
@@ -56,17 +75,21 @@ const ListingOfferForm = () => {
         femaleTag,
         lgbtqFriendlyTag,
         furnishedTag,
-        poolTag
+        poolTag,
+        seller: {
+          name: seller.name,
+          email: seller.email || ''
+        }
       });
-      alert('Submitted listing!');
+      alert("Submitted listing!");
       // navigate to individual listing page
     } catch (e) {
-      console.error("Error adding document: ", e)
+      console.error("Error adding document: ", e);
     }
-  }
+  };
 
   return (
-    <div className="mx-auto py-8 my-4 px-8 w-1/2 bg-blue-100 rounded-xl">
+    <div className="mx-auto py-8 my-4 px-8 w-1/2 sm:max-md:w-5/6 bg-blue-100 rounded-xl">
       <form onSubmit={onSubmit}>
         <h1 className="text-2xl font-semibold text-center">Offer Listing</h1>
         <div className="flex flex-col">
@@ -148,7 +171,7 @@ const ListingOfferForm = () => {
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   required
-                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -167,7 +190,7 @@ const ListingOfferForm = () => {
                   value={state}
                   onChange={handleStateChange}
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <option value="AL">AL</option>
                   <option value="AK">AK</option>
@@ -240,7 +263,7 @@ const ListingOfferForm = () => {
                   value={zip}
                   onChange={(e) => setZip(e.target.value)}
                   required
-                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -266,7 +289,7 @@ const ListingOfferForm = () => {
                 className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
-          </div>          
+          </div>
 
           <hr class="my-6 h-0.5 border-t-0 bg-black" />
 
@@ -295,7 +318,30 @@ const ListingOfferForm = () => {
             </div>
           </div>
 
-          {/* distance preference */}
+          {/* distance  */}
+          <div className="sm:col-span-3 my-4 w-full">
+            <label
+              htmlFor="monthly-rent"
+              className="block text-md font-semibold leading-6 text-gray-900 "
+            >
+              Distance from University (in miles)
+            </label>
+            <div>
+              <input
+                type="number"
+                name="monthly-rent"
+                id="monthly-rent"
+                min="0"
+                autoComplete="monthly-rent"
+                value={distance}
+                onChange={(e) => setDistance(e.target.value)}
+                required
+                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+              />
+            </div>
+          </div>
+
+          {/* rent */}
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="monthly-rent"
