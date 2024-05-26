@@ -141,17 +141,17 @@ const ListingOfferForm = () => {
   return (
     <div className="mx-auto py-8 my-4 px-8 w-1/2 sm:max-md:w-5/6 text-white rounded-xl fadeInBottom cssanimation">
       <form onSubmit={onSubmit}>
-        <h1 className="text-4xl font-medium text-center text-white">Offer Listing</h1>
+        <h1 className="text-4xl font-light text-left text-white mt-10 mb-20">Please fill out the form below to upload an offer</h1>
         <div className="flex flex-col">
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="title"
-              className="block text-md font-medium leading-6 text-white"
+              className="block text-md font-light leading-6 text-white"
             >
-              Title
+              Title 
             </label>
             <div className="">
-              <input
+              <input 
                 type="text"
                 name="title"
                 id="title"
@@ -159,14 +159,14 @@ const ListingOfferForm = () => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="description"
-              className="block text-md font-medium leading-6 text-white"
+              className="block text-md font-light leading-6 text-white"
             >
               Description
             </label>
@@ -179,7 +179,7 @@ const ListingOfferForm = () => {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
@@ -187,7 +187,7 @@ const ListingOfferForm = () => {
           <div className="sm:col-span-3 mt-4 w-full">
             <label
               htmlFor="address-line"
-              className="block text-md font-medium leading-6 text-white"
+              className="block text-md font-light leading-6 text-white"
             >
               Address Line
             </label>
@@ -200,7 +200,7 @@ const ListingOfferForm = () => {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 required
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
@@ -208,7 +208,7 @@ const ListingOfferForm = () => {
             <div class="sm:col-span-2 sm:col-start-1">
               <label
                 for="city"
-                class="block text-md font-medium leading-6 text-white"
+                class="block text-md font-light leading-6 text-white"
               >
                 City
               </label>
@@ -221,7 +221,7 @@ const ListingOfferForm = () => {
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   required
-                  class="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -230,7 +230,7 @@ const ListingOfferForm = () => {
               <div>
                 <label
                   htmlFor="price-range"
-                  className="block text-md font-medium leading-6 text-white"
+                  className="block text-md font-light leading-6 text-white"
                 >
                   State
                 </label>
@@ -240,7 +240,7 @@ const ListingOfferForm = () => {
                   value={state}
                   onChange={handleStateChange}
                   required
-                  className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   <option value="AL">AL</option>
                   <option value="AK">AK</option>
@@ -300,7 +300,7 @@ const ListingOfferForm = () => {
             <div class="sm:col-span-2">
               <label
                 for="postal-code"
-                class="block text-md font-medium leading-6 text-white"
+                class="block text-md font-light leading-6 text-white"
               >
                 Zip Code
               </label>
@@ -313,7 +313,7 @@ const ListingOfferForm = () => {
                   value={zip}
                   onChange={(e) => setZip(e.target.value)}
                   required
-                  class="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  class="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -323,7 +323,7 @@ const ListingOfferForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="university"
-              className="block text-md font-medium leading-6 text-white"
+              className="block text-md font-light leading-6 text-white"
             >
               University
             </label>
@@ -349,12 +349,12 @@ const ListingOfferForm = () => {
 
           <hr class="my-6 h-0.5 border-t-0 bg-white" />
 
-          <h2 className="text-xl text-white font-medium my-4">Housing Details</h2>
+          <h2 className="text-xl text-white font-light my-4">Housing Details</h2>
 
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="type"
-              className="block text-md font-medium leading-6 text-white"
+              className="block text-md font-light leading-6 text-white"
             >
               Type
             </label>
@@ -366,7 +366,7 @@ const ListingOfferForm = () => {
                 value={type}
                 onChange={handleTypeChange}
                 required
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
               >
                 <option value="Apartment">Apartment</option>
                 <option value="House">House</option>
@@ -378,7 +378,7 @@ const ListingOfferForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="monthly-rent"
-              className="block text-md font-medium leading-6 text-white "
+              className="block text-md font-light leading-6 text-white "
             >
               Distance from University (in miles)
             </label>
@@ -392,7 +392,7 @@ const ListingOfferForm = () => {
                 value={distance}
                 onChange={(e) => setDistance(e.target.value)}
                 required
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
@@ -401,7 +401,7 @@ const ListingOfferForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="monthly-rent"
-              className="block text-md font-medium leading-6 text-white "
+              className="py-3 block text-md font-light leading-6 text-white "
             >
               Monthly Rent Price
             </label>
@@ -415,7 +415,7 @@ const ListingOfferForm = () => {
                 value={rent}
                 onChange={(e) => setRent(e.target.value)}
                 required
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
               />
             </div>
           </div>
@@ -426,7 +426,7 @@ const ListingOfferForm = () => {
             <div class="relative">
               <label
                 htmlFor="lease-start"
-                className="block text-md font-medium leading-6 text-white"
+                className="block text-md font-light leading-6 text-white"
               >
                 Lease Start Date
               </label>
@@ -436,7 +436,7 @@ const ListingOfferForm = () => {
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
                 required
-                class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-black block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="py-3 bg-gray-50 border border-gray-300 text-white text-sm rounded focus:ring-blue-500 focus:border-black block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Select date start"
               />
             </div>
@@ -444,7 +444,7 @@ const ListingOfferForm = () => {
             <div class="relative">
               <label
                 htmlFor="bedrooms"
-                className="block text-md font-medium leading-6 text-white"
+                className="block text-md font-light leading-6 text-white"
               >
                 Lease End Date
               </label>
@@ -454,7 +454,7 @@ const ListingOfferForm = () => {
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
                 required
-                class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="py-3 bg-gray-50 border border-gray-300 text-white text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Select date end"
               />
             </div>
@@ -466,7 +466,7 @@ const ListingOfferForm = () => {
               <div className="col-span-1">
                 <label
                   htmlFor="bedrooms"
-                  className="block text-md font-medium leading-6 text-white"
+                  className="block text-md font-light leading-6 text-white"
                 >
                   Bedrooms
                 </label>
@@ -479,13 +479,13 @@ const ListingOfferForm = () => {
                   value={bedrooms}
                   onChange={(e) => setBedrooms(e.target.value)}
                   required
-                  className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                  className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 />
               </div>
               <div className="col-span-1">
                 <label
                   htmlFor="bathrooms"
-                  className="block text-md font-medium leading-6 text-white"
+                  className="block text-md font-light leading-6 text-white"
                 >
                   Bathrooms
                 </label>
@@ -498,7 +498,7 @@ const ListingOfferForm = () => {
                   onChange={(e) => setBathrooms(e.target.value)}
                   required
                   autoComplete="bathrooms"
-                  className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                  className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                 />
               </div>
             </div>
@@ -507,7 +507,7 @@ const ListingOfferForm = () => {
           <div className="sm:col-span-3 my-4 w-full">
             <label
               htmlFor="room-type"
-              className="block text-md font-medium leading-6 text-white mt-2"
+              className="block text-md font-light leading-6 text-white mt-2"
             >
               Room Type
             </label>
@@ -519,7 +519,7 @@ const ListingOfferForm = () => {
                 value={roomType}
                 onChange={(e) => setRoomType(e.target.value)}
                 required
-                className="block w-full rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="py-3 block w-full rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
               >
                 <option value="Single">Single</option>
                 <option value="Shared">Shared</option>
@@ -528,7 +528,7 @@ const ListingOfferForm = () => {
           </div>
 
           <fieldset className="my-4">
-            <legend className="text-md font-medium leading-6 text-white">
+            <legend className="text-md font-light leading-6 text-white">
               Tags
             </legend>
             <div className="mt-2 space-y-2">
@@ -546,7 +546,7 @@ const ListingOfferForm = () => {
                 <div className="text-sm leading-6">
                   <label
                     htmlFor="petfriendly"
-                    className="font-medium text-white"
+                    className="font-light text-white"
                   >
                     Pet-Friendly
                   </label>
@@ -566,7 +566,7 @@ const ListingOfferForm = () => {
                 <div className="text-sm leading-6">
                   <label
                     htmlFor="all-female"
-                    className="font-medium text-white"
+                    className="font-light text-white"
                   >
                     All-Female Household
                   </label>
@@ -584,7 +584,7 @@ const ListingOfferForm = () => {
                   />
                 </div>
                 <div className="text-sm leading-6">
-                  <label htmlFor="lgbtq" className="font-medium text-white">
+                  <label htmlFor="lgbtq" className="font-light text-white">
                     LGBTQ-Friendly
                   </label>
                 </div>
@@ -603,7 +603,7 @@ const ListingOfferForm = () => {
                 <div className="text-sm leading-6">
                   <label
                     htmlFor="furnished"
-                    className="font-medium text-white"
+                    className="font-light text-white"
                   >
                     Safe at Night
                   </label>
@@ -623,7 +623,7 @@ const ListingOfferForm = () => {
                 <div className="text-sm leading-6">
                   <label
                     htmlFor="furnished"
-                    className="font-medium text-white"
+                    className="font-light text-white"
                   >
                     Furnished
                   </label>
@@ -641,7 +641,7 @@ const ListingOfferForm = () => {
                   />
                 </div>
                 <div className="text-sm leading-6">
-                  <label htmlFor="pool" className="font-medium text-white">
+                  <label htmlFor="pool" className="font-light text-white">
                     Pool
                   </label>
                 </div>
@@ -652,7 +652,7 @@ const ListingOfferForm = () => {
           <div className="sm:col-span-3 my-8 w-full">
             <label
               htmlFor="image-upload"
-              className="block text-md font-medium leading-6 text-white"
+              className="block text-md font-light leading-6 text-white"
             >
               Upload Images
             </label>
@@ -663,7 +663,7 @@ const ListingOfferForm = () => {
                 name="image-upload"
                 id="image-upload"
                 onChange={(e) => setImage(e.target.files[0])}
-                className="block rounded-md border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:yellow-400 sm:text-md sm:leading-6"
+                className="block rounded border-0 p-1.5 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:yellow-400 sm:text-md sm:leading-6"
               />
               <button type="button" onClick={handleUpload} className='col-span-2 text-white border-2 border-white rounded-full px-4 hover:text-white hover:bg-black'> Upload Image </button>
               </div>
@@ -678,7 +678,7 @@ const ListingOfferForm = () => {
           <div className="flex justify-center my-4">
             <button
               type="submit"
-              className="card rounded-full bg-white text-black px-6 py-2  text-xl font-medium whitetext- shadow-sm hover:bg-yellow-400 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="rounded-full bg-white text-black px-6 py-2  text-xl font-light whitetext- shadow-sm hover:bg-gray-400 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Submit
             </button>

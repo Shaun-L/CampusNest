@@ -129,9 +129,11 @@ body {
 }
 
 .subheader {
-  font-size: 30px;
-  color: white;
-  /* margin-left: 50px;
+    margin-top: 20px;
+    font-size:40px;
+    color:white;
+    font-weight: 300;
+    /* margin-left: 50px;
     margin-bottom: 20px; */
 }
 
@@ -142,10 +144,11 @@ body {
   margin: 10px;
 }
 
-.butterfly {
-  width: 280px; /* Set a fixed width for all images */
-  height: 300px; /* Set a fixed height for all images */
-  object-fit: cover;
+.flyyy {
+    width: 350px; /* Set a fixed width for all images */
+    height: 450px; /* Set a fixed height for all images */
+    object-fit: cover; 
+    border-radius: 10%;
 }
 
 .informational-1 {
@@ -166,10 +169,11 @@ body {
   margin: 40px;
 }
 .white-pic {
-  width: 1200px; /* Set a fixed width for all images */
-  height: 450px; /* Set a fixed height for all images */
-  object-fit: cover;
-  /* margin-right: 10px; */
+    width: 1100px; /* Set a fixed width for all images */
+    height: 450px; /* Set a fixed height for all images */
+    object-fit: cover; 
+    border-radius: 1%;
+    margin-right: 10px;
 }
 
 .info {
@@ -177,11 +181,10 @@ body {
 }
 
 .top-halfp1 {
-  display: flex;
-  justify-content: center; /* Center the images horizontally */
-  gap: 60px;
-  margin: 10px;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
 }
 
 .main-search {
@@ -189,53 +192,58 @@ body {
 }
 
 .logop1 {
-  margin-left: 40px;
-  width: 500px; /* Set a fixed width for all images */
-  height: 500px; /* Set a fixed height for all images */
-  object-fit: cover;
+    margin: 40px;
+    width: 100%; /* Set a fixed width for all images */
+    height: 500px; /* Set a fixed height for all images */
+    object-fit: cover; 
+    border-radius: 1%;
 }
 
 .logo {
-  width: 550px; /* Set a fixed width for all images */
-  height: 550px; /* Set a fixed height for all images */
-  object-fit: cover;
+    margin: 30px;
+
+    width: 1450px; /* Set a fixed width for all images */
+    height: 500px; /* Set a fixed height for all images */
+    object-fit: cover; 
+    padding: 0px;
+
+
 }
 
 .search-top {
-  display: flex;
-  justify-content: flex-start; /* Align items to the left */
-  gap: 60px;
-  margin: 10px;
-  align-items: center;
-  margin-left: 50px;
-  margin-bottom: 30px;
+    
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    gap: 60px;
+    margin: 10px;
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 30px;
 }
 
-.card {
-  transition: transform 0.5s;
+.appeal {
+    font-size: 200px;
+    margin-left: 50px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.appeal-text {
+    padding-top: 0px;
+    margin-top: 0px;
+    font-size: 50px;
+    font-weight: 200;
+    margin-left: 50px;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.format-logop1 {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
-.cssanimation {
-  animation-duration: 1s;
-  animation-fill-mode: both;
+.title-align {
+    display: flex;
+    align-items: center ;
 }
-.fadeInBottom {
-  animation-name: fadeInBottom;
-}
-@keyframes fadeInBottom {
-  from {
-    opacity: 0;
-    transform: translateY(20%);
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .delay-1 {
     animation-delay: 200ms;
 }
