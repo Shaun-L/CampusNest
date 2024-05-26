@@ -31,6 +31,10 @@ const UserAccountForm = () => {
     setGender(e.target.value);
   };
 
+  const handleUniversityChange = (e) => {
+    setUniversity(e.target.value);
+  };
+
   const handleYearChange = (e) => {
     setYear(e.target.value);
   };
@@ -267,16 +271,22 @@ const UserAccountForm = () => {
               University
             </label>
             <div>
-              <input
-                type="text"
-                name="university"
+            <select
                 id="university"
+                name="university"
                 autoComplete="university"
+                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 value={university}
-                onChange={(e) => setUniversity(e.target.value)}
+                onChange={handleUniversityChange}
                 required
-                className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
-              />
+              >
+                <option value="UC Irvine">UC Irvine</option>
+                <option value="UC Los Angeles">UC Los Angeles</option>
+                <option value="UC Riverside">UC Riverside</option>
+                <option value="CSU Long Beach">CSU Long Beach</option>
+                <option value="USC">USC</option>
+  
+              </select>
             </div>
           </div>
 
