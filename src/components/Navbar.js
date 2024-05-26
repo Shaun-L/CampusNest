@@ -19,11 +19,11 @@ const Navbar = () => {
   return (
     <nav className="bg-black">
       <div className="mx-auto w-full px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-20 items-center justify-between">
+        <div className="relative flex h-16 items-center pt-4 justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button
               type="button"
-              className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="relative inline-flex items-center justify-center rounded-md p-2 text-yellow-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded="false"
             >
@@ -62,28 +62,28 @@ const Navbar = () => {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
               <a href="/">
-                <img className="h-12 w-auto card" src={logo} alt="CampusNest logo" />
+                <img className="h-12 w-auto card animate-pulse" src={logo} alt="CampusNest logo" />
               </a>
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4 my-4">
                 <a
                   href="/browse"
-                  className="text-white-800 hover:bg-gray-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
+                  className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
                   aria-current="page"
                 >
                   Browse
                 </a>
                 <a
                   href="/offer"
-                  className="text-white-800 hover:bg-gray-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
+                  className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
                 >
                   Offer
                 </a>
                 {/* Roommate Finder Link */}
                 <a
                   href="/rm"
-                  className="text-white-800 hover:bg-gray-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
+                  className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
                 >
                   Roommate Finder
                 </a>
@@ -126,7 +126,7 @@ const Navbar = () => {
                     tabindex="-1"
                     id="user-menu-item-0"
                   >
-                    Your Profile
+                    Profile
                   </a>
                   {/* <a
                     onClick={signout}
@@ -170,7 +170,7 @@ const Navbar = () => {
           {/* Roommate Finder Link */}
           <a
             href="/rm"
-            className="text-white-800 hover:bg-gray-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
+            className="text-white-800 hover:bg-yellow-400 hover:text-black rounded-md px-3 py-2 text-lg font-medium"
             >
             Roommate Finder
             </a>
