@@ -16,7 +16,6 @@ const RoommateMatch = () => {
   const [major, setMajor] = useState("");
   const [pets, setPets] = useState("");
   const [pool, setPool] = useState("");
-  const [roommatePref, setRoommatePref] = useState("");
   const [university, setUniversity] = useState("");
   const [year, setYear] = useState("");
 
@@ -50,7 +49,7 @@ const RoommateMatch = () => {
 
   useEffect(() => {
     filterRoommates();
-  }, [distance, gender, lgbtqFriendly, femaleHousehold, furnished, maxPrice, minPrice, major, pets, pool, roommatePref, university, year]);
+  }, [distance, gender, lgbtqFriendly, femaleHousehold, furnished, maxPrice, minPrice, major, pets, pool, university, year]);
 
   const filterRoommates = () => {
     let filteredList = [...roommates];
@@ -96,9 +95,6 @@ const RoommateMatch = () => {
       filteredList = filteredList.filter((roommate) => roommate.pool === (pool === "true"));
     }
 
-    if (roommatePref) {
-      filteredList = filteredList.filter((roommate) => roommate.roommatePref === roommatePref);
-    }
 
     if (university) {
       filteredList = filteredList.filter((roommate) => roommate.university === university);
@@ -123,7 +119,7 @@ const RoommateMatch = () => {
             type="text"
             value={distance}
             onChange={(e) => setDistance(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
+            className="block w-full rounded-md p-1.5 mb-6 text-black"
           />
         </div>
 
@@ -133,7 +129,7 @@ const RoommateMatch = () => {
           <select
             value={gender}
             onChange={(e) => setGender(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
+            className="block w-full rounded-md p-1.5 mb-6 text-black"
           >
             <option value="">Any</option>
             <option value="Male">Male</option>
@@ -148,7 +144,7 @@ const RoommateMatch = () => {
           <select
             value={lgbtqFriendly}
             onChange={(e) => setLgbtqFriendly(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
+            className="block w-full rounded-md p-1.5 mb-6 text-black"
           >
             <option value="">Any</option>
             <option value="true">Yes</option>
@@ -162,7 +158,7 @@ const RoommateMatch = () => {
           <select
             value={femaleHousehold}
             onChange={(e) => setFemaleHousehold(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
+            className="block w-full rounded-md p-1.5 mb-6 text-black"
           >
             <option value="">Any</option>
             <option value="true">Yes</option>
@@ -176,7 +172,7 @@ const RoommateMatch = () => {
           <select
             value={furnished}
             onChange={(e) => setFurnished(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
+            className="block w-full rounded-md p-1.5 mb-6 text-black"
           >
             <option value="">Any</option>
             <option value="true">Yes</option>
@@ -191,7 +187,7 @@ const RoommateMatch = () => {
             type="text"
             value={maxPrice}
             onChange={(e) => setMaxPrice(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
+            className="block w-full rounded-md p-1.5 mb-6 text-black"
           />
         </div>
 
@@ -202,7 +198,7 @@ const RoommateMatch = () => {
             type="text"
             value={minPrice}
             onChange={(e) => setMinPrice(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
+            className="block w-full rounded-md p-1.5 mb-6 text-black"
           />
         </div>
 
@@ -213,7 +209,7 @@ const RoommateMatch = () => {
             type="text"
             value={major}
             onChange={(e) => setMajor(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
+            className="block w-full rounded-md p-1.5 mb-6 text-black"
           />
         </div>
 
@@ -223,7 +219,7 @@ const RoommateMatch = () => {
           <select
             value={pets}
             onChange={(e) => setPets(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
+            className="block w-full rounded-md p-1.5 mb-6 text-black"
           >
             <option value="">Any</option>
             <option value="true">Yes</option>
@@ -237,23 +233,12 @@ const RoommateMatch = () => {
           <select
             value={pool}
             onChange={(e) => setPool(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
+            className="block w-full rounded-md p-1.5 mb-6 text-black"
           >
             <option value="">Any</option>
             <option value="true">Yes</option>
             <option value="false">No</option>
           </select>
-        </div>
-
-        {/* Filter by roommate preference */}
-        <div>
-          <p className="text-medium font-medium">Roommate Preference</p>
-          <input
-            type="text"
-            value={roommatePref}
-            onChange={(e) => setRoommatePref(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
-          />
         </div>
 
         {/* Filter by university */}
@@ -284,7 +269,7 @@ const RoommateMatch = () => {
             type="text"
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            className="block w-full rounded-md p-1.5 mb-6"
+            className="block w-full rounded-md p-1.5 mb-6 text-black"
           />
         </div>
       </div>
