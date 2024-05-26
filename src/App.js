@@ -8,7 +8,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 
 import Navbar from "./components/Navbar";
-import Listing from "./pages/Listing"
+import Listing from "./pages/listing"
 import "./App.css";
 
 

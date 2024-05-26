@@ -5,6 +5,7 @@ import ListingCard from "../components/ListingCard";
 
 import { db } from "../firebase";
 import { doc, getDoc, collection, getDocs } from "firebase/firestore";
+import './Profile.css';
 
 const Profile = () => {
   const [listings, setListings] = useState([]);
@@ -67,39 +68,108 @@ const Profile = () => {
   };
 
   return (
-    <div className="grid grid-cols-3 gap-8 m-8">
-      <div className="col-span-1 flex flex-col gap-8">
-        <div className="rounded-xl w-full h-auto bg-white p-4">
-          <div className="flex flex-col justify-center items-center">
+    <div className="all">
+
+      <div className="first-half">
+
+        <div className="p1">
+          <img className="image" src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" />
+          <div className="personal-info">
+            <h1 className="text">Name: XXXXX</h1>
+            <h1 className="text">Email: XXXXX </h1>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div className="second-half">
+
+        <div className="p2">
+          <h1 className="prefer-header">User Preferences</h1>
+
+          <div>
+            <p className="prefer-text">Maximum Distance from School</p>
+            <p className="prefer-t">{distance} miles</p>
+          </div>
+
+          <div>
+              <p className="prefer-text">Rent Price</p>
+              <p className="prefer-t">
+                ${rentMin} - ${rentMax}
+              </p>
+          </div>
+
+          <div>
+              <p className="prefer-text">Roommate</p>
+              <p className="prefer-t">{roommate}</p>
+          </div>
+
+          <div>
+              <p className="prefer-text">Other Tags</p>
+              {pets && <p className="prefer-t">Owns Pets</p>}
+              {femaleHousehold && <p className="prefer-t">Prefer All-Female Household</p>}
+              {lgbtqFriendly && <p className="prefer-t">Prefer LGBTQ-friendly</p>}
+          </div>
+
+        </div>
+
+        <div className="saved">
+          <h1 className="text-homes">Saved Homes</h1>
+
+          <div class="grid grid-cols-1 xl:grid-cols-2 grid-flow-row justify-items-center my-8 mx-12 gap-4">
+            {listings.map((listing) => {
+              return <ListingCard listing={listing} />;
+            })}
+          </div>
+
+        </div>
+        
+      </div>
+
+
+
+      
+
+
+
+
+
+
+
+
+
+      {/* <div>
+        <div>
+          <div>
             <img
               src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"
-              className="w-24 h-24 rounded-fullborder-2"
             />
-            <h1 className="text-xl font-semibold">Name</h1>
+            <h1>Name</h1>
             <p>Email</p>
           </div>
         </div>
-        <div className="rounded-xl w-full h-auto bg-violet-100 py-8 px-16">
-          <h2 className="text-2xl font-semibold text-center">
+        <div>
+          <h2>
             User Preferences
           </h2>
           <div>
-            <div className="my-4">
-              <p className="text-sm font-bold">Maximum Distance from School</p>
+            <div>
+              <p>Maximum Distance from School</p>
               <p>{distance} miles</p>
             </div>
-            <div className="my-4">
-              <p className="text-sm font-bold">Rent Price</p>
+            <div>
+              <p>Rent Price</p>
               <p>
                 ${rentMin} - ${rentMax}
               </p>
             </div>
-            <div className="my-4">
-              <p className="text-sm font-bold">Roommate</p>
+            <div>
+              <p>Roommate</p>
               <p>{roommate}</p>
             </div>
-            <div className="my-4">
-              <p className="text-sm font-bold">Other Tags</p>
+            <div>
+              <p>Other Tags</p>
               {pets && <p>Owns Pets</p>}
               {femaleHousehold && <p>Prefer All-Female Household</p>}
               {lgbtqFriendly && <p>Prefer LGBTQ-friendly</p>}
@@ -107,6 +177,11 @@ const Profile = () => {
           </div>
         </div>
       </div>
+
+
+
+
+
 
       <div className="col-span-2">
         <div className="rounded-xl w-full h-auto bg-white p-4 ">
@@ -119,7 +194,7 @@ const Profile = () => {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

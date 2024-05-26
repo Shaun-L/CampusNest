@@ -4,21 +4,36 @@ import { db } from "../firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 
 const Browse = () => {
-  const [listings, setListings] = useState(null);
+  const [listings, setListings] = useState([]);
   const [filteredListings, setFilteredListings] = useState([]);
   const [savedSet, setSavedSet] = useState(new Set());
+  const [searchQuery, setSearchQuery] = useState("")
 
-  const [distance, setDistance] = useState(null);
-  const [rentMax, setRentMax] = useState(null);
-  const [roomType, setRoomType] = useState(null);
+  const [roomCount, setRoomCount] = useState("");
+  const [distance, setDistance] = useState("");
+  const [rentMax, setRentMax] = useState("");
+  const [genderPreference, setGenderPreference] = useState("");
+  const [selectedSchool, setSelectedSchool] = useState("");
+
+  const handleSchoolChange = (e) => {
+    setSelectedSchool(e.target.value);
+  };
+  const handleGenderChange = (e) => {
+    setGenderPreference(e.target.value);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
 
   useEffect(() => {
     getSaved();
+    getListings();
   }, []);
 
-  useEffect(() => {
-    getListings();
-  }, [savedSet]);
+  // useEffect(() => {
+  //   getListings();
+  // }, [savedSet]);
 
   const getSaved = async () => {
     const loggedInUser = localStorage.getItem("userid");
@@ -49,8 +64,45 @@ const Browse = () => {
         docs.push(data);
       })
       setListings(docs);
+      setFilteredListings(docs);
     }
   };
+
+  useEffect(() => {
+    filterListings();
+  }, [distance, rentMax, roomCount, genderPreference, selectedSchool, searchQuery]);
+
+  const filterListings = () => {
+    let filteredList = [...listings];
+
+    if (distance) {
+      filteredList = filteredList.filter((listing) => listing.distance <= distance);
+    }
+
+    if (rentMax) {
+      filteredList = filteredList.filter((listing) => (listing.rent | 0) <= rentMax);
+    }
+
+    if (roomCount) {
+      filteredList = filteredList.filter((listing) => listing.bedrooms == roomCount);
+    }
+
+    if (genderPreference) {
+      filteredList = filteredList.filter((listing) => listing.seller.gender == genderPreference);
+    }
+
+    if (selectedSchool) {
+      filteredList = filteredList.filter((listing) => listing.university == selectedSchool);
+    }
+    if (searchQuery) {
+      filteredList = filteredList.filter((listing) =>
+        listing.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    setFilteredListings(filteredList);
+  };
+
 
   return (
     <div className="mx-12 ">
@@ -61,14 +113,14 @@ const Browse = () => {
 
         <h1 className="text-3xl font-medium my-4">Browse Listings</h1>
 
-
-
         {/* search bar */}
         <div className="my-4 flex-grow grid grid-cols-4">
           <div className="relative col-span-3 w-full h-12 mr-4 ">
             <input
               type="text"
               className="rounded-full border-2 h-full w-full pl-12 border-black"
+              value={searchQuery} // Bind searchQuery state to input value
+              onChange={handleSearchChange}
             />
             <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
               <svg
@@ -99,16 +151,16 @@ const Browse = () => {
 
         {/* by distance */}
         <div>
-          <p className="text-medium font-medium">Distance</p>
+          <p className="text-medium font-medium">Max Distance</p>
           <div>
             <input
               type="number"
-              name="monthly-rent"
-              id="monthly-rent"
+              name="distance"
+              id="distance"
               min="0"
-              autoComplete="monthly-rent"
+              autoComplete="distance"
               value={distance}
-              onChange={(e) => setDistance()}
+              onChange={(e) => setDistance(e.target.value)}
               required
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
             />
@@ -117,7 +169,7 @@ const Browse = () => {
 
         {/* by price */}
         <div>
-          <p className="text-medium font-medium">Price</p>
+          <p className="text-medium font-medium">Max Price</p>
           <div>
             <input
               type="number"
@@ -127,7 +179,6 @@ const Browse = () => {
               autoComplete="monthly-rent"
               value={rentMax}
               onChange={(e) => setRentMax(e.target.value)}
-              required
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
             />
           </div>
@@ -140,12 +191,12 @@ const Browse = () => {
           <div>
             <input
               type="number"
-              name="monthly-rent"
-              id="monthly-rent"
+              name="number-of-rooms"
+              id="number-of-rooms"
               min="0"
-              autoComplete="monthly-rent"
-              value={rentMax}
-              onChange={(e) => setRentMax(e.target.value)}
+              autoComplete="number-of-rooms"
+              value={roomCount}
+              onChange={(e) => setRoomCount(e.target.value)}
               required
               className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
             />
@@ -157,12 +208,15 @@ const Browse = () => {
           {/* Gender Preference */}
           <p className="text-medium font-medium">Gender</p>
           <div>
-            <select className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6">
-              <option>Female</option>
-              <option>Male</option>
-              <option>Transgender</option>
-              <option>Nonbinary</option>
-              <option>Other</option>
+            <select className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6 mb-6"
+            onChange={handleGenderChange}
+            value={genderPreference}>
+              <option value=''>Any</option>
+              <option value='Female'>Female</option>
+              <option value='Male'>Male</option>
+              <option value='Transgender'>Transgender</option>
+              <option value='Nonbinary'>Nonbinary</option>
+              <option value='Other'>Other</option>
             </select>
           </div>
         </div>
@@ -171,11 +225,14 @@ const Browse = () => {
         {/* by school */}
         <div>
           <div className="relative rounded-full ml-4 h-12 bg-gray-400">
-            <select className="rounded-full border-2 h-full w-full pl-12 border-black">
-              <option>UC Irvine</option>
-              <option>UCLA</option>
-              <option>UC Riverside</option>
-              <option>CSU Long Beach</option>
+            <select className="rounded-full border-2 h-full w-full pl-12 border-black"
+              onChange={handleSchoolChange}
+              value={selectedSchool}>
+              <option value='' >All</option>
+              <option value="UC Irvine">UC Irvine</option>
+              <option value="UC Los Angeles">UC Los Angeles</option>
+              <option value="UC Riverside">UC Riverside</option>
+              <option value="CSU Long Beach">CSU Long Beach</option>
             </select>
             <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
               <svg
@@ -190,33 +247,24 @@ const Browse = () => {
             </div>
           </div>
         </div>
-
-
-
-
-
-
-      {/* school select */}
-
-      <div className="flex gap-8">
-        {/* filter sidebar */}
-
-
-        </div>
-        {/* grid of apartments */}
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row mx-20">
-          {listings && listings.map((listing) => {
-            return <ListingCard listing={listing} />;
-          })}
-        </div>
       </div>
-      {/* grid of apartments */}
-      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8">
-        {listings && listings.map((listing) => {
-          return <ListingCard listing={listing} />;
-        })}
-      </div>
-    </div>
+
+
+      {/* school select */ }
+
+  <div className="flex gap-8">
+    {/* filter sidebar */}
+
+
+  </div>
+  {/* grid of apartments */ }
+  <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8">
+    {filteredListings && filteredListings.map((listing) => {
+      return <ListingCard key={listing.id} listing={listing} />;
+    })}
+  </div>
+      
+</div >
   );
 };
 
