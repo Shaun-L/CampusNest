@@ -101,7 +101,7 @@ const ListingCard = (props) => {
           )}
           <div className="absolute w-full py-4 bottom-0 inset-x-0 bg-black/70 leading-4">
             <a href={`/listing/${props.listing.id}`}>
-            <h2 className="text-white text-xl text-center">
+            <h2 className="text-white text-2xl text-center">
               {props.listing.title}
             </h2>
             <p className="text-white text-xs text-center py-2 mx-4">

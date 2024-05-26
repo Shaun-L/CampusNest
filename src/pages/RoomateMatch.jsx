@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
+import img from '../assets/skyp1.jpg';
+import './RoomateMatch.css';
 
 const RoommateMatch = () => {
   const [roommates, setRoommates] = useState([]);
@@ -108,8 +110,13 @@ const RoommateMatch = () => {
   };
 
   return (
-    <div className="mx-12">
-      <h1 className="text-3xl font-medium my-4">Find Your Roommate</h1>
+    <div >
+    {/* <div className="relative w-screen h-screen z-0">
+    <img src={img} />
+
+    </div> */}
+    <div className="mx-12 z-10 relative ">
+      <h1 className="text-3xl font-medium py-4 my-4 ">Find Your Roommate</h1>
 
       <div className="flex justify-start gap-8 flex-wrap">
         {/* Filter by distance */}
@@ -277,7 +284,7 @@ const RoommateMatch = () => {
       {/* Display filtered roommates */}
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
         {filteredRoommates.map((roommate) => (
-          <div key={roommate.id} className="border p-4 rounded-lg">
+          <div key={roommate.id} className="border p-4 bg-white text-black rounded-lg">
             <h2 className="text-xl font-bold">{roommate.name}</h2>
             <p>Email: <a href={`mailto:${roommate.email}`} className="underline" onClick={() => handleEmailClick(roommate.email)}>{roommate.email}</a></p>
             <p>Gender: {roommate.gender}</p>
@@ -296,6 +303,7 @@ const RoommateMatch = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };
