@@ -7,7 +7,8 @@ import Profile from './pages/Profile';
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 
-import Navbar from './components/Navbar';
+import Navbar from "./components/Navbar";
+import Listing from "./pages/Listing"
 import "./App.css";
 
 
@@ -28,6 +29,7 @@ function App() {
 
 
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/listing/:id" element={<Listing />} />
       </Routes>
     </div>
   );
