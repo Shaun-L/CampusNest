@@ -84,7 +84,8 @@ const RoommateMatch = () => {
     }
 
     if (major) {
-      filteredList = filteredList.filter((roommate) => roommate.major === major);
+      filteredList = filteredList.filter((roommate) => 
+      roommate.major.toLowerCase().includes(major.toLowerCase()));
     }
 
     if (pets) {
