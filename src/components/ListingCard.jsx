@@ -4,10 +4,13 @@ const ListingCard = (props) => {
   const [saved, setSaved] = useState(false);
 
   const truncate = (str, n) => {
+    if (!str || str.length == 0) return '';
     return str.length > n ? str.slice(0, n - 1) + "&hellip;" : str;
   };
 
   return (
+    <div>
+    {props.listing && 
     <div class="relative w-96 h-96 rounded-3xl overflow-hidden">
       <img
         src={props.listing.imageURL}
@@ -61,6 +64,8 @@ const ListingCard = (props) => {
           | Aug 2022 - Aug 2023
         </p>
       </div>
+    </div>
+    }
     </div>
   );
 };

@@ -58,11 +58,12 @@ const ListingOfferForm = () => {
         furnishedTag,
         poolTag
       });
+      alert('Submitted listing!');
+      // navigate to individual listing page
     } catch (e) {
       console.error("Error adding document: ", e)
     }
   }
-
 
   return (
     <div className="mx-auto py-8 my-4 px-8 w-1/2 bg-violet-100 rounded-xl">
