@@ -7,7 +7,7 @@ import './Animation.css';
 
 
 const LoginForm = () => { 
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
@@ -16,11 +16,11 @@ const LoginForm = () => {
 
     try {
       const usersRef = collection(db, 'users');
-      const q = query(usersRef, where('username', '==', username), where('password', '==', password));
+      const q = query(usersRef, where('email', '==', email), where('password', '==', password));
       const querySnapshot = await getDocs(q);
 
       if (querySnapshot.empty) {
-        alert('Invalid username or password')
+        alert('Invalid email or password')
       } else {
         // alert('Valid entry!')
         querySnapshot.forEach((doc) => {
@@ -53,8 +53,8 @@ const LoginForm = () => {
                 id="email"
                 autoComplete="email"
                 className="block w-full rounded-md border-0 p-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>

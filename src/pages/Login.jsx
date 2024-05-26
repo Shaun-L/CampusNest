@@ -15,7 +15,7 @@ const Login = () => {
   return (
     <div style={{ textAlign: 'center' }}>
     <LoginForm />
-    <p style={loginTextStyle}>Don't have an account? <a href='/register' style={registerLinkStyle}>Register</a></p>
+    <p style={loginTextStyle}>Don't have an account? <a href='/register' style={registerLinkStyle} className="hover:underline">Register</a></p>
     </div>
   );
 }

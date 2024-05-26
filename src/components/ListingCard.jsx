@@ -56,7 +56,7 @@ const ListingCard = (props) => {
   return (
     <div>
       {props.listing && (
-        <div class="relative w-96 h-96 rounded-3xl overflow-hidden card fadeInBottom cssanimation delay-2">
+        <div style={{width: '26rem'}} className={"relative h-96 rounded-3xl overflow-hidden card fadeInBottom cssanimation " + props.delay}>
           <a href={`/listing/${props.listing.id}`}>
           <img
             src={props.listing.imageList[0]}
@@ -99,7 +99,7 @@ const ListingCard = (props) => {
               </svg>
             </div>
           )}
-          <div className="absolute w-full py-4 bottom-0 inset-x-0 bg-black/60 leading-4">
+          <div className="absolute w-full py-4 bottom-0 inset-x-0 bg-black/70 leading-4">
             <a href={`/listing/${props.listing.id}`}>
             <h2 className="text-white text-xl text-center">
               {props.listing.title}

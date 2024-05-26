@@ -145,7 +145,7 @@ body {
 }
 
 .flyyy {
-    width: 350px; /* Set a fixed width for all images */
+    width: 330px; /* Set a fixed width for all images */
     height: 450px; /* Set a fixed height for all images */
     object-fit: cover; 
     border-radius: 10%;
@@ -245,7 +245,24 @@ body {
 }
 
 .title-align {
-
     display: flex;
     align-items: center ;
+}
+.delay-1 {
+    animation-delay: 200ms;
+}
+.delay-2 {
+    animation-delay: 400ms;
+}
+.delay-3 {
+    animation-delay: 600ms;
+}
+.delay-4 {
+    animation-delay: 800ms;
+}
+.delay-5 {
+    animation-delay: 1000ms;
+}
+.delay-6 {
+    animation-delay: 1200ms;
 }
