@@ -209,8 +209,8 @@ hideProgressBar: true,
                       </p>
                     </div>
                     <div className="flex flex-col justify-center items-center">
-                      <h2 className="text-4xl">4</h2>
-                      <p className="text-md">miles from UC Irvine</p>
+                      <h2 className="text-4xl">{listing.distance}</h2>
+                      <p className="text-md">miles from {listing.university}</p>
                     </div>
                   </div>
                   <p className="text-xl my-12 italic">{listing.description}</p>

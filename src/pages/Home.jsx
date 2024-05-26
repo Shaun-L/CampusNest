@@ -5,7 +5,7 @@ import pic3 from "../assets/pic3.jpg";
 import pic4 from "../assets/pic4.jpg";
 import infop1 from "../assets/infop1.png";
 import infop2 from "../assets/infop2.jpg";
-import sky from "../assets/sky5.png";
+import sky from "../assets/house.jpg";
 
 // import SearchBar from "../components/SearchBar"
 // import infop1 from "../assets/infop1.png";
@@ -13,8 +13,8 @@ import sky from "../assets/sky5.png";
 // import SearchBar from "../components/SearchBar";
 import { useEffect } from "react";
 
-import LOGO1 from "../assets/LOGO3.png";
-import homep2 from "../assets/homep2.png";
+import LOGO1 from "../assets/LOGO4.png";
+// import homep2 from "../assets/homep2.png";
 
 // import home1 from "../assets/homep1.png"
 // import LOGO4 from "../assets/LOGO4.png"
@@ -41,8 +41,9 @@ const Home = () => {
         </div>
 
         <div className="title-align">
-          <h1 className="appeal">C N H</h1>
-          <h1 className="appeal-text">CAMPUS NEST HOUSING</h1>
+          {/* <img src={LOGO1} alt="lite" className="logo-home" /> */}
+          <h1 className="text-big">CAMPUS NEST</h1>
+          <h1 className="text-small">CAMPUS NEST IS YOUR TRUSTED PARTNER IN YOUR PURSUIT OF FINDING HOUSING</h1>
         </div>
 
         {/* <div className="search-func"> */}
